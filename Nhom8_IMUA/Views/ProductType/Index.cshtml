@@ -73,10 +73,7 @@
                                         <div class="product">
                                             <div class="product__thumb">
                                                 <a href="@Url.Action("Index","Product",new { MaSP = product.MaSP })" class="product__img">
-                                                    @{
-                                                        string ImagePath = "~/assets/Images/SanPham/" + product.AnhDaiDien;
-                                                    }
-                                                    <img src="@Url.Content(ImagePath)" alt="" />
+                                                    <img src="~/assets/Images/SanPham/@product.AnhDaiDien" alt="" />
                                                 </a>
                                                 <!-- <a href="" class="product__quickview">xem nhanh</a> -->
                                                 <div class="product__add--cart">

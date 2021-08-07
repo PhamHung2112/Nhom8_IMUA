@@ -63,10 +63,7 @@
             <div class="product">
                 <div class="product__thumb">
                     <a href="@Url.Action("Index","Product",new { MaSP = item.MaSP })" class="product__img">
-                        @{
-                            string ImagePath = "~/assets/Images/SanPham/" + @item.AnhDaiDien;
-                        }
-                        <img src="@Url.Content(ImagePath)" alt="" />
+                        <img src="~/assets/Images/SanPham/@item.AnhDaiDien" alt="" />
                     </a>
                     <!-- <a href="" class="product__quickview">xem nhanh</a> -->
                     <div class="product__add--cart">
@@ -157,10 +154,7 @@
             <div class="product">
                 <div class="product__thumb">
                     <a href="" class="product__img">
-                        @{
-                            string ImagePath = "~/assets/Images/TinTuc/" + @item.AnhTinTuc;
-                        }
-                        <img src="@Url.Content(ImagePath)" alt="" />
+                        <img src="~/assets/Images/TinTuc/@item.AnhTinTuc" alt="" />
                     </a>
                 </div>
                 <div class="product__info">

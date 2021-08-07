@@ -5,10 +5,7 @@
     <div class="product">
         <div class="product__thumb">
             <a href="" class="product__img">
-                @{
-                    string image = "~/assets/Images/SanPham/" + product.AnhDaiDien;
-                }
-                <img src="@Url.Content(image)" alt="" />
+                <img src="~/assets/Images/SanPham/@product.AnhDaiDien" alt="" />
             </a>
             <!-- <a href="" class="product__quickview">xem nhanh</a> -->
             <div class="product__add--cart">

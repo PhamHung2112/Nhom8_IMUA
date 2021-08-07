@@ -983,9 +983,9 @@ color: var(--titleColor);
     margin-top: 3rem;
 }
 
-    .detail__img > .img__item {
+/*    .detail__img > .img__item {
         display: none;
-    }
+    }*/
 
         .detail__img > .img__item > img {
             max-width: 32.9rem;
