@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<Nhom8_IMUA.Models.SanPham>
 
-@foreach (var product in Model.Take(2))
+@foreach (var item in Model.Take(2))
 { 
     <div class="product">
         <div class="product__thumb">
-            <a href="" class="product__img">
-                <img src="~/assets/Images/SanPham/@product.AnhDaiDien" alt="" />
+            <a href="@Url.Action("Index","Product",new { MaSP = item.MaSP })" class="product__img">
+                <img src="~/assets/Images/SanPham/@item.AnhDaiDien" alt="" />
             </a>
             <!-- <a href="" class="product__quickview">xem nhanh</a> -->
             <div class="product__add--cart">
@@ -16,11 +16,11 @@
         </div>
         <div class="product__info">
             <h3 class="product__title">
-                <a href="">@product.TenSP</a>
+                <a href="@Url.Action("Index","Product",new { MaSP = item.MaSP })">@item.TenSP</a>
             </h3>
             <div class="product__price">
-                <ins class="product__price--new">@string.Format("{0:c0}", product.GiaMoi)</ins>
-                <del class="product__price--old">@string.Format("{0:c0}", product.GiaCu)</del>
+                <ins class="product__price--new">@string.Format("{0:c0}", item.GiaMoi)</ins>
+                <del class="product__price--old">@string.Format("{0:c0}", item.GiaCu)</del>
             </div>
         </div>
     </div>
