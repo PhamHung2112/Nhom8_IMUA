@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Nhom8_IMUA.Models.SanPham>
+
+@foreach (var product in Model.Take(2))
+{ 
+    <div class="product">
+        <div class="product__thumb">
+            <a href="" class="product__img">
+                @{
+                    string image = "~/assets/Images/SanPham/" + product.AnhDaiDien;
+                }
+                <img src="@Url.Content(image)" alt="" />
+            </a>
+            <!-- <a href="" class="product__quickview">xem nhanh</a> -->
+            <div class="product__add--cart">
+                <a href="">
+                    <i class="fas fa-shopping-basket"></i> Thêm giỏ hàng
+                </a>
+            </div>
+        </div>
+        <div class="product__info">
+            <h3 class="product__title">
+                <a href="">@product.TenSP</a>
+            </h3>
+            <div class="product__price">
+                <ins class="product__price--new">@string.Format("{0:c0}", product.GiaMoi)</ins>
+                <del class="product__price--old">@string.Format("{0:c0}", product.GiaCu)</del>
+            </div>
+        </div>
+    </div>
+}

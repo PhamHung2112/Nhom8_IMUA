@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Nhom8_IMUA.Models.SanPham>
+<div class="content__right">
+
+    <div class="content__item">
+        @foreach (var product in Model.Take(5))
+        {
+            <div class="product">
+                <div class="product__thumb">
+                    <a href="@Url.Action("Index","Product",new { MaSP = product.MaSP })" class="product__img">
+                        @{
+                            string ImagePath = "~/assets/Images/SanPham/" + product.AnhDaiDien;
+                        }
+                        <img src="@Url.Content(ImagePath)" alt="" />
+                    </a>
+                    <!-- <a href="" class="product__quickview">xem nhanh</a> -->
+                    <div class="product__add--cart">
+                        <a href="#">
+                            <i class="fas fa-shopping-basket"></i> Thêm giỏ hàng
+                        </a>
+                    </div>
+                </div>
+                <div class="product__info">
+                    <h3 class="product__title">
+                        <a href="">@product.TenSP</a>
+                    </h3>
+                    <div class="product__price">
+                        <ins class="product__price--new">@string.Format("{0:c0}", product.GiaMoi)</ins>
+                        <del class="product__price--old">@string.Format("{0:c0}", product.GiaCu)</del>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="content__item">
+        @foreach (var product in Model.OrderByDescending(x=>x.MaSP).Skip(5).Take(5))
+        {
+            <div class="product">
+                <div class="product__thumb">
+                    <a href="@Url.Action("Index","Product",new { MaSP = product.MaSP })" class="product__img">
+                        @{
+                            string ImagePath = "~/assets/Images/SanPham/" + product.AnhDaiDien;
+                        }
+                        <img src="@Url.Content(ImagePath)" alt="" />
+                    </a>
+                    <!-- <a href="" class="product__quickview">xem nhanh</a> -->
+                    <div class="product__add--cart">
+                        <a href="@Url.Action("Index","Cart",new { id = product.MaSP })">
+                            <i class="fas fa-shopping-basket"></i> Thêm giỏ hàng
+                        </a>
+                    </div>
+                </div>
+                <div class="product__info">
+                    <h3 class="product__title">
+                        <a href="">@product.TenSP</a>
+                    </h3>
+                    <div class="product__price">
+                        <ins class="product__price--new">@string.Format("{0:c0}", product.GiaMoi)</ins>
+                        <del class="product__price--old">@string.Format("{0:c0}", product.GiaCu)</del>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
