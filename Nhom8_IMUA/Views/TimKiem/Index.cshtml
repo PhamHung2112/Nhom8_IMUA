@@ -1,0 +1,101 @@
+﻿@model PagedList.IPagedList<Nhom8_IMUA.Models.SanPham>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="banner">
+    <div class="container">
+        <div class="banner__service">
+            <div class="service__item">
+                <img src="~/assets/img/ho-tro-247--1.png" alt="">
+                <p>
+                    <strong>Hỗ trợ 24/7</strong>
+                    0911403114
+                </p>
+            </div>
+            <div class="service__item">
+                <img src="~/assets/img/thong-tin--1.png" alt="">
+                <p>
+                    <strong>Thông tin</strong>
+                    Bảo mật tuyệt đối
+                </p>
+            </div>
+            <div class="service__item">
+                <img src="~/assets/img/qua-tang--1.png" alt="">
+                <p>
+                    <strong>Quà tặng</strong>
+                    Mua là có quà
+                </p>
+            </div>
+            <div class="service__item">
+                <img src="~/assets/img/hoan-tra-tien--1.png" alt="">
+                <p>
+                    <strong>Hoàn trả tiền</strong>
+                    Trong 7 ngày
+                </p>
+            </div>
+            <div class="service__item">
+                <img src="~/assets/img/thanh-toan--1.png" alt="">
+                <p>
+                    <strong>Thanh toán</strong>
+                    Khi nhận hàng
+                </p>
+            </div>
+            <div class="service__item">
+                <img src="~/assets/img/giao-hang--1.png" alt="">
+                <p>
+                    <strong>Giao hàng</strong>
+                    Tận nơi toàn quốc
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="widget">
+    <div class="title" style="position: relative;">
+        <h4>sản phẩm cần tìm</h4>
+    </div>
+    <div class="container">
+        <div class="widget__content" style="background: #fff; border: 1px #e5e5e5; border-radius: 4px; width: 100%; position: relative;">
+            <div class="widget__content__item">
+                @foreach (var item in Model)
+                {
+                    <div class="product" style="width: 20%;">
+                        <div class="product__thumb">
+                            <a href="" class="product__img">
+                                @{
+                                    string ImagePath = "~/assets/Images/SanPham/" + @item.AnhDaiDien;
+                                }
+                                <img src="@Url.Content(ImagePath)" alt="" />
+                            </a>
+                            <!-- <a href="" class="product__quickview">xem nhanh</a> -->
+                            <div class="product__add--cart">
+                                <a href="">
+                                    <i class="fas fa-shopping-basket"></i> Thêm giỏ hàng
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product__info">
+                            <h3 class="product__title">
+                                <a href="">
+                                    @item.TenSP
+                                </a>
+                            </h3>
+                            <div class="product__price">
+                                <ins class="product__price--new">@string.Format("{0:c0}", item.GiaMoi)</ins>
+                                <del class="product__price--old">@string.Format("{0:c0}", item.GiaCu)</del>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))</div>
+        </div>
+    </div>
+</div>

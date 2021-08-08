@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Nhom8_IMUA.Models.TinTuc>
+﻿@model PagedList.IPagedList<Nhom8_IMUA.Models.TinTuc>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 <div class="widget" style="padding-top: 1.5rem;">
     <div class="container">
@@ -61,7 +63,7 @@
                     <span><i class="fas fa-th"></i></span>
                     <h4>Tin nổi bật</h4>
                 </div>
-                <div class="wrapper">
+                <div class="wrapper" style="position: relative;">
                     <div class="news__box">
                         <ul class="news__menu">
                             @foreach (var item in Model)
@@ -76,9 +78,8 @@
                             }
                         </ul>
                     </div>
+                    <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))</div>
                 </div>
-
             </div>
         </div>
     </div>
-
