@@ -51,12 +51,15 @@
                 </div>
                 <div class="wrapper">
                     <div class="header__middle--search">
-                        <form action="" class="header__search--input">
-                            <input type="text" name="" id="" placeholder="Tìm kiếm sản phẩm...">
-                            <button type="button" class="header__search--icon">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </form>
+                        <div action="" class="header__search--input">
+                            @using (Html.BeginForm("Index", "TimKiem"))
+                            {
+                                <input type="text" placeholder="Tìm kiếm sản phẩm..." id="SearchString" name="SearchString" />
+                                <button type="submit" class="header__search--icon">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            }
+                        </div>
                     </div>
                     <div class="header__middle--cart">
                         <a href="#" class="header__middle--cart--link">
