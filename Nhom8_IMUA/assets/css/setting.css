@@ -90,10 +90,21 @@ button {
   font-weight: 700;
 }
 
-/* Product */
+.title__link {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 4.9rem;
+    text-transform: uppercase;
+    color: var(--textColor);
+}
 
+.title__link:hover {
+    color: var(--primaryColor);
+}
+
+/* Product */
 .product {
-  text-align: center;
+    text-align: center;
 }
 
 .product__thumb {

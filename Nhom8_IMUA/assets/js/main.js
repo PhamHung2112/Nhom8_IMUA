@@ -1,7 +1,7 @@
-const $$ = document.querySelectorAll.bind(document);
+//const $$ = document.querySelectorAll.bind(document);
 
 //Navigation
-const navElement = $$(".nav");
+const navElement = document.querySelectorAll(".nav");
 
 document.onscroll = function () {
   const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -32,8 +32,8 @@ function currentSlide(n) {
 
 function showSlides(n) {
     let i;
-/*    let slides = $$(".detail__img > .img__item");*/
-    let dots = $$(".demo");
+/*    let slides = document.querySelectorAll(".detail__img > .img__item");*/
+    let dots = document.querySelectorAll(".demo");
 
     if (n > dots.length) {
         slideIndex = 1;
