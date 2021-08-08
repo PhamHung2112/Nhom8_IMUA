@@ -1,4 +1,7 @@
 ﻿@model List<Nhom8_IMUA.Models.GioHang>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <div id="main-content">
     <div class="main-container">
@@ -8,8 +11,8 @@
         </div>
         @if (Model != null)
         {
-            <p>Giỏ hàng có: <b>1 sản phẩm</b></p>
-            <p>Tổng tiền: <b style="color: Red">220.000 đ</b></p>
+            <p>Giỏ hàng có: <b>@Session["count"]</b></p>
+            <p>Tổng tiền: <b style="color: Red" id="thanhTien_t"></b></p>
             <table cellspacing="4" cellpadding="4" rules="all" border="1" class="tableCart" style="background-color: white">
                 <tbody>
                     <tr>
@@ -21,21 +24,23 @@
                     @foreach (var item in Model)
                     {
                         <tr id="product-@item.Product.MaSP">
-                            <td><a href="#"><img src="~/assets/img/@item.Product.AnhDaiDien" width="100px" height="150px" alt="Hình ảnh sản phẩm" class="img"></a></td>
+                            <td><a href="#"><img src="~/assets/Images/SanPham/@item.Product.AnhDaiDien" width="100px" height="150px" alt="Hình ảnh sản phẩm" class="img"></a></td>
                             <td>
                                 <a href="#" class="cart">@item.Product.TenSP</a>
                                 <div class="price">
-                                    <span>@string.Format("{0:c0}", item.Product.GiaCu)</span>
-                                    <del>@string.Format("{0:c0}", item.Product.GiaMoi)</del>
+                                    <span class="giamoi">@string.Format("{0:c0}", item.Product.GiaMoi)</span>
+                                    <del>@string.Format("{0:c0}", item.Product.GiaCu)</del>
                                 </div>
                             </td>
-                            <td><input type="text" id="sanpham" value="1" maxlength="3"></td>
+                            <td><input type="text" id="sanpham" class="soluong" value="@item.Quantity" maxlength="3" onchange="change()"></td>
                             <td>
-                                <strong>@string.Format("{0:c0}", item.Product.GiaCu)</strong>
+                                @{ var ThanhT = item.Product.GiaMoi * item.Quantity; }
+                                <strong class="tien">@string.Format("{0:c0}", ThanhT)</strong>
                                 <br />
-                                <a href="#" data-id="@item.Product.MaSP" class="remove-cart">Xóa</a>
+                                <a href="" data-id="@item.Product.MaSP" class="remove-cart">Xóa</a>
                             </td>
                         </tr>
+
                     }
                 </tbody>
             </table>
@@ -45,13 +50,15 @@
             <p>Giỏ hàng trống</p>
         }
         <div class="cartTong">
-            Tạm tính: <b>220.000 đ</b>
+            Tạm tính: <b id="thanhTien_d"></b>
         </div>
         <div class="cartTong">
-            Phí vận chuyển: <b>0 đ</b>
+            @{ var phi = 10000; }
+            Phí vận chuyển: <b id="phi">@phi.ToString("N0")</b>
         </div>
         <div class="cartTong">
-            Tổng tiền thanh toán: <b>220.000 đ</b>
+            
+            Tổng tiền thanh toán: <b id="tong"></b>
         </div>
         <div class="form-order">
             <h1 class="form-order-tt">
@@ -116,29 +123,71 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".remove-cart").click(function () {
-            alert($(this).data("id"));
-            @*var model = {};
-            //lấy id sản phẩm
-            model.Id = $(this).data("id");
-            $.ajax({
-                type: "POST",
-                url: '@Url.Action("RemoveCart", "Cart")',
-                data:  JSON.stringify(model) ,
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                success: function () {
-                    $('#CartCount').text(@Session["count"] - 1);
-                    $("#product-" + model.Id).remove();
-                },
-                error: function () {
-                    alert("Lỗi trong khi xóa vào giỏ hàng!");
-                }
-            });
-            return false;*@
-        });
-    });
+<script>
+    var ThanhTien = 0;
+
+    var val = document.getElementsByClassName("soluong");
+    var giamoi = document.getElementsByClassName("giamoi");
+    for (let i = 0; i < giamoi.length; i++) {
+        ThanhTien += parseFloat(giamoi[i].innerText.replace(/[^0-9]+/g,"")) * parseFloat(val[i].value);
+    }
+    console.log(ThanhTien);
+    document.getElementById("thanhTien_t").innerHTML = ThanhTien.toLocaleString('it-IT')+" đ";
+    document.getElementById("thanhTien_d").innerHTML = ThanhTien.toLocaleString('it-IT')+" đ";
+    document.getElementById("tong").innerHTML = (ThanhTien + 10000).toLocaleString('it-IT') + " đ";
+
+    function change() {
+        var val = document.getElementsByClassName("soluong");
+        var giamoi = document.getElementsByClassName("giamoi");
+        var tien = document.getElementsByClassName("tien");
+        for (let i = 0; i < giamoi.length; i++) {
+            ThanhTien += parseFloat(giamoi[i].innerText.replace(/[^0-9]+/g, "")) * parseFloat(val[i].value);
+            tien[i].innerHTML = ThanhTien.toLocaleString('it-IT', { style: 'currency', currency: '' }) + " đ";
+        }
+        console.log(ThanhTien);
+        
+        document.getElementById("thanhTien_t").innerHTML = ThanhTien.toLocaleString('it-IT') + " đ";
+        document.getElementById("thanhTien_d").innerHTML = ThanhTien.toLocaleString('it-IT') + " đ";
+        document.getElementById("tong").innerHTML = (ThanhTien + 10000).toLocaleString('it-IT') + " đ";
+    }
 </script>
+@section script{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".remove-cart").click(function () {
+                var model = {};
+                //lấy id sản phẩm
+                model.Id = $(this).data("id");
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("RemoveCart", "Cart")',
+                    data:  JSON.stringify(model) ,
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function () {
+                        $('#CartCount').text("(" +(@Session["count"] - 1) + ")");
+                        $('#CartCout-1').text("(" + (@Session["count"] - 1) + ")");
+                        $("#product-" + model.Id).remove();
+                        var ThanhTien = 0;
+
+                        var val = document.getElementsByClassName("soluong");
+                        var giamoi = document.getElementsByClassName("giamoi");
+                        for (let i = 0; i < giamoi.length; i++) {
+                            ThanhTien += parseFloat(giamoi[i].innerText.replace(/[^0-9]+/g, "")) * parseFloat(val[i].value);
+                        }
+                        console.log(ThanhTien);
+                        document.getElementById("thanhTien_t").innerHTML = ThanhTien.toLocaleString('it-IT') + " đ";
+                        document.getElementById("thanhTien_d").innerHTML = ThanhTien.toLocaleString('it-IT') + " đ";
+                        document.getElementById("tong").innerHTML = (ThanhTien + 10000).toLocaleString('it-IT') + " đ";
+                    },
+                    error: function () {
+                        alert("Lỗi trong khi xóa vào giỏ hàng!");
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+}
+
 

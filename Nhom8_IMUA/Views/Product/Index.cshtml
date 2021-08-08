@@ -194,8 +194,8 @@
 <script src="~/assets/js/jquery.elevateZoom-3.0.8.min.js"></script>
 <script src="~/assets/js/main.js"></script>
 
-
-<script type="text/javascript">
+@section scriptProduct{
+    <script type="text/javascript">
 $(function () {
     $('#addtocart').click(function () {
         var model = {};
@@ -212,7 +212,8 @@ $(function () {
             contentType: "application/json; charset=utf-8",
             success: function () {
                 alert("Thêm giỏ hàng thành công!")
-                $('#CartCount').text(@Session["count"] + 1);
+                $('#CartCount').text("("+(@Session["count"] + 1)+")");
+                $('#CartCout-1').text("(" + (@Session["count"] + 1) + ")");
             },
             error: function () {
                 alert("Lỗi trong khi thêm vào giỏ hàng!");
@@ -221,4 +222,6 @@ $(function () {
         return false;
     });
 });
-</script>
+    </script>
+}
+

@@ -63,7 +63,8 @@
                             <span class="cart__icon">
                                 <i class="fas fa-shopping-basket"></i>
                             </span>
-                            <span class="cart__number" id="CartCount">(@Session["count"])</span>
+                            @{ var count = Convert.ToInt32(Session["count"])+0;}
+                            <span class="cart__number" id="CartCount">(@count)</span>
                         </a>
                         <!-- <div class="header__middle--cart--noti">
                           <span>Chưa có sản phẩm trong giỏ hàng!</span>
@@ -161,7 +162,8 @@
                     contentType: "application/json; charset=utf-8",
                     success: function () {
                         alert("Thêm giỏ hàng thành công!")
-                        $('#CartCount').text(@Session["count"] + 1);
+                        $('#CartCount').text("("+(@Session["count"] + 1)+")");
+                        $('#CartCout-1').text("(" + (@Session["count"] + 1) + ")");
                     },
                     error: function () {
                         alert("Lỗi trong khi thêm vào giỏ hàng!");
@@ -171,5 +173,7 @@
             })
         })
     </script>
+    @RenderSection("scriptProduct", required: false);
+    @RenderSection("script", required: false);
 </body>
 </html>
