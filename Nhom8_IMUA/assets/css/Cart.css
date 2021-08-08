@@ -5,7 +5,12 @@
 a {
     text-decoration: none;
 }
-.main-content{
+.main-content-cart {
+    width: 1230px;
+    padding-left: -15px;
+    padding-right: -15px;
+}
+.main-container p {
     font-size: 1.6rem !important;
 }
 .buoc {
@@ -19,6 +24,12 @@ a {
     color: #f27922;
     margin-right: 20px;
     position: relative;
+    font-size: 16px;
+}
+
+.buoc span {
+    font-size: 16px;
+
 }
 
 .buoc a::after {

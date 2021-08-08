@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="main-content">
+<div id="main-content-cart">
     <div class="main-container">
         <div class="buoc">
             <a href="#">Trang chủ</a>
@@ -60,67 +60,6 @@
             
             Tổng tiền thanh toán: <b id="tong"></b>
         </div>
-        <div class="form-order">
-            <h1 class="form-order-tt">
-                <i class="fa fa-play"></i>Thông tin địa chỉ nhận hàng
-            </h1>
-            <form class="form-content" id="formQuickOrder">
-                <div class="form-div">
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-user"></i>
-                        </div>
-                        <input type="text" class="form-control" id="txtFullName" placeholder="Họ tên (*)">
-                    </div>
-                </div>
-                <div class="form-div">
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <input type="text" class="form-control" id="txtPhone" placeholder="Số điện thoại (*)">
-                    </div>
-                </div>
-                <div class="form-div">
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-address-card-o"></i>
-                        </div>
-                        <input type="text" class="form-control" id="txtAddress" placeholder="Địa chỉ (*)">
-                    </div>
-                </div>
-                <div class="form-div">
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-envelope-o"></i>
-                        </div>
-                        <input type="text" class="form-control" id="txtEmail" placeholder="Email để liên hệ">
-                    </div>
-                </div>
-                <div class="form-div">
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-comment-o"></i>
-                        </div>
-                        <textarea rows="3" class="form-control" id="txtNote" placeholder="Ghi chú đơn hàng"></textarea>
-                    </div>
-                </div>
-                <div class="form-div">
-                    <a href="" class="btn" id="btnSend"><h2 class="btnSubmit">Hoàn tất đơn hàng</h2></a>
-                </div>
-                <div>
-                    <input id="ct101" type="checkbox" name="ctl01">
-                    <label for="ct101">Tôi đồng ý với các chính sách và quy định mua hàng tại website</label>
-                    <br />
-                    <div style="margin-top: 10px">
-                        <span disabled="disabled" style="color:Red;">
-                            <input id="ctl02" type="checkbox" name="ctl02" checked="checked" disabled="disabled">
-                            <label for="ctl02">Phương thức thanh toán: NHẬN HÀNG VÀ THANH TOÁN TẠI NHÀ !</label>
-                        </span>
-                    </div>
-                </div>
-            </form>
-        </div>
     </div>
 </div>
 <script>
@@ -131,7 +70,6 @@
     for (let i = 0; i < giamoi.length; i++) {
         ThanhTien += parseFloat(giamoi[i].innerText.replace(/[^0-9]+/g,"")) * parseFloat(val[i].value);
     }
-    console.log(ThanhTien);
     document.getElementById("thanhTien_t").innerHTML = ThanhTien.toLocaleString('it-IT')+" đ";
     document.getElementById("thanhTien_d").innerHTML = ThanhTien.toLocaleString('it-IT')+" đ";
     document.getElementById("tong").innerHTML = (ThanhTien + 10000).toLocaleString('it-IT') + " đ";
@@ -144,7 +82,6 @@
             ThanhTien += parseFloat(giamoi[i].innerText.replace(/[^0-9]+/g, "")) * parseFloat(val[i].value);
             tien[i].innerHTML = ThanhTien.toLocaleString('it-IT', { style: 'currency', currency: '' }) + " đ";
         }
-        console.log(ThanhTien);
         
         document.getElementById("thanhTien_t").innerHTML = ThanhTien.toLocaleString('it-IT') + " đ";
         document.getElementById("thanhTien_d").innerHTML = ThanhTien.toLocaleString('it-IT') + " đ";
