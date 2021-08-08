@@ -231,7 +231,8 @@
                                                 <span class="cart__icon">
                                                     <i class="fas fa-shopping-basket"></i>
                                                 </span>
-                                                <span class="cart__number">(0)</span>
+                                                @{ var count = Convert.ToInt32(Session["count"]) + 0;}
+                                                <span class="cart__number" id="CartCout-1">(@count)</span>
                                             </a>
                                             <!-- <div class="header__middle--cart--noti">
                                                     <span>Chưa có sản phẩm trong giỏ hàng!</span>

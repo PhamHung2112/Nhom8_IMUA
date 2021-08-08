@@ -14,7 +14,7 @@
                     </a>
                     <!-- <a href="" class="product__quickview">xem nhanh</a> -->
                     <div class="product__add--cart">
-                        <a href="#">
+                        <a href="" class="ajax-to-cart" data-id="@product.MaSP">
                             <i class="fas fa-shopping-basket"></i> Thêm giỏ hàng
                         </a>
                     </div>
@@ -32,7 +32,7 @@
         }
     </div>
     <div class="content__item">
-        @foreach (var product in Model.OrderByDescending(x=>x.MaSP).Skip(5).Take(5))
+        @foreach (var product in Model.OrderByDescending(x => x.MaSP).Skip(5).Take(5))
         {
             <div class="product">
                 <div class="product__thumb">
@@ -44,7 +44,7 @@
                     </a>
                     <!-- <a href="" class="product__quickview">xem nhanh</a> -->
                     <div class="product__add--cart">
-                        <a href="@Url.Action("Index","Cart",new { id = product.MaSP })">
+                        <a href="" class="ajax-to-cart" data-id="@product.MaSP">
                             <i class="fas fa-shopping-basket"></i> Thêm giỏ hàng
                         </a>
                     </div>
@@ -62,3 +62,5 @@
         }
     </div>
 </div>
+
+
