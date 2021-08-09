@@ -1,219 +1,148 @@
-﻿html {
-    font-family: sans-serif !important;
+﻿/* Cart */
+.cart__detail {
+    background-color: var(--bgColor);
+    padding-top: 2rem;
 }
 
-a {
-    text-decoration: none;
-}
-.main-content-cart {
-    width: 1230px;
-    padding-left: -15px;
-    padding-right: -15px;
-}
-.main-container p {
-    font-size: 1.6rem !important;
-}
-.buoc {
-    background: #e5e5e5;
-    color: #f27922;
-    margin-bottom: 20px;
-    padding: 15px 20px;
+    .cart__detail .container {
+        display: flex;
+        flex-direction: column;
+        max-width: 120rem;
+    }
+
+.cart__item {
+    display: flex;
+    flex-direction: column;
 }
 
-.buoc a {
-    color: #f27922;
-    margin-right: 20px;
-    position: relative;
-    font-size: 16px;
+.cart__qty,
+.cart__total {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
 }
 
-.buoc span {
-    font-size: 16px;
+    .cart__qty span {
+        font-weight: 700;
+    }
 
-}
+    .cart__total span {
+        font-weight: 700;
+        color: red;
+    }
 
-.buoc a::after {
-    content: "";
-    font-family: fontawesome;
-    position: absolute;
-    right: -15px;
-    top: 2px;
-}
-
-.cartTong {
-    background-color: #f3f3f3;
-    border: solid 1px #e0e0e0;
-    border-top: 0;
-    height: 33px;
-    text-align: right;
+table,
+th,
+td {
+    border: 0.1rem solid #e3eaee;
     vertical-align: middle;
-    padding: 12px 8px 0 0
 }
 
-.cartTong b {
-    color: Red;
-    padding-left: 30px
+th,
+td {
+    padding: 0.5rem;
 }
 
-a.cart {
-    font-size: 14px;
-    color: #000;
-    font-style: normal;
-    font-weight: 700
-}
-
-a.cart:hover {
-    color: #f27922;
-}
-
-.form-order .form-order-tt {
-    font-size: 15px;
-    font-weight: 700;
-    color: #f27922;
-    line-height: 30px;
-    border-bottom: 2px solid #f27922
-}
-
-.form-order .form-div {
-    padding: 0 0 10px
-}
-
-.form-order .form-div .input-group {
-    width: 100%
-}
-
-.form-order .form-div .input-group .input-group-addon {
-    width: 60px
-}
-
-.form-control {
-    display: block;
+.cart__table {
+    background-color: var(--titleColor);
     width: 100%;
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 }
 
-.form-control:focus {
-    border-color: #66afe9;
-    outline: 0;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
-}
+    .cart__table thead tr th {
+        text-align: left;
+        padding: 0.5rem;
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
 
+        .cart__table thead tr th:first-child {
+            width: 9rem;
+        }
 
-.form-content {
-    max-width: 600px;
-    margin: 20px auto
-}
+        .cart__table thead tr th:nth-child(3) {
+            width: 8rem;
+        }
 
-.tableCart {
-    border-color: #E3EAEE;
-    border-style: None;
-    width: 100% !important
-}
+        .cart__table thead tr th:last-child {
+            width: 13rem;
+        }
 
-.tableCart > tr {
-    color: #333;
-    background-color: #EFEFEF;
-    font-size: 13px;
+    .cart__table tbody tr td {
+        text-align: center;
+    }
+
+        .cart__table tbody tr td:nth-child(2) {
+            text-align: left;
+        }
+
+        .cart__table tbody tr td a img {
+            width: 7.9rem;
+            height: 9.5rem;
+            max-width: 100%;
+            vertical-align: middle;
+        }
+
+.cart__link {
+    color: var(--textColor);
+    font-size: 1.4rem;
     font-weight: 700;
-    height: 40px
+    display: inline-block;
+    margin-bottom: 0.9rem;
 }
 
-.tableCart tr td {
-    text-align: center
+    .cart__link:hover {
+        color: var(--primaryColor);
+    }
+
+.cart__table tbody tr td:nth-child(2) .product__price {
+    justify-content: flex-start;
 }
 
-.tableCart tr td a {
-    color: Red;
+    .cart__table tbody tr td:nth-child(2) .product__price ins {
+        margin-left: 0;
+    }
+
+.qty {
+    width: 3rem;
+    text-align: center;
+    outline: none;
+    border: 0.1rem solid black;
+    padding: 0.4rem 1rem;
+}
+
+.cart__table tbody tr td:last-child p {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--textColor);
+}
+
+.cart__table tbody tr td:last-child a {
     font-style: italic;
-    font-size: 12px;
-    display: inline-block
-}
-
-.tableCart tr td input {
-    width: 30px;
-    text-align: center
-}
-
-.tableCart tr td .img {
-    width: 140px
-}
-
-.tableCart tr td a {
+    font-size: 1.2rem;
     color: red;
-    font-style: italic;
-    font-size: 12px;
+    margin-top: 0.5rem;
     display: inline-block;
 }
 
-.form-content .form-control {
-    width: auto
-}
-
-.form-content .input-group {
-    display: inline-table;
-    vertical-align: middle
-}
-
-.input-group .form-control {
-    display: table-cell;
-    position: relative;
-    z-index: 2;
-    float: left;
-    width: 100%;
-    margin-bottom: 0;
-}
-
-.input-group-addon {
-    width: 1%;
-    white-space: nowrap;
+.cart__infor {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #f3f3f3;
+    border: 0.1rem solid #e0e0e0;
+    height: 3.3rem;
     vertical-align: middle;
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1;
-    color: #555;
-    text-align: center;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    width: 60px;
-    border-radius: 4px;
-    border-right: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    display: table-cell;
+    padding: 0.9rem 0.5rem 0 0;
 }
 
-.btn {
-    display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    touch-action: manipulation;
-    cursor: pointer;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    background-color: #337ab7;
-    border-color: #2e6da4;
-}
+    .cart__infor p {
+        font-size: 1.4rem;
+    }
 
-.btnSubmit {
-    color: #fff;
-    font-size: 15px;
-    margin: 2px 20px;
-    font-weight: 700;
-}
+        .cart__infor p span {
+            padding-left: 3rem;
+            color: red;
+            font-weight: 700;
+        }
+
+    .cart__infor:last-child {
+        margin-bottom: 5.8rem;
+    }

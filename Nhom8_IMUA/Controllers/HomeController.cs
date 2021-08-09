@@ -12,8 +12,10 @@ namespace Nhom8_IMUA.Controllers
         private Nhom8DB db = new Nhom8DB();
         public ActionResult Index()
         {
+            //Random rand = new Random();
+            //int toSkip = rand.Next(0, db.SanPhams.Count());
             //San pham ban chay
-            ViewBag.SanPhamBanChay = db.SanPhams.Select(p => p).Take(5);
+            ViewBag.SanPhamBanChay = db.SanPhams.OrderBy(p=>p.MaSP).Select(p => p).Take(5);
 
             //Danh muc san pham
             ViewBag.DanhMuc = db.DanhMucs.Include("LoaiSPs").Select(p => p);

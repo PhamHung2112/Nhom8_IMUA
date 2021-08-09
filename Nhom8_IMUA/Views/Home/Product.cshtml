@@ -2,7 +2,7 @@
 <div class="content__right">
 
     <div class="content__item">
-        @foreach (var product in Model.Take(5))
+        @foreach (var product in Model.OrderByDescending(x => x.MaSP).Take(5))
         {
             <div class="product">
                 <div class="product__thumb">
@@ -24,8 +24,15 @@
                         <a href="">@product.TenSP</a>
                     </h3>
                     <div class="product__price">
-                        <ins class="product__price--new">@string.Format("{0:c0}", product.GiaMoi)</ins>
-                        <del class="product__price--old">@string.Format("{0:c0}", product.GiaCu)</del>
+                        @if (product.KhuyenMai == 0)
+                        {
+                            <ins class="product__price--new">@string.Format("{0:c0}", product.Gia)</ins>
+                        }
+                        else
+                        {
+                            <ins class="product__price--new">@string.Format("{0:c0}", product.Gia - product.Gia * product.KhuyenMai / 100)</ins>
+                            <del class="product__price--old">@string.Format("{0:c0}", product.Gia)</del>
+                        }
                     </div>
                 </div>
             </div>
@@ -54,8 +61,15 @@
                         <a href="">@product.TenSP</a>
                     </h3>
                     <div class="product__price">
-                        <ins class="product__price--new">@string.Format("{0:c0}", product.GiaMoi)</ins>
-                        <del class="product__price--old">@string.Format("{0:c0}", product.GiaCu)</del>
+                        @if (product.KhuyenMai == 0)
+                        {
+                            <ins class="product__price--new">@string.Format("{0:c0}", product.Gia)</ins>
+                        }
+                        else
+                        {
+                            <ins class="product__price--new">@string.Format("{0:c0}", product.Gia - product.Gia * product.KhuyenMai / 100)</ins>
+                            <del class="product__price--old">@string.Format("{0:c0}", product.Gia)</del>
+                        }
                     </div>
                 </div>
             </div>

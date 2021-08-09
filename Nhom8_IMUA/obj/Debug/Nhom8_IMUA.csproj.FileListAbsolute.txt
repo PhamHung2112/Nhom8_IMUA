@@ -163,7 +163,6 @@ E:\ASP\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CoreCompileInputs.cache
 E:\ASP\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CopyComplete
 E:\ASP\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.dll
 E:\ASP\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.pdb
-D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.AssemblyReference.cache
 D:\asp_project\Nhom8_IMUA\bin\Nhom8_IMUA.dll.config
 D:\asp_project\Nhom8_IMUA\bin\Nhom8_IMUA.dll
 D:\asp_project\Nhom8_IMUA\bin\Nhom8_IMUA.pdb
@@ -251,3 +250,8 @@ D:\asp_project\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CoreCompileInputs.cache
 D:\asp_project\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CopyComplete
 D:\asp_project\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.dll
 D:\asp_project\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.pdb
+D:\Nhom8_IMUA\Nhom8_IMUA\bin\PagedList.dll
+D:\Nhom8_IMUA\Nhom8_IMUA\bin\PagedList.Mvc.dll
+D:\Nhom8_IMUA\Nhom8_IMUA\bin\PagedList.xml
+D:\Nhom8_IMUA\Nhom8_IMUA\bin\PagedList.Mvc.xml
+D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.AssemblyReference.cache

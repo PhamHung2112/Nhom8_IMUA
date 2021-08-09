@@ -19,8 +19,15 @@
                 <a href="@Url.Action("Index","Product",new { MaSP = item.MaSP })">@item.TenSP</a>
             </h3>
             <div class="product__price">
-                <ins class="product__price--new">@string.Format("{0:c0}", item.GiaMoi)</ins>
-                <del class="product__price--old">@string.Format("{0:c0}", item.GiaCu)</del>
+                @if (item.KhuyenMai == 0)
+                {
+                    <ins class="product__price--new">@string.Format("{0:c0}", item.Gia)</ins>
+                }
+                else
+                {
+                    <ins class="product__price--new">@string.Format("{0:c0}", item.Gia - item.Gia * item.KhuyenMai / 100)</ins>
+                    <del class="product__price--old">@string.Format("{0:c0}", item.Gia)</del>
+                }
             </div>
         </div>
     </div>

@@ -26,5 +26,12 @@ namespace Nhom8_IMUA.Controllers
             int pageNumber = (page ?? 1);
             return View(news.ToPagedList(pageNumber, pageSize));
         }
+
+        
+        public ActionResult NewsDetail(int id)
+        {
+            var newsDetail = db.TinTucs.Where(s => s.MaTinTuc == id).Select(p => p);
+            return PartialView("NewsDetail", newsDetail);
+        }
     }
 }

@@ -10,6 +10,11 @@
 
 <div class="banner">
     <div class="container">
+        <div class="banner__img">
+            <a href="">
+                <img src="~/assets/img/-29.jpg" alt="">
+            </a>
+        </div>
         <div class="banner__service">
             <div class="service__item">
                 <img src="~/assets/img/ho-tro-247--1.png" alt="">
@@ -56,46 +61,58 @@
         </div>
     </div>
 </div>
-
 <div class="widget">
-    <div class="title" style="position: relative;">
-        <h4>sản phẩm cần tìm</h4>
-    </div>
     <div class="container">
-        <div class="widget__content" style="background: #fff; border: 1px #e5e5e5; border-radius: 4px; width: 100%; position: relative;">
-            <div class="widget__content__item">
-                @foreach (var item in Model)
-                {
-                    <div class="product" style="width: 20%;">
-                        <div class="product__thumb">
-                            <a href="" class="product__img">
-                                @{
-                                    string ImagePath = "~/assets/Images/SanPham/" + @item.AnhDaiDien;
-                                }
-                                <img src="@Url.Content(ImagePath)" alt="" />
-                            </a>
-                            <!-- <a href="" class="product__quickview">xem nhanh</a> -->
-                            <div class="product__add--cart">
-                                <a href="">
-                                    <i class="fas fa-shopping-basket"></i> Thêm giỏ hàng
-                                </a>
+        @{ Html.RenderAction("Menu", "Category"); }
+        <div class="widget__content">
+            <div class="widget__category" id="loaisp">
+                <div class="title">
+                    <span><i class="fas fa-th"></i></span>
+                    <h4>sản phẩm cần tìm</h4>
+                </div>
+                <div class="wrapper">
+                    <div class="wrapper__item">
+                        @foreach (var item in Model)
+                        {
+                            <div class="product">
+                                <div class="product__thumb">
+                                    <a href="@Url.Action("Index","Product",new { MaSP = item.MaSP })" class="product__img">
+                                        @{
+                                            string ImagePath = "~/assets/Images/SanPham/" + @item.AnhDaiDien;
+                                        }
+                                        <img src="@Url.Content(ImagePath)" alt="" />
+                                    </a>
+                                    <!-- <a href="" class="product__quickview">xem nhanh</a> -->
+                                    <div class="product__add--cart">
+                                        <a href="">
+                                            <i class="fas fa-shopping-basket"></i> Thêm giỏ hàng
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="product__info">
+                                    <h3 class="product__title">
+                                        <a href="@Url.Action("Index","Product",new { MaSP = item.MaSP })">
+                                            @item.TenSP
+                                        </a>
+                                    </h3>
+                                    <div class="product__price">
+                                        @if (item.KhuyenMai == 0)
+                                        {
+                                            <ins class="product__price--new">@string.Format("{0:c0}", item.Gia)</ins>
+                                        }
+                                        else
+                                        {
+                                            <ins class="product__price--new">@string.Format("{0:c0}", item.Gia - item.Gia * item.KhuyenMai / 100)</ins>
+                                            <del class="product__price--old">@string.Format("{0:c0}", item.Gia)</del>
+                                        }
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="product__info">
-                            <h3 class="product__title">
-                                <a href="">
-                                    @item.TenSP
-                                </a>
-                            </h3>
-                            <div class="product__price">
-                                <ins class="product__price--new">@string.Format("{0:c0}", item.GiaMoi)</ins>
-                                <del class="product__price--old">@string.Format("{0:c0}", item.GiaCu)</del>
-                            </div>
-                        </div>
+                        }
                     </div>
-                }
+                    <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))</div>
+                </div>
             </div>
-            <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))</div>
         </div>
     </div>
 </div>

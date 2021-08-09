@@ -77,11 +77,7 @@ namespace Nhom8_IMUA.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<SanPham>()
-                .Property(e => e.GiaMoi)
-                .HasPrecision(19, 4);
-
-            modelBuilder.Entity<SanPham>()
-                .Property(e => e.GiaCu)
+                .Property(e => e.Gia)
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<SanPham>()

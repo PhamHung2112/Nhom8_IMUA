@@ -13,7 +13,6 @@ namespace Nhom8_IMUA.Controllers
         // GET: Cart
         public ActionResult Index()
         {
-
             return View((List<GioHang>)Session["cart"]);
         }
 
@@ -30,7 +29,7 @@ namespace Nhom8_IMUA.Controllers
             {
                 cart = (List<GioHang>)Session["cart"];
                 //kiểm tra sản phẩm có tồn tại trong giỏ hàng chưa???
-                int index = cart.FindIndex(item=>item.Product.MaSP == id);
+                int index = cart.FindIndex(item => item.Product.MaSP == id);
                 if (index != -1)
                 {
                     //nếu sp tồn tại trong giỏ hàng thì cộng thêm số lượng
@@ -54,8 +53,7 @@ namespace Nhom8_IMUA.Controllers
             cart.RemoveAll(x => x.Product.MaSP == MaSP);
             Session["cart"] = cart;
             Session["count"] = Convert.ToInt32(Session["count"]) - 1;
-            return Json(new { cart , JsonRequestBehavior.AllowGet });
+            return Json(new { cart, JsonRequestBehavior.AllowGet });
         }
-        
     }
 }

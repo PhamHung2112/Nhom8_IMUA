@@ -79,8 +79,15 @@
                             </a>
                         </h3>
                         <div class="product__price">
-                            <ins class="product__price--new">@string.Format("{0:c0}", item.GiaMoi)</ins>
-                            <del class="product__price--old">@string.Format("{0:c0}", item.GiaCu)</del>
+                            @if (item.KhuyenMai == 0)
+                            {
+                                <ins class="product__price--new">@string.Format("{0:c0}", item.Gia)</ins>
+                            }
+                            else
+                            {
+                                <ins class="product__price--new">@string.Format("{0:c0}", item.Gia - item.Gia * item.KhuyenMai / 100)</ins>
+                                <del class="product__price--old">@string.Format("{0:c0}", item.Gia)</del>
+                            }
                         </div>
                     </div>
                 </div>
@@ -154,13 +161,13 @@
             {
                 <div class="product">
                     <div class="product__thumb">
-                        <a href="" class="product__img">
+                        <a href="@Url.Action("NewsDetail", "News", new { id = item.MaTinTuc })" class="product__img">
                             <img src="~/assets/Images/TinTuc/@item.AnhTinTuc" alt="" />
                         </a>
                     </div>
                     <div class="product__info">
                         <h3 class="product__title">
-                            <a href="">@item.TieuDe</a>
+                            <a href="@Url.Action("NewsDetail", "News", new { id = item.MaTinTuc })">@item.TieuDe</a>
                         </h3>
                         <div class="product__subtitle">
                             <p>

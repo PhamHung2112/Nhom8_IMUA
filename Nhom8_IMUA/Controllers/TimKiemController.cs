@@ -33,7 +33,7 @@ namespace Nhom8_IMUA.Controllers
 
             if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
             {
-                sanphams = sanphams.Where(p => p.TenSP.Contains(searchString)); //lọc theo chuỗi tìm kiếm
+                sanphams = sanphams.Where(p => p.TenSP.Trim().Contains(searchString)); //lọc theo chuỗi tìm kiếm
             }
 
             switch (sortOrder)
@@ -45,7 +45,7 @@ namespace Nhom8_IMUA.Controllers
                     sanphams = sanphams.OrderBy(s => s.MaSP);
                     break;
             }
-            int pageSize = 10;
+            int pageSize = 12;
             int pageNumber = (page ?? 1);
             return View(sanphams.ToPagedList(pageNumber, pageSize));
         }

@@ -34,8 +34,8 @@ namespace Nhom8_IMUA.Models
         [StringLength(50)]
         public string SoDT { get; set; }
 
+        [Column(TypeName = "ntext")]
         [Required]
-        [StringLength(100)]
         public string DiaChi { get; set; }
 
         [Required]

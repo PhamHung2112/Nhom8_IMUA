@@ -139,6 +139,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductSaleOffController.cs" />
     <Compile Include="Controllers\ProductTypeController.cs" />
     <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
@@ -162,6 +163,10 @@
     <Content Include="assets\css\ProductCategory.css" />
     <Content Include="assets\css\reset.css" />
     <Content Include="assets\css\setting.css" />
+    <Content Include="assets\Images\AnhDaiDien\admin1.png" />
+    <Content Include="assets\Images\AnhDaiDien\admin2.png" />
+    <Content Include="assets\Images\AnhDaiDien\employee1.png" />
+    <Content Include="assets\Images\AnhDaiDien\employee2.png" />
     <Content Include="assets\Images\DanhMuc\dm1.png" />
     <Content Include="assets\Images\DanhMuc\dm2.png" />
     <Content Include="assets\Images\DanhMuc\dm3.png" />
@@ -180,14 +185,21 @@
     <Content Include="assets\Images\DanhMuc\icon-dm8.png" />
     <Content Include="assets\Images\SanPham\sp-chekhuyetdiem1.png" />
     <Content Include="assets\Images\SanPham\sp-chekhuyetdiem2.png" />
+    <Content Include="assets\Images\SanPham\sp-chekhuyetdiem3.png" />
     <Content Include="assets\Images\SanPham\sp-daudua1.png" />
+    <Content Include="assets\Images\SanPham\sp-daudua2.png" />
     <Content Include="assets\Images\SanPham\sp-dieutrimun1.png" />
     <Content Include="assets\Images\SanPham\sp-dieutrimun2.png" />
+    <Content Include="assets\Images\SanPham\sp-dieutrimun3.png" />
     <Content Include="assets\Images\SanPham\sp-dieutrirungtoc1.png" />
     <Content Include="assets\Images\SanPham\sp-dieutrirungtoc2.png" />
+    <Content Include="assets\Images\SanPham\sp-dieutrirungtoc3.png" />
     <Content Include="assets\Images\SanPham\sp-giamcan1.png" />
     <Content Include="assets\Images\SanPham\sp-giamcan2.png" />
+    <Content Include="assets\Images\SanPham\sp-giamcan3.png" />
     <Content Include="assets\Images\SanPham\sp-kemchongnang1.png" />
+    <Content Include="assets\Images\SanPham\sp-kemchongnang2.png" />
+    <Content Include="assets\Images\SanPham\sp-kemchongnang3.png" />
     <Content Include="assets\Images\SanPham\sp-kemnen1.png" />
     <Content Include="assets\Images\SanPham\sp-kemnen2.png" />
     <Content Include="assets\Images\SanPham\sp-kemnen3.png" />
@@ -197,17 +209,23 @@
     <Content Include="assets\Images\SanPham\sp-kemnen7.png" />
     <Content Include="assets\Images\SanPham\sp-kemtaylong1.png" />
     <Content Include="assets\Images\SanPham\sp-kemtaylong2.png" />
+    <Content Include="assets\Images\SanPham\sp-kemtaylong3.png" />
     <Content Include="assets\Images\SanPham\sp-kemutoc1.png" />
     <Content Include="assets\Images\SanPham\sp-kemutoc2.png" />
+    <Content Include="assets\Images\SanPham\sp-kemutoc3.png" />
     <Content Include="assets\Images\SanPham\sp-matong1.png" />
     <Content Include="assets\Images\SanPham\sp-nuochoa1.png" />
     <Content Include="assets\Images\SanPham\sp-nuochoa2.png" />
+    <Content Include="assets\Images\SanPham\sp-nuochoa3.png" />
     <Content Include="assets\Images\SanPham\sp-nuoctaytrang1.png" />
     <Content Include="assets\Images\SanPham\sp-nuoctaytrang2.png" />
+    <Content Include="assets\Images\SanPham\sp-nuoctaytrang3.png" />
     <Content Include="assets\Images\SanPham\sp-phannuoc1.png" />
     <Content Include="assets\Images\SanPham\sp-phannuoc2.png" />
+    <Content Include="assets\Images\SanPham\sp-phannuoc3.png" />
     <Content Include="assets\Images\SanPham\sp-phukien1.png" />
     <Content Include="assets\Images\SanPham\sp-phukien2.png" />
+    <Content Include="assets\Images\SanPham\sp-phukien3.png" />
     <Content Include="assets\Images\SanPham\sp-sonmoi1.png" />
     <Content Include="assets\Images\SanPham\sp-sonmoi10.png" />
     <Content Include="assets\Images\SanPham\sp-sonmoi2.png" />
@@ -220,14 +238,19 @@
     <Content Include="assets\Images\SanPham\sp-sonmoi9.png" />
     <Content Include="assets\Images\SanPham\sp-suaruamat1.png" />
     <Content Include="assets\Images\SanPham\sp-suaruamat2.png" />
+    <Content Include="assets\Images\SanPham\sp-suaruamat3.png" />
     <Content Include="assets\Images\SanPham\sp-suatrangda1.png" />
     <Content Include="assets\Images\SanPham\sp-suatrangda2.png" />
+    <Content Include="assets\Images\SanPham\sp-suatrangda3.png" />
     <Content Include="assets\Images\SanPham\sp-thHQ1.png" />
     <Content Include="assets\Images\SanPham\sp-thHQ2.png" />
+    <Content Include="assets\Images\SanPham\sp-thHQ3.png" />
     <Content Include="assets\Images\SanPham\sp-thPhap1.png" />
     <Content Include="assets\Images\SanPham\sp-thPhap2.png" />
+    <Content Include="assets\Images\SanPham\sp-thPhap3.png" />
     <Content Include="assets\Images\SanPham\sp-xitduongtoc1.png" />
     <Content Include="assets\Images\SanPham\sp-xitduongtoc2.png" />
+    <Content Include="assets\Images\SanPham\sp-xitduongtoc3.png" />
     <Content Include="assets\Images\TinTuc\tintuc1.png" />
     <Content Include="assets\Images\TinTuc\tintuc2.png" />
     <Content Include="assets\Images\TinTuc\tintuc3.png" />
@@ -351,7 +374,6 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\ProductType\Index.cshtml" />
     <Content Include="Views\Category\Menu.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Category\Product.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
@@ -359,10 +381,12 @@
     <Content Include="Views\Home\ProductSaleOff.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\TimKiem\Index.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\News\NewsDetail.cshtml" />
+    <Content Include="Views\ProductSaleOff\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\New\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

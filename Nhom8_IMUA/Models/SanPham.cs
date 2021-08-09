@@ -27,10 +27,9 @@ namespace Nhom8_IMUA.Models
         public string AnhDaiDien { get; set; }
 
         [Column(TypeName = "money")]
-        public decimal GiaMoi { get; set; }
+        public decimal Gia { get; set; }
 
-        [Column(TypeName = "money")]
-        public decimal GiaCu { get; set; }
+        public int KhuyenMai { get; set; }
 
         [Required]
         [StringLength(4000)]
@@ -40,8 +39,8 @@ namespace Nhom8_IMUA.Models
         [StringLength(100)]
         public string XuatXu { get; set; }
 
-        [Required]
         [Column(TypeName = "text")]
+        [Required]
         public string TrongLuong { get; set; }
 
         public int MaLoai { get; set; }

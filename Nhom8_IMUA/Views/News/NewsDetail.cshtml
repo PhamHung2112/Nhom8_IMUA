@@ -1,6 +1,9 @@
-﻿@model PagedList.IPagedList<Nhom8_IMUA.Models.TinTuc>
-@using PagedList.Mvc;
-<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+﻿@model IEnumerable<Nhom8_IMUA.Models.TinTuc>
+
+@{
+    ViewBag.Title = "NewsDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <div class="widget" style="padding-top: 2rem;">
     <div class="container">
@@ -61,25 +64,20 @@
             <div class="widget__category">
                 <div class="title">
                     <span><i class="fas fa-th"></i></span>
-                    <h4>Tin nổi bật</h4>
+                    <h4>Tin tức</h4>
                 </div>
                 <div class="wrapper" style="position: relative;">
                     <div class="news__box">
-                        <ul class="news__menu">
-                            @foreach (var item in Model)
-                            {
-                                <li class="news__item">
-                                    <img src="~/assets/Images/TinTuc/@item.AnhTinTuc" alt="">
-                                    <div class="news__content">
-                                        <a href="@Url.Action("NewsDetail", "News", new { id = item.MaTinTuc })" class="news__link">@item.TieuDe</a>
-                                        <p>@item.TomTat</p>
-                                    </div>
-                                </li>
-                            }
-                        </ul>
+                        @foreach (var item in Model)
+                        {
+                            <h1 style="font-size: 1.8rem; font-weight: 700; color: red; margin: 1rem 0 1rem">@item.TieuDe</h1>
+                            <h2 style="font-size: 1.4rem; color: #333333; margin: 2rem 0 1rem; line-height: 1.6; font-weight: 700; color: #008000 ">@item.TomTat</h2>
+                            <p style="font-size: 1.4rem; color: #333333; line-height: 1.8; margin-bottom: 1rem; text-align: justify">@item.NoiDung</p>
+                            <img src="~/assets/Images/TinTuc/@item.AnhTinTuc" style="margin: 2rem auto; display: flex; object-fit: cover"/>
+                        }
                     </div>
-                    <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))</div>
                 </div>
             </div>
         </div>
     </div>
+
