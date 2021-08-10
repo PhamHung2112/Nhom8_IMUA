@@ -59,11 +59,11 @@
                         </form>
                     </div>
                     <div class="header__middle--cart">
-                        <a href="#" class="header__middle--cart--link">
+                        <a href="@Url.Action("Index","Cart")" class="header__middle--cart--link">
                             <span class="cart__icon">
                                 <i class="fas fa-shopping-basket"></i>
                             </span>
-                            <span class="cart__number">(0)</span>
+                            <span class="cart__number" id="CartCount">(@Session["count"])</span>
                         </a>
                         <!-- <div class="header__middle--cart--noti">
                           <span>Chưa có sản phẩm trong giỏ hàng!</span>
@@ -79,9 +79,7 @@
     </header>
     <!--End-->
     <!--Main-->
-    <main class="content">
-        @RenderBody()
-    </main>
+    @RenderBody()
     <!--End-->
     <!--Footer-->
     <footer class="footer">
@@ -147,5 +145,31 @@
     <script src="assets/js/jquery-1.8.3.min.js"></script>
     <script src="assets/js/jquery.elevateZoom-3.0.8.min.js"></script>
     <script src="~/assets/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.ajax-to-cart').click(function () {
+                var model = {};
+                model.Id = $(this).data("id");
+                model.quantity = 1;
+                debugger;
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("AddToCart", "Cart")',
+                    data:  JSON.stringify(model) ,
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function () {
+                        alert("Thêm giỏ hàng thành công!")
+                        $('#CartCount').text(@Session["count"] + 1);
+                    },
+                    error: function () {
+                        alert("Lỗi trong khi thêm vào giỏ hàng!");
+                    }
+                });
+                return false;
+            })
+        })
+    </script>
 </body>
 </html>

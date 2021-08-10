@@ -138,6 +138,7 @@
     </Compile>
     <Compile Include="Models\ChiTietHoaDon.cs" />
     <Compile Include="Models\DanhMuc.cs" />
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\HoaDon.cs" />
     <Compile Include="Models\KhachHang.cs" />
     <Compile Include="Models\LoaiSP.cs" />
