@@ -1,8 +1,12 @@
-﻿@model IEnumerable<Nhom8_IMUA.Models.SanPham>
+﻿@model PagedList.IPagedList<Nhom8_IMUA.Models.SanPham>
+@using PagedList.Mvc;
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "ListProductSaleOff";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 <div class="banner">
     <div class="container">
@@ -95,6 +99,7 @@
                                 </div>
                             }
                         </div>
+                        <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("ListProductSaleOff", new { page }))</div>
                     </div>
                 </div>
 
