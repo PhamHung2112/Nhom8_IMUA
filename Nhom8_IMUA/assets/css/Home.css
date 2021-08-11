@@ -379,12 +379,12 @@ transition: all 0.5s ease-out 0s;
 
     .search__box form {
         border: 0.1rem solid var(--borderColor);
-        outline: none; /* padding: 1rem; */
+        outline: none;
         color: #999;
         font-size: 1.4rem;
         width: 100%;
         margin: 0 2rem;
-        align-content: center; /* margin: 20px; */
+        align-content: center;
     }
 
         .search__box form input {
