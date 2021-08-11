@@ -331,11 +331,6 @@
     <Content Include="assets\img\thong-tin--1.png" />
     <Content Include="assets\img\thuong-hieu-ua-chuong-menu-right.jpg" />
     <Content Include="assets\img\TOP-5-CACH-CHUA-RUNG-TOC-HIEU-QUA-.jpg" />
-    <Content Include="assets\js\controller\AddMoreCart.js" />
-    <Content Include="assets\js\controller\AddOne.js" />
-    <Content Include="assets\js\controller\AddToCart.js" />
-    <Content Include="assets\js\controller\DeleleteCart.js" />
-    <Content Include="assets\js\controller\UpdateCart.js" />
     <Content Include="assets\js\jquery-1.8.3.min.js" />
     <Content Include="assets\js\jquery.elevateZoom-3.0.8.min.js" />
     <Content Include="assets\js\main.js" />
@@ -389,6 +384,7 @@
     <Content Include="Views\Home\ProductType.cshtml" />
     <Content Include="Views\Home\ListNews.cshtml" />
     <Content Include="Views\Home\NewsDetail.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
