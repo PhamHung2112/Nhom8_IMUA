@@ -9,8 +9,8 @@
             </a>
             <!-- <a href="" class="product__quickview">xem nhanh</a> -->
             <div class="product__add--cart">
-                <a href="@Url.Action("GetSanPham","Cart",new { id = product.MaSP })">
-                    <i class="fas fa-shopping-basket"></i> Thêm giỏ hàng
+                <a href="" class="ajax-to-cart" data-id="@product.MaSP">
+                    <i class="fas fa-shopping-basket" ></i> Thêm giỏ hàng
                 </a>
             </div>
         </div>

@@ -13,159 +13,72 @@
             </a>
             <span>Giỏ hàng</span>
         </div>
-        <div class="cart__item">
-            <p class="cart__qty">Giỏ hàng có: <span>1 sản phẩm</span></p>
-            <p class="cart__total">Tổng tiền: <span>10.000đ</span></p>
-            <table cellspacing="4" cellpadding="4" class="cart__table">
-                <thead>
-                    <tr>
-                        <th>Hình ảnh</th>
-                        <th>Sản phẩm</th>
-                        <th>Số lượng</th>
-                        <th>Thành tiền</th>
-                    </tr>
-                </thead>
-                <tbody>
+        @if (Model != null)
+        {
+    <div class="cart__item">
+        <p class="cart__qty">Giỏ hàng có: <span>@Model.Count sản phẩm</span></p>
+        <p class="cart__total">Tổng tiền: <span>@string.Format("{0:c0}", @Model.Sum(x => (x.Product.Gia - x.Product.Gia * x.Product.KhuyenMai / 100) * x.Quantity) + 10000)</span></p>
+        <table cellspacing="4" cellpadding="4" class="cart__table">
+            <thead>
+                <tr>
+                    <th>Hình ảnh</th>
+                    <th>Sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
                     <tr>
                         <td>
                             <a href="">
-                                <img src="~/assets/img/Son-Duong-Tri-Tham-Moi-Dhc-Lip-Cream-Nhat-Ban-.png" alt="">
+                                <img src="~/assets/Images/SanPham/@item.Product.AnhDaiDien" alt="">
                             </a>
                         </td>
                         <td>
                             <a class="cart__link" href="">Son Dưỡng Môi có màu Ecosy Nature Tint Stick The Collagen</a>
                             <div class="product__price">
-                                <ins>200.000đ</ins>
-                                <del>270.000đ</del>
+                                <ins>@string.Format("{0:c0}", item.Product.Gia - item.Product.Gia * item.Product.KhuyenMai / 100)</ins>
+                                <del>@string.Format("{0:c0}", item.Product.Gia)</del>
                             </div>
                         </td>
                         <td>
-                            <input type="text" name="" id="" value="1" class="qty">
+                            <input type="text" name="" data-id="@item.Product.MaSP" value="@item.Quantity" class="qty">
                         </td>
                         <td>
-                            <p>400.00đ</p>
-                            <a href="">Xóa</a>
+                            <p>@string.Format("{0:c0}", (item.Product.Gia - item.Product.Gia * item.Product.KhuyenMai / 100) * item.Quantity)</p>
+                            <a href="" data-id="@item.Product.MaSP" class="del">Xóa</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <a href="">
-                                <img src="~/assets/img/Son-Duong-Tri-Tham-Moi-Dhc-Lip-Cream-Nhat-Ban-.png" alt="">
-                            </a>
-                        </td>
-                        <td>
-                            <a class="cart__link" href="">Son Dưỡng Môi có màu Ecosy Nature Tint Stick The Collagen</a>
-                            <div class="product__price">
-                                <ins>200.000đ</ins>
-                                <del>270.000đ</del>
-                            </div>
-                        </td>
-                        <td>
-                            <input type="text" name="" id="" value="1" class="qty">
-                        </td>
-                        <td>
-                            <p>400.00đ</p>
-                            <a href="">Xóa</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="">
-                                <img src="~/assets/img/Son-Duong-Tri-Tham-Moi-Dhc-Lip-Cream-Nhat-Ban-.png" alt="">
-                            </a>
-                        </td>
-                        <td>
-                            <a class="cart__link" href="">Son Dưỡng Môi có màu Ecosy Nature Tint Stick The Collagen</a>
-                            <div class="product__price">
-                                <ins>200.000đ</ins>
-                                <del>270.000đ</del>
-                            </div>
-                        </td>
-                        <td>
-                            <input type="text" name="" id="" value="1" class="qty">
-                        </td>
-                        <td>
-                            <p>400.00đ</p>
-                            <a href="">Xóa</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="cart__infor">
-                <p>Tạm tính: <span>200.000đ</span></p>
-            </div>
-            <div class="cart__infor">
-                <p>Phí vận chuyển: <span>10.000đ</span></p>
-            </div>
-            <div class="cart__infor">
-                <p>Tổng tiền thanh toán: <span>210.000đ</span></p>
-            </div>
+                }
+
+            </tbody>
+        </table>
+        <div class="cart__infor">
+            <p>Tạm tính: <span>@string.Format("{0:c0}", @Model.Sum(x => (x.Product.Gia - x.Product.Gia * x.Product.KhuyenMai / 100) * x.Quantity))</span></p>
         </div>
+        <div class="cart__infor">
+            <p>Phí vận chuyển: <span>10.000đ</span></p>
+        </div>
+        <div class="cart__infor">
+            <p>Tổng tiền thanh toán: <span>@string.Format("{0:c0}", @Model.Sum(x => (x.Product.Gia - x.Product.Gia * x.Product.KhuyenMai / 100) * x.Quantity) + 10000)</span></p>
+        </div>
+        <div class="cart__button">
+            <div class="ship-code">
+                <input type="checkbox" name="" id="" disabled checked>
+                <span>Phương thức thanh toán: NHẬN HÀNG VÀ THANH TOÁN TẠI NHÀ !</span>
+            </div>
+            <a href="">Hoàn tất đơn hàng</a>
+        </div>
+    </div>
+        }
+        else
+        {
+            <span style="font-size: 1.6rem; font-weight: 700; color: red" class="alert">Không có sản phẩm trong giỏ hàng</span>
+        }
     </div>
 </div>
 
-@*<script>
-        var ThanhTien = 0;
-
-        var val = document.getElementsByClassName("soluong");
-        var giamoi = document.getElementsByClassName("giamoi");
-        for (let i = 0; i < giamoi.length; i++) {
-            ThanhTien += parseFloat(giamoi[i].innerText.replace(/[^0-9]+/g,"")) * parseFloat(val[i].value);
-        }
-        document.getElementById("thanhTien_t").innerHTML = ThanhTien.toLocaleString('it-IT')+" đ";
-        document.getElementById("thanhTien_d").innerHTML = ThanhTien.toLocaleString('it-IT')+" đ";
-        document.getElementById("tong").innerHTML = (ThanhTien + 10000).toLocaleString('it-IT') + " đ";
-
-        function change() {
-            var val = document.getElementsByClassName("soluong");
-            var giamoi = document.getElementsByClassName("giamoi");
-            var tien = document.getElementsByClassName("tien");
-            for (let i = 0; i < giamoi.length; i++) {
-                ThanhTien += parseFloat(giamoi[i].innerText.replace(/[^0-9]+/g, "")) * parseFloat(val[i].value);
-                tien[i].innerHTML = ThanhTien.toLocaleString('it-IT', { style: 'currency', currency: '' }) + " đ";
-            }
-
-            document.getElementById("thanhTien_t").innerHTML = ThanhTien.toLocaleString('it-IT') + " đ";
-            document.getElementById("thanhTien_d").innerHTML = ThanhTien.toLocaleString('it-IT') + " đ";
-            document.getElementById("tong").innerHTML = (ThanhTien + 10000).toLocaleString('it-IT') + " đ";
-        }
-    </script>
-    @section script{
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $(".remove-cart").click(function () {
-                    var model = {};
-                    //lấy id sản phẩm
-                    model.Id = $(this).data("id");
-                    $.ajax({
-                        type: "POST",
-                        url: '@Url.Action("RemoveCart", "Cart")',
-                        data:  JSON.stringify(model) ,
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        success: function () {
-                            $('#CartCount').text("(" +(@Session["count"] - 1) + ")");
-                            $('#CartCout-1').text("(" + (@Session["count"] - 1) + ")");
-                            $("#product-" + model.Id).remove();
-                            var ThanhTien = 0;
-
-                            var val = document.getElementsByClassName("soluong");
-                            var giamoi = document.getElementsByClassName("giamoi");
-                            for (let i = 0; i < giamoi.length; i++) {
-                                ThanhTien += parseFloat(giamoi[i].innerText.replace(/[^0-9]+/g, "")) * parseFloat(val[i].value);
-                            }
-                            console.log(ThanhTien);
-                            document.getElementById("thanhTien_t").innerHTML = ThanhTien.toLocaleString('it-IT') + " đ";
-                            document.getElementById("thanhTien_d").innerHTML = ThanhTien.toLocaleString('it-IT') + " đ";
-                            document.getElementById("tong").innerHTML = (ThanhTien + 10000).toLocaleString('it-IT') + " đ";
-                        },
-                        error: function () {
-                            alert("Lỗi trong khi xóa vào giỏ hàng!");
-                        }
-                    });
-                    return false;
-                });
-            });
-        </script>
-    }*@
-
+<script src="~/assets/js/controller/UpdateCart.js"></script>
+<script src="~/assets/js/controller/DeleleteCart.js"></script>

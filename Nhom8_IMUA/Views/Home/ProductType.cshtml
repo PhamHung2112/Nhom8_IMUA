@@ -1,4 +1,9 @@
-﻿@model IEnumerable<Nhom8_IMUA.Models.SanPham>
+﻿@model IEnumerable<Nhom8_IMUA.Models.LoaiSP>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <div class="banner">
     <div class="container">
@@ -58,7 +63,7 @@
         @{ Html.RenderAction("Menu", "Category"); }
         <div class="widget__content">
             <div>
-                @foreach (var subitem in ViewBag.LoaiSP)
+                @foreach (var subitem in Model)
                 {
                     <div class="widget__category" id="loaisp">
                         <div class="title">
@@ -67,7 +72,7 @@
                         </div>
                         <div class="wrapper">
                             <div class="wrapper__item">
-                                @foreach (var product in subitem.SanPhams)
+                                @foreach (var product in ViewBag.SanPham)
                                 {
                                     <div class="product">
                                         <div class="product__thumb">
@@ -107,4 +112,3 @@
         </div>
     </div>
 </div>
-

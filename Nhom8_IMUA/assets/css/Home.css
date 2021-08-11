@@ -1154,6 +1154,7 @@ color: #555;
 .detail__sub .product__price {
 justify-content: flex-start;
 margin-bottom: 1rem;
+align-items: center;
 }
 
 .detail__sub .product__price span {
@@ -1169,6 +1170,35 @@ color: #ec3700;
 
 .detail__sub .product__price del {
 color: #ccc;
+}
+
+.percent {
+position: relative;
+background: #4693d9;
+color: #fff;
+margin-left: 2rem;
+height: 3rem;
+line-height: 3rem;
+width: 5rem;
+text-align: center;
+display: inline-block;
+font-weight: 700;
+font-size: 1.4rem;
+}
+
+.percent::after {
+right: 100%;
+top: 50%;
+border: solid transparent;
+content: " ";
+height: 0;
+width: 0;
+position: absolute;
+pointer-events: none;
+border-color: rgba(136, 183, 213, 0);
+border-right-color: #4693d9;
+border-width: 1.5rem;
+margin-top: -1.5rem;
 }
 
 .detail__commit {

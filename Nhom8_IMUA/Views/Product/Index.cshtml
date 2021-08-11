@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<Nhom8_IMUA.Models.SanPham>
 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 <div class="detail">
     <div class="container">
         @foreach (var item in Model)
@@ -65,6 +69,7 @@
                                         <ins class="product__price--new">@string.Format("{0:c0}", item.Gia - item.Gia * item.KhuyenMai / 100)</ins>
                                         <del class="product__price--old">@string.Format("{0:c0}", item.Gia)</del>
                                     }
+                                    <span class="percent">-@item.KhuyenMai%</span>
                                 </div>
                                 <div class="detail__commit">
                                     <div class="code">
@@ -196,39 +201,3 @@
 
     </div>
 </div>
-
-<script src="~/assets/js/jquery-1.8.3.min.js"></script>
-<script src="~/assets/js/jquery.elevateZoom-3.0.8.min.js"></script>
-<script src="~/assets/js/main.js"></script>
-
-@section scriptProduct{
-    <script type="text/javascript">
-$(function () {
-    $('#addtocart').click(function () {
-        var model = {};
-        //lấy id sản phẩm
-        model.Id = $('#ma').text();
-        // lấy số lượng đặt hàng
-        model.Quantity = $("#ipQuantity").val();
-        debugger;
-        $.ajax({
-            type: "POST",
-            url: '@Url.Action("AddToCart", "Cart")',
-            data:  JSON.stringify(model) ,
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            success: function () {
-                alert("Thêm giỏ hàng thành công!")
-                $('#CartCount').text("("+(@Session["count"] + 1)+")");
-                $('#CartCout-1').text("(" + (@Session["count"] + 1) + ")");
-            },
-            error: function () {
-                alert("Lỗi trong khi thêm vào giỏ hàng!");
-            }
-        });
-        return false;
-    });
-});
-    </script>
-}
-

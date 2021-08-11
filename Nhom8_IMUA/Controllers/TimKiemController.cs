@@ -17,6 +17,7 @@ namespace Nhom8_IMUA.Controllers
         // GET: TimKiem
         public ActionResult Index(string sortOrder, string searchString, string currentFilter, int? page)
         {
+            List<GioHang> li = (List<GioHang>)Session["cart"];
             ViewBag.CurrentSort = sortOrder;
             ViewBag.SapTheoID = String.IsNullOrEmpty(sortOrder) ? "ten_desc" : "";
             if (searchString != null)

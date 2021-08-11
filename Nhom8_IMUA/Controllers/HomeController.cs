@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 using Nhom8_IMUA.Models;
 
 namespace Nhom8_IMUA.Controllers
@@ -22,6 +23,8 @@ namespace Nhom8_IMUA.Controllers
 
             //Tin tuc
             ViewBag.TinTuc = db.TinTucs.Select(p => p).Take(4);
+
+            List<GioHang> cart = (List<GioHang>)Session["cart"];
 
             return View();
         }
@@ -50,6 +53,46 @@ namespace Nhom8_IMUA.Controllers
         {
             var sanPham = db.SanPhams.Select(x => x);
             return PartialView(sanPham);
+        }
+
+        [ChildActionOnly]
+        public ActionResult CartCount()
+        {
+            List<GioHang> cart = (List<GioHang>)Session["cart"];
+            return PartialView(cart);
+        }
+
+        public ActionResult ListProductSaleOff()
+        {
+            List<GioHang> li = (List<GioHang>)Session["cart"];
+            var sp = db.SanPhams.Where(p => p.KhuyenMai != 0).Select(p => p);
+            return PartialView(sp);
+        }
+
+        public ActionResult ProductType(int? id)
+        {
+            List<GioHang> li = (List<GioHang>)Session["cart"];
+            var loaiSP = db.LoaiSPs.Where(p => p.MaLoai == id).Select(p => p);
+            ViewBag.SanPham = db.SanPhams.Where(p => p.MaLoai == id).Select(p => p);
+            return PartialView(loaiSP);
+        }
+
+        public ActionResult ListNews(int? page)
+        {
+            //ViewBag.CurrentSort = sortOrder;
+            //ViewBag.SapTheoID = String.IsNullOrEmpty(sortOrder) ? "ten_desc" : "";
+
+            var news = db.TinTucs.Select(p => p);
+            news = news.OrderBy(s => s.MaTinTuc);
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(news.ToPagedList(pageNumber, pageSize));
+        }
+
+        public ActionResult NewsDetail(int id)
+        {
+            var newsDetail = db.TinTucs.Where(s => s.MaTinTuc == id).Select(p => p);
+            return PartialView("NewsDetail", newsDetail);
         }
     }
 }

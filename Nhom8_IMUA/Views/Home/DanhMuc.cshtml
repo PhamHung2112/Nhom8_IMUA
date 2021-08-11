@@ -29,7 +29,7 @@
                                     @foreach (var subitem in item.LoaiSPs)
                                     {
                                         <li class="nav__item">
-                                            <a href="@Url.Action("Index","ProductType",new { id = subitem.MaLoai })" class="nav__link">@subitem.TenLoai</a>
+                                            <a href="@Url.Action("ProductType","Home",new { id = subitem.MaLoai })" class="nav__link">@subitem.TenLoai</a>
                                         </li>
                                     }
             </div>
@@ -52,24 +52,24 @@
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a class="nav__link" href="@Url.Action("Index", "News")">
+                            <a class="nav__link" href="@Url.Action("ListNews", "Home")">
                                 tin nổi bật
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a class="nav__link" href="@Url.Action("Index", "ProductSaleOff")">
+                            <a class="nav__link" href="@Url.Action("ListProductSaleOff", "Home")">
                                 sản phẩm sale off
                             </a>
                             <ul class="nav__dropdown">
                                 <div>
                                 <li class="nav__item">
                                     <div class="nav__item--img">
-                                        <a href="@Url.Action("Index", "ProductSaleOff")">
+                                        <a href="@Url.Action("ListProductSaleOff", "Home")">
                                             <img src="~/assets/img/26.jpg" alt="">
                                         </a>
                                     </div>
                                     <h4 class="nav__item--title">
-                                        <a href="@Url.Action("Index", "ProductSaleOff")">sản phẩm sale off từ 10% - 40%</a>
+                                        <a href="@Url.Action("ListProductSaleOff", "Home")">sản phẩm sale off từ 10% - 40%</a>
                                     </h4>
                                     <p class="nav__item--desc">
                                         Khi đến với IMUA.com.vn bạn sẽ mua được những sản phẩm chất lượng và có cơ hội được sale off đến
@@ -137,7 +137,7 @@
                                                 @foreach (var subitem in item.LoaiSPs)
                                                 {
                                                     <li class="nav__item">
-                                                        <a href="@Url.Action("Index","ProductType",new { id = subitem.MaLoai })" class="nav__link">@subitem.TenLoai</a>
+                                                        <a href="@Url.Action("ProductType","Home",new { id = subitem.MaLoai })" class="nav__link">@subitem.TenLoai</a>
                                                     </li>
                                                 }
                         </div>
@@ -161,24 +161,24 @@
                                         </a>
                                     </li>
                                     <li class="nav__item">
-                                        <a class="nav__link">
+                                        <a class="nav__link" href="@Url.Action("ListNews", "Home")">
                                             tin nổi bật
                                         </a>
                                     </li>
                                     <li class="nav__item">
-                                        <a class="nav__link">
+                                        <a class="nav__link" href="@Url.Action("ListProductSaleOff", "Home")">
                                             sản phẩm sale off
                                         </a>
                                         <ul class="nav__dropdown">
                                             <div>
                                             <li class="nav__item">
                                                 <div class="nav__item--img">
-                                                    <a href="">
-                                                        <img src="./assets/img/26.jpg" alt="">
+                                                    <a href="@Url.Action("ListProductSaleOff", "Home")">
+                                                        <img src="~/assets/img/26.jpg" alt="">
                                                     </a>
                                                 </div>
                                                 <h4 class="nav__item--title">
-                                                    <a href="">sản phẩm sale off từ 10% - 40%</a>
+                                                    <a href="@Url.Action("ListProductSaleOff", "Home")">sản phẩm sale off từ 10% - 40%</a>
                                                 </h4>
                                                 <p class="nav__item--desc">
                                                     Khi đến với IMUA.com.vn bạn sẽ mua được những sản phẩm chất lượng và có cơ hội được sale off đến
@@ -231,8 +231,7 @@
                                                 <span class="cart__icon">
                                                     <i class="fas fa-shopping-basket"></i>
                                                 </span>
-                                                @{ var count = Convert.ToInt32(Session["count"]) + 0;}
-                                                <span class="cart__number" id="CartCout-1">(@count)</span>
+                                                @{ Html.RenderAction("CartCount", "Home"); }
                                             </a>
                                             <!-- <div class="header__middle--cart--noti">
                                                     <span>Chưa có sản phẩm trong giỏ hàng!</span>

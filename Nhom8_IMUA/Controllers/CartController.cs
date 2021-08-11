@@ -13,47 +13,62 @@ namespace Nhom8_IMUA.Controllers
         // GET: Cart
         public ActionResult Index()
         {
-            return View((List<GioHang>)Session["cart"]);
+            List<GioHang> li = (List<GioHang>)Session["cart"];
+            return View(li);
         }
 
-        public ActionResult AddToCart(int id, int quantity)
+        public JsonResult AddToCart(int id, int quantity)
         {
-            List<GioHang> cart = new List<GioHang>();
             if (Session["cart"] == null)
             {
-                cart.Add(new GioHang { Product = db.SanPhams.Find(id), Quantity = quantity });
+                List<GioHang> cart = new List<GioHang>();
+                cart.Add(new GioHang() { Product = db.SanPhams.Find(id), Quantity = quantity });
                 Session["cart"] = cart;
-                Session["count"] = 1;
             }
             else
             {
-                cart = (List<GioHang>)Session["cart"];
-                //kiểm tra sản phẩm có tồn tại trong giỏ hàng chưa???
-                int index = cart.FindIndex(item => item.Product.MaSP == id);
-                if (index != -1)
+                List<GioHang> cart = (List<GioHang>)Session["cart"];
+                //neu sp ton tai
+                if (cart.Exists(x => x.Product.MaSP == id))
                 {
-                    //nếu sp tồn tại trong giỏ hàng thì cộng thêm số lượng
-                    cart[index].Quantity += quantity;
+                    foreach (var item in cart)
+                    {
+                        if (item.Product.MaSP == id)
+                            item.Quantity += quantity;
+                    }
                 }
                 else
                 {
-                    //nếu không tồn tại thì thêm sản phẩm vào giỏ hàng
-                    cart.Add(new GioHang { Product = db.SanPhams.Find(id), Quantity = quantity });
-                    //Tính lại số sản phẩm trong giỏ hàng
-                    Session["count"] = Convert.ToInt32(Session["count"]) + 1;
+                    cart.Add(new GioHang() { Product = db.SanPhams.Find(id), Quantity = quantity });
                 }
+                Session["cart"] = cart;
             }
-            return Json(new { Message = "Thành công", JsonRequestBehavior.AllowGet });
+            return Json(new { SoLuong = ((List<GioHang>)Session["cart"]).Count });
         }
 
-        [HttpPost]
-        public ActionResult RemoveCart(int? MaSP)
+        public JsonResult UpdateCart(int id, int quantity)
         {
-            List<GioHang> cart = (List<GioHang>)Session["Cart"];
-            cart.RemoveAll(x => x.Product.MaSP == MaSP);
-            Session["cart"] = cart;
-            Session["count"] = Convert.ToInt32(Session["count"]) - 1;
-            return Json(new { cart, JsonRequestBehavior.AllowGet });
+            List<GioHang> li = (List<GioHang>)Session["cart"];
+            if (li.Exists(x => x.Product.MaSP == id))
+            {
+                foreach (var item in li)
+                {
+                    if (item.Product.MaSP == id)
+                    {
+                        item.Quantity = quantity;
+                    }
+                }
+            }
+            Session["cart"] = li;
+            return Json(new { QuantitySL = quantity });
+        }
+
+        public JsonResult RemoveCart(int id)
+        {
+            List<GioHang> li = (List<GioHang>)Session["cart"];
+            li.RemoveAll(x => x.Product.MaSP == id);
+            Session["cart"] = li;
+            return Json(new { Ma = id });
         }
     }
 }

@@ -134,13 +134,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\ProductSaleOffController.cs" />
-    <Compile Include="Controllers\ProductTypeController.cs" />
     <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -149,15 +147,15 @@
     <Compile Include="Models\DanhMuc.cs" />
     <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\HoaDon.cs" />
-    <Compile Include="Models\KhachHang.cs" />
     <Compile Include="Models\LoaiSP.cs" />
+    <Compile Include="Models\NguoiDung.cs" />
     <Compile Include="Models\Nhom8DB.cs" />
-    <Compile Include="Models\QuanTri.cs" />
     <Compile Include="Models\SanPham.cs" />
     <Compile Include="Models\TinTuc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\AddCSS.css" />
     <Content Include="assets\css\Cart.css" />
     <Content Include="assets\css\Home.css" />
     <Content Include="assets\css\ProductCategory.css" />
@@ -333,6 +331,11 @@
     <Content Include="assets\img\thong-tin--1.png" />
     <Content Include="assets\img\thuong-hieu-ua-chuong-menu-right.jpg" />
     <Content Include="assets\img\TOP-5-CACH-CHUA-RUNG-TOC-HIEU-QUA-.jpg" />
+    <Content Include="assets\js\controller\AddMoreCart.js" />
+    <Content Include="assets\js\controller\AddOne.js" />
+    <Content Include="assets\js\controller\AddToCart.js" />
+    <Content Include="assets\js\controller\DeleleteCart.js" />
+    <Content Include="assets\js\controller\UpdateCart.js" />
     <Content Include="assets\js\jquery-1.8.3.min.js" />
     <Content Include="assets\js\jquery.elevateZoom-3.0.8.min.js" />
     <Content Include="assets\js\main.js" />
@@ -347,6 +350,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\web.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -372,21 +376,25 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\DanhMuc.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\ProductType\Index.cshtml" />
     <Content Include="Views\Category\Menu.cshtml" />
     <Content Include="Views\Category\Product.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Home\ShoppingGuide.cshtml" />
     <Content Include="Views\Home\ProductSaleOff.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\TimKiem\Index.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\News\NewsDetail.cshtml" />
-    <Content Include="Views\ProductSaleOff\Index.cshtml" />
+    <Content Include="Views\Home\CartCount.cshtml" />
+    <Content Include="Views\Home\ListProductSaleOff.cshtml" />
+    <Content Include="Views\Home\ProductType.cshtml" />
+    <Content Include="Views\Home\ListNews.cshtml" />
+    <Content Include="Views\Home\NewsDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

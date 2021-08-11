@@ -16,6 +16,7 @@ namespace Nhom8_IMUA.Controllers
             var dm = db.DanhMucs.Where(p => p.MaDM == id).ToList();
             ViewBag.LoaiSP = db.LoaiSPs.Include("SanPhams").Where(p=>p.DanhMuc.MaDM == id).Select(p => p);
             //ViewBag.SanPham = db.SanPhams.Where(p => p.LoaiSP.DanhMuc.MaDM == id).Select(p => p).Take(8);
+            List<GioHang> li = (List<GioHang>)Session["cart"];
             return View("Index", dm);
         }
 

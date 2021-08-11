@@ -6,17 +6,17 @@ namespace Nhom8_IMUA.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("KhachHang")]
-    public partial class KhachHang
+    [Table("NguoiDung")]
+    public partial class NguoiDung
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KhachHang()
+        public NguoiDung()
         {
             HoaDons = new HashSet<HoaDon>();
         }
 
         [Key]
-        public int MaKH { get; set; }
+        public int MaND { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -30,6 +30,9 @@ namespace Nhom8_IMUA.Models
         [StringLength(100)]
         public string HoTen { get; set; }
 
+        [Column(TypeName = "text")]
+        public string AnhDaiDien { get; set; }
+
         [Required]
         [StringLength(50)]
         public string SoDT { get; set; }
@@ -41,6 +44,8 @@ namespace Nhom8_IMUA.Models
         [Required]
         [StringLength(50)]
         public string Email { get; set; }
+
+        public bool Loai { get; set; }
 
         public bool TrangThai { get; set; }
 

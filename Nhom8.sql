@@ -8,29 +8,19 @@ go
 use [Nhom8]
 go
 --------------------------------------------------------------------------------------------------------------------------
-Create table [KhachHang]
+Create table [NguoiDung]
 (
-	[MaKH] Integer Identity NOT NULL,
-	[TenDangNhap] Varchar(50) NOT NULL,
-	[MatKhau] Varchar(50) NOT NULL,
+	[MaND] Integer Identity NOT NULL,
+	[TenDangNhap] Nvarchar(50) NOT NULL,
+	[MatKhau] Nvarchar(50) NOT NULL,
 	[HoTen] Nvarchar(100) NOT NULL,
+	[AnhDaiDien] Text NULL,
 	[SoDT] Varchar(50) NOT NULL,
 	[DiaChi] Ntext NOT NULL,
 	[Email] Varchar(50) NOT NULL,
-	[TrangThai] Bit NOT NULL, --- 1: Active / 0: Disable
-Primary Key ([MaKH])
-) 
-go
-
-Create table [QuanTri]
-(
-	[MaQT] Integer Identity NOT NULL,
-	[TenDangNhap] Varchar(50) NOT NULL,
-	[MatKhau] Varchar(50) NOT NULL,
-	[AnhDaiDien] Text NOT NULL,
-	[HoTen] Nvarchar(100) NOT NULL,
-	[LoaiTK] Bit NOT NULL, --- 1: Quản trị viên / 0: Nhân viên
-Primary Key ([MaQT])
+	[Loai] Bit NOT NULL, --- 0: Khách hàng / 1: Quản trị viên
+	[TrangThai] Bit NOT NULL, --- 0: Disable / 1: Active
+Primary Key ([MaND])
 ) 
 go
 
@@ -74,7 +64,7 @@ Create table [HoaDon]
 	[PhiVanChuyen] Money NOT NULL,
 	[ThanhTien] Money NOT NULL,
 	[NgayMua] Datetime NOT NULL,
-	[MaKH] Integer NULL,
+	[MaND] Integer NULL,
 Primary Key ([MaHD])
 ) 
 go
@@ -99,26 +89,21 @@ Primary Key ([MaHD],[MaSP])
 ) 
 go
 
-Alter table [HoaDon] add  foreign key([MaKH]) references [KhachHang] ([MaKH])  on update cascade on delete cascade
+Alter table [HoaDon] add  foreign key([MaND]) references [NguoiDung] ([MaND])  on update no action on delete no action 
 go
-Alter table [LoaiSP] add  foreign key([MaDM]) references [DanhMuc] ([MaDM])  on update cascade on delete cascade 
+Alter table [LoaiSP] add  foreign key([MaDM]) references [DanhMuc] ([MaDM])  on update no action on delete no action 
 go
-Alter table [SanPham] add  foreign key([MaLoai]) references [LoaiSP] ([MaLoai])  on update cascade on delete cascade 
+Alter table [SanPham] add  foreign key([MaLoai]) references [LoaiSP] ([MaLoai])  on update no action on delete no action 
 go
-Alter table [ChiTietHoaDon] add  foreign key([MaSP]) references [SanPham] ([MaSP])  on update cascade on delete cascade 
+Alter table [ChiTietHoaDon] add  foreign key([MaSP]) references [SanPham] ([MaSP])  on update no action on delete no action 
 go
-Alter table [ChiTietHoaDon] add  foreign key([MaHD]) references [HoaDon] ([MaHD])  on update cascade on delete cascade
+Alter table [ChiTietHoaDon] add  foreign key([MaHD]) references [HoaDon] ([MaHD])  on update no action on delete no action 
 go
 --------------------------------------------------------------------------------------------------------------------------
-Insert into [KhachHang] values ('levulong', '123456', N'Lê Vũ Long', '0147852369', N'Thanh Sơn - Phú Thọ', 'levulong@gmail.com', '1')
-Insert into [KhachHang] values ('phamanhduong', '123456', N'Phạm Anh Dương', '0146523789', N'Hòa Đức - Hà Nội', 'phamanhduong@gmail.com', '0')
-Insert into [KhachHang] values ('nguyenvantien', '123456', N'Nguyễn Văn Tiến', '0123654789', N'Thanh Hóa', 'nguyenvantien@gmail.com', '1')
-Insert into [KhachHang] values ('phamduyhung', '123456', N'Phạm Duy Hưng', '0951236478', N'Cầu Diễn - Hà Nội', 'phamduyhung@gmail.com', '1')
-
-Insert into [QuanTri] values ('admin1', '123456', 'admin1.png', N'Lê Vũ Long', '1')
-Insert into [QuanTri] values ('admin2', '123456', 'admin2.png', N'Nguyễn Văn Tiến', '1')
-Insert into [QuanTri] values ('employee1', '123456', 'employee1.png', N'Phạm Anh Dương', '0')
-Insert into [QuanTri] values ('employee2', '123456', 'employee2.png', N'Phạm Duy Hưng', '0')
+Insert into [NguoiDung] values ('levulong', '123456', N'Lê Vũ Long', 'admin1.png', '0147852369', N'Thanh Sơn - Phú Thọ', 'levulong@gmail.com', '1', '1')
+Insert into [NguoiDung] values ('nguyenvantien', '123456', N'Nguyễn Văn Tiến', 'admin2.png', '0159784632', N'Thanh Hóa', 'nguyenvantien@gmail.com', '1', '1')
+Insert into [NguoiDung] values ('phamanhduong', '123456', N'Phạm Anh Dương', 'customer1.png', '0345612987', N'Hòa Đức - Hà Nội', 'phamanhduong@gmail.com', '0', '1')
+Insert into [NguoiDung] values ('phamduyhung', '123456', N'Phạm Duy Hưng', 'customer2.png', '0951236478', N'Cầu Diễn - Hà Nội', 'phamduyhung@gmail.com', '0', '0')
 
 Insert into [DanhMuc] values (N'Mỹ Phẩm Trang Điểm', 'dm1.png', 'icon-dm1.png')
 Insert into [DanhMuc] values (N'Hỗ Trợ Điều Trị', 'dm2.png', 'icon-dm2.png')
@@ -245,8 +230,7 @@ Insert into [TinTuc] values (N'Cách trị sẹo lõm thủy đậu từ thiên 
 Insert into [TinTuc] values (N'Cách trị sẹo lõm và những sai lầm bạn chưa biết', N'Những vết sẹo lõm khiến chúng ta mất tự tin trong cuộc sống và luôn tìm phương pháp loại bỏ chúng. Vậy đâu mới là cách trị sẹo lõm an toàn, hiệu quả và nhanh chóng, bạn hãy cùng theo dõi qua bài viết sau.', N'Sẹo lõm hình thành từ những tổn thương do kết cấu các mô da và collagen bị đứt gãy, tế bào không hấp thu được dưỡng chất làm đầy vùng da bị lõm. Cách trị sẹo lõm lâu nămtại nhà từ các nguyên liệu dân gian được rất nhiều người tin dùng, bạn có thể sử dụng các nguyên liệu như: chanh, nghệ, mật ong, nha đam… Ưu điểm của các phương pháp tự nhiên sẽ có giá thành rẻ, dễ tìm kiếm, dễ áp dụng tại nhà. Tuy nhiên, dùng nguyên liệu tự nhiên sẽ khiến tốn thời gian để nhận thấy hiệu quả. ', 'tintuc4.png')
 Insert into [TinTuc] values (N'Đi tìm cách trị sẹo lồi hiệu quả, nhanh chóng', N'Cách trị sẹo lồi nhanh chóng hiệu quả luôn là ước muốn của hầu hết người bị sẹo. Bởi sẹo lồi không chỉ khiến bạn đau đớn, gây tổn thương da mà còn khiến bạn mất tự tin trong cuộc sống. Vậy để loại bỏ sẹo lồi tốt nhất bạn hãy cùng theo dõi qua bài viết sau.', N'Trị sẹo bằng cách tiêm thuốc: Bằng cách tiêm trực tiếp chất Corticosteroid vào mô sẹo sẽ giúp phá hủy cấu trúc tổ chức của sẹo, giảm kích thích và giúp sẹo xẹp dần. Thế nhưng việc điều trị thường kéo dài từ 6 – 12 tháng, gây tốn kém và dễ khiến bị teo da tại vùng tiêm, rối loạn kinh nguyệt, mất sắc tố không hồi phục. Phẩu thuật cắt bỏ: Dành cho những vùng sẹo lớn, bác sĩ sẽ giúp bạn cắt bỏ vùng sẹo và ghép da nhằm giảm lực căng trên toàn bộ da được khâu. Nhược điểm của cách trị sẹo lồi công nghệ này là không làm dứt điểm sẹo, gây đau đớn, dễ bị tái phát. Phẩu thuật lạnh: Sử dụng ni tơ lỏng để phá hủy tổ chức của sẹo làm cho sẹo xẹp xuống, giúp bạn loại bỏ sẹo nhanh hơn.', 'tintuc5.png')
 
-select * from [KhachHang]
-select * from [QuanTri]
+select * from [NguoiDung]
 select * from [DanhMuc]
 select * from [LoaiSP]
 select * from [SanPham]

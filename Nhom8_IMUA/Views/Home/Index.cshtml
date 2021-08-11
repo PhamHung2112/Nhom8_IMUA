@@ -100,24 +100,24 @@
     {
         <div class="category">
             <div class="category__nav">
-                <a href="@Url.Action("Index", "ProductType",new { id = item.MaDM })">
+                <a href="@Url.Action("Index", "Category",new { id = item.MaDM })">
                     <h2>@item.TenDM</h2>
                 </a>
                 <div class="navbar">
                     <ul>
                         @foreach (var subitem in item.LoaiSPs)
                         {
-                            <li><a href="@Url.Action("Index", "ProductType",new { id = subitem.MaLoai })" class="btnItem">@subitem.TenLoai</a></li>
+                            <li><a href="@Url.Action("ProductType", "Home",new { id = subitem.MaLoai })" class="btnItem">@subitem.TenLoai</a></li>
                         }
                     </ul>
                 </div>
-                <a href="@Url.Action("Index", "ProductType",new { id = item.MaDM })" class="category__more">Xem thêm</a>
+                <a href="@Url.Action("Index", "Category",new { id = item.MaDM })" class="category__more">Xem thêm</a>
             </div>
             <div class="category__content">
                 <div class="container">
                     <div class="content__left">
                         <div class="content__banner">
-                            <a href="@Url.Action("Index", "ProductType",new { id = item.MaDM })">
+                            <a href="@Url.Action("Index", "Category",new { id = item.MaDM })">
                                 @if (item.MaDM == 1)
                                 {
                                     <img src="~/assets/img/my-pham-trang-diem-menu-left.jpg" alt="">
@@ -167,7 +167,7 @@
                     </div>
                     <div class="product__info">
                         <h3 class="product__title">
-                            <a href="@Url.Action("NewsDetail", "News", new { id = item.MaTinTuc })">@item.TieuDe</a>
+                            <a href="@Url.Action("NewsDetail", "Home", new { id = item.MaTinTuc })">@item.TieuDe</a>
                         </h3>
                         <div class="product__subtitle">
                             <p>
@@ -190,6 +190,7 @@
         </div>
     </div>
 </main>
+
 
 
 

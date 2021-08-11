@@ -26,11 +26,11 @@ namespace Nhom8_IMUA.Models
 
         public DateTime NgayMua { get; set; }
 
-        public int? MaKH { get; set; }
+        public int? MaND { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
 
-        public virtual KhachHang KhachHang { get; set; }
+        public virtual NguoiDung NguoiDung { get; set; }
     }
 }

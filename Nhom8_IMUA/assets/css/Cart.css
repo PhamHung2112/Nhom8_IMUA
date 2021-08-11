@@ -146,3 +146,30 @@ td {
     .cart__infor:last-child {
         margin-bottom: 5.8rem;
     }
+.cart__button {
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem 0;
+    align-items: center;
+}
+
+.ship-code {
+    display: flex;
+}
+
+    .ship-code span {
+        font-size: 1.4rem;
+        color: red;
+        font-weight: 700;
+        margin-left: 1rem;
+        display: inline-block;
+    }
+
+.cart__button a {
+    color: var(--titleColor);
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    padding: 0.95rem 3.3rem;
+}
