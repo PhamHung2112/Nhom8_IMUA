@@ -377,15 +377,20 @@ visibility: hidden;
 transition: all 0.5s ease-out 0s;
 }
 
-.search__box input {
-border: 0.1rem solid var(--borderColor);
-outline: none;
-padding: 1rem;
-color: #999;
-font-size: 1.4rem;
-width: 100%;
-margin: 0 2rem;
-}
+    .search__box form {
+        border: 0.1rem solid var(--borderColor);
+        outline: none; /* padding: 1rem; */
+        color: #999;
+        font-size: 1.4rem;
+        width: 100%;
+        margin: 0 2rem;
+        align-content: center; /* margin: 20px; */
+    }
+
+        .search__box form input {
+            padding: 1rem;
+            width: 100%;
+        }
 
 .nav:last-child .nav__menu > .nav__item:nth-last-child(2):hover .search__box {
 opacity: 1;

@@ -7,10 +7,15 @@
 div.phan-trang {
     display: flex;
     text-align: center;
+    position: relative;
 }
 
 .phan-trang .pagination-container {
     margin: auto;
+}
+
+.pagination a {
+    color: #333;
 }
 
 .phan-trang .pagination:before {

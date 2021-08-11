@@ -62,11 +62,14 @@ namespace Nhom8_IMUA.Controllers
             return PartialView(cart);
         }
 
-        public ActionResult ListProductSaleOff()
+        public ActionResult ListProductSaleOff(int? page)
         {
             List<GioHang> li = (List<GioHang>)Session["cart"];
             var sp = db.SanPhams.Where(p => p.KhuyenMai != 0).Select(p => p);
-            return PartialView(sp);
+            sp = sp.OrderBy(s => s.MaSP);
+            int pageSize = 12;
+            int pageNumber = (page ?? 1);
+            return PartialView(sp.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult ProductType(int? id)

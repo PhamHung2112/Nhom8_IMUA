@@ -46,6 +46,7 @@ namespace Nhom8_IMUA.Controllers
                     sanphams = sanphams.OrderBy(s => s.MaSP);
                     break;
             }
+            ViewData["Count"] = sanphams.Count().ToString();
             int pageSize = 12;
             int pageNumber = (page ?? 1);
             return View(sanphams.ToPagedList(pageNumber, pageSize));
