@@ -97,5 +97,10 @@ namespace Nhom8_IMUA.Controllers
             var newsDetail = db.TinTucs.Where(s => s.MaTinTuc == id).Select(p => p);
             return PartialView("NewsDetail", newsDetail);
         }
+
+        public ActionResult Contact()
+        {
+            return PartialView();
+        }
     }
 }
