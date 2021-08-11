@@ -390,6 +390,7 @@ transition: all 0.5s ease-out 0s;
         .search__box form input {
             padding: 1rem;
             width: 100%;
+            outline: none;
         }
 
 .nav:last-child .nav__menu > .nav__item:nth-last-child(2):hover .search__box {

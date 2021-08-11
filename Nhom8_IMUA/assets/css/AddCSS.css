@@ -1,17 +1,18 @@
-﻿.search__box form {
+﻿/*.search__box form {
     border: 0.1rem solid var(--borderColor);
-    outline: none; /* padding: 1rem; */
-    color: #999;
+    outline: none;*/ /* padding: 1rem; */
+    /*color: #999;
     font-size: 1.4rem;
     width: 100%;
     margin: 0 2rem;
-    align-content: center; /* margin: 20px; */
-}
+    align-content: center;*/ /* margin: 20px; */
+/*}
 
     .search__box form input {
         padding: 1rem;
         width: 100%;
-    }
+        outline: none;
+    }*/
 
 .detail__sub .product__price {
     justify-content: flex-start;
