@@ -159,13 +159,43 @@
         </div>
     </footer>
     <!--End-->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="~/assets/js/jquery.elevateZoom-3.0.8.min.js"></script>
-    <script src="~/assets/js/main.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    @*<script src="~/assets/js/jquery.elevateZoom-3.0.8.min.js"></script>
+        <script src="~/assets/js/main.js"></script>*@
 
-    <script src="~/assets/js/controller/AddOne.js"></script>
-    <script src="~/assets/js/controller/AddMoreCart.js"></script>
-    <script src="~/assets/js/controller/UpdateCart.js"></script>
-    <script src="~/assets/js/controller/DeleleteCart.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.ajax-to-cart').off().click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: '/Cart/AddToCart',
+                    data: {
+                        id: $(this).data("id"),
+                        quantity: 1
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data != null) {
+
+                            window.location.href = $(location).attr("href");
+                            alert("Thêm vào giỏ hàng thành công!");
+                            $(".cart__number").html("(" + data.SoLuong + ")");
+                        }
+                        else {
+                            alert("Lỗi trong khi thêm vào giỏ hàng!");
+                        }
+                    },
+                    error: function () {
+                        alert("Lỗi trong khi thêm vào giỏ hàng!");
+                    }
+                });
+
+            });
+        });
+    </script>
+    @RenderSection("addMoreCart", required: false)
+    @RenderSection("scriptUp", required: false)
+    @RenderSection("scriptDel", required: false)
 </body>
 </html>

@@ -15,63 +15,63 @@
         </div>
         @if (Model != null)
         {
-    <div class="cart__item">
-        <p class="cart__qty">Giỏ hàng có: <span>@Model.Count sản phẩm</span></p>
-        <p class="cart__total">Tổng tiền: <span>@string.Format("{0:c0}", @Model.Sum(x => (x.Product.Gia - x.Product.Gia * x.Product.KhuyenMai / 100) * x.Quantity) + 10000)</span></p>
-        <table cellspacing="4" cellpadding="4" class="cart__table">
-            <thead>
-                <tr>
-                    <th>Hình ảnh</th>
-                    <th>Sản phẩm</th>
-                    <th>Số lượng</th>
-                    <th>Thành tiền</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            <a href="">
-                                <img src="~/assets/Images/SanPham/@item.Product.AnhDaiDien" alt="">
-                            </a>
-                        </td>
-                        <td>
-                            <a class="cart__link" href="">Son Dưỡng Môi có màu Ecosy Nature Tint Stick The Collagen</a>
-                            <div class="product__price">
-                                <ins>@string.Format("{0:c0}", item.Product.Gia - item.Product.Gia * item.Product.KhuyenMai / 100)</ins>
-                                <del>@string.Format("{0:c0}", item.Product.Gia)</del>
-                            </div>
-                        </td>
-                        <td>
-                            <input type="text" name="" data-id="@item.Product.MaSP" value="@item.Quantity" class="qty">
-                        </td>
-                        <td>
-                            <p>@string.Format("{0:c0}", (item.Product.Gia - item.Product.Gia * item.Product.KhuyenMai / 100) * item.Quantity)</p>
-                            <a href="" data-id="@item.Product.MaSP" class="del">Xóa</a>
-                        </td>
-                    </tr>
-                }
+            <div class="cart__item">
+                <p class="cart__qty">Giỏ hàng có: <span>@Model.Count sản phẩm</span></p>
+                <p class="cart__total">Tổng tiền: <span>@string.Format("{0:c0}", @Model.Sum(x => (x.Product.Gia - x.Product.Gia * x.Product.KhuyenMai / 100) * x.Quantity) + 10000)</span></p>
+                <table cellspacing="4" cellpadding="4" class="cart__table">
+                    <thead>
+                        <tr>
+                            <th>Hình ảnh</th>
+                            <th>Sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <a href="">
+                                        <img src="~/assets/Images/SanPham/@item.Product.AnhDaiDien" alt="">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="cart__link" href="">Son Dưỡng Môi có màu Ecosy Nature Tint Stick The Collagen</a>
+                                    <div class="product__price">
+                                        <ins>@string.Format("{0:c0}", item.Product.Gia - item.Product.Gia * item.Product.KhuyenMai / 100)</ins>
+                                        <del>@string.Format("{0:c0}", item.Product.Gia)</del>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text" name="" data-id="@item.Product.MaSP" value="@item.Quantity" class="qty txtSoLuong">
+                                </td>
+                                <td>
+                                    <p>@string.Format("{0:c0}", (item.Product.Gia - item.Product.Gia * item.Product.KhuyenMai / 100) * item.Quantity)</p>
+                                    <a href="" data-id="@item.Product.MaSP" class="txtDel">Xóa</a>
+                                </td>
+                            </tr>
+                        }
 
-            </tbody>
-        </table>
-        <div class="cart__infor">
-            <p>Tạm tính: <span>@string.Format("{0:c0}", @Model.Sum(x => (x.Product.Gia - x.Product.Gia * x.Product.KhuyenMai / 100) * x.Quantity))</span></p>
-        </div>
-        <div class="cart__infor">
-            <p>Phí vận chuyển: <span>10.000đ</span></p>
-        </div>
-        <div class="cart__infor">
-            <p>Tổng tiền thanh toán: <span>@string.Format("{0:c0}", @Model.Sum(x => (x.Product.Gia - x.Product.Gia * x.Product.KhuyenMai / 100) * x.Quantity) + 10000)</span></p>
-        </div>
-        <div class="cart__button">
-            <div class="ship-code">
-                <input type="checkbox" name="" id="" disabled checked>
-                <span>Phương thức thanh toán: NHẬN HÀNG VÀ THANH TOÁN TẠI NHÀ !</span>
+                    </tbody>
+                </table>
+                <div class="cart__infor">
+                    <p>Tạm tính: <span>@string.Format("{0:c0}", @Model.Sum(x => (x.Product.Gia - x.Product.Gia * x.Product.KhuyenMai / 100) * x.Quantity))</span></p>
+                </div>
+                <div class="cart__infor">
+                    <p>Phí vận chuyển: <span>10.000đ</span></p>
+                </div>
+                <div class="cart__infor">
+                    <p>Tổng tiền thanh toán: <span>@string.Format("{0:c0}", @Model.Sum(x => (x.Product.Gia - x.Product.Gia * x.Product.KhuyenMai / 100) * x.Quantity) + 10000)</span></p>
+                </div>
+                <div class="cart__button">
+                    <div class="ship-code">
+                        <input type="checkbox" name="" id="" disabled checked>
+                        <span>Phương thức thanh toán: NHẬN HÀNG VÀ THANH TOÁN TẠI NHÀ !</span>
+                    </div>
+                    <a href="@Url.Action("Order","Cart")">Hoàn tất đơn hàng</a>
+                </div>
             </div>
-            <a href="">Hoàn tất đơn hàng</a>
-        </div>
-    </div>
         }
         else
         {
@@ -80,5 +80,53 @@
     </div>
 </div>
 
-<script src="~/assets/js/controller/UpdateCart.js"></script>
-<script src="~/assets/js/controller/DeleleteCart.js"></script>
+@section scriptUp{
+    <script>
+        $(document).ready(function () {
+            $(".txtSoLuong").off().change(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "/Cart/UpdateCart",
+                    type: "POST",
+                    data: {
+                        id: $(this).data("id"),
+                        quantity: $(this).val()
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        if (data != null) {
+                            window.location.href = "/Cart";
+                        } else {
+                            alert("loi");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+@section scriptDel{
+    <script>
+        $(document).ready(function () {
+            $(".txtDel").off().click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "/Cart/RemoveCart",
+                    type: "POST",
+                    data: {
+                        id: $(this).data("id")
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        if (data != null) {
+                            window.location.href = "/Cart";
+                        } else {
+                            alert("loi");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}

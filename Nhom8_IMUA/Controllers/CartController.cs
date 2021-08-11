@@ -70,5 +70,14 @@ namespace Nhom8_IMUA.Controllers
             Session["cart"] = li;
             return Json(new { Ma = id });
         }
+
+        public ActionResult Order()
+        {
+            if(Session["user_id"] == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
     }
 }
