@@ -38,7 +38,7 @@
                         {
                             @Html.AntiForgeryToken()
                             <div class="form-group">
-                                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                                @Html.ValidationSummary(false, "", new { @class = "text-error" })
                             </div>
                             <div class="form-group">
                                 <div class="form-input">
@@ -50,13 +50,15 @@
                             <div class="form-group">
                                 <div class="form-input">
                                     <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                    @Html.TextBoxFor(model => model.MatKhau, new { placeholder = "Mật khẩu" })
+                                    @Html.PasswordFor(model => model.MatKhau, new { placeholder = "Mật khẩu" })
                                 </div>
                                 @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "form-message" })
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="show-password" class="label-agree-term"><span><span></span></span>Hiển thị mật khẩu</label>
+                                <div style="display: flex; align-items: center;">
+                                    <input style="margin: 6px 10px 0 0" type="checkbox" name="agree-term" id="agree-term" class="agree-term" onclick="check()" />
+                                    <label for="show-password" class="label-agree-term">Hiển thị mật khẩu</label>
+                                </div>
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Đăng nhập" />
@@ -67,6 +69,17 @@
             </div>
         </section>
     </div>
+    <script>
+        function check() {
+            var cbElm = document.querySelector("#agree-term");
+            var pwElm = document.querySelector("#MatKhau");
+            if (cbElm.checked) {
+                pwElm.setAttribute('type', 'text');
+            } else {
+                pwElm.setAttribute('type', 'password');
+            }
+        }
+    </script>
 </body>
 
 </html>

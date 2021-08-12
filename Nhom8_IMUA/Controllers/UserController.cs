@@ -48,7 +48,7 @@ namespace Nhom8_IMUA.Controllers
                 {
                     var user = new NguoiDung();
                     user.TenDangNhap = model.TenDangNhap;
-                    user.MatKhau = model.MatKhau;
+                    user.MatKhau = Encryptor.MD5Hash(model.MatKhau);
                     user.HoTen = model.HoTen;
                     user.SoDT = model.SoDT;
                     user.Email = model.Email;

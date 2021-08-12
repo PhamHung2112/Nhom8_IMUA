@@ -541,12 +541,13 @@ label.valid:after {
 }
 
 .form-message {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 16px;
     padding: 4px 0 0;
     text-align: left;
     color: #f33a58;
     margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 .form-input {
