@@ -144,6 +144,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Common\CommonConstants.cs" />
+    <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -158,6 +161,7 @@
     <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\HoaDon.cs" />
     <Compile Include="Models\LoaiSP.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\NguoiDung.cs" />
     <Compile Include="Models\Nhom8DB.cs" />
     <Compile Include="Models\RegisterModel.cs" />
@@ -170,6 +174,7 @@
     <Content Include="assets\css\AddCSS.css" />
     <Content Include="assets\css\Cart.css" />
     <Content Include="assets\css\Home.css" />
+    <Content Include="assets\css\Login.css" />
     <Content Include="assets\css\ProductCategory.css" />
     <Content Include="assets\css\reset.css" />
     <Content Include="assets\css\setting.css" />
@@ -410,6 +415,7 @@
     <Content Include="Views\Home\NewsDetail.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using BotDetect.Web.Mvc;
 using Nhom8_IMUA.Models;
+using Nhom8_IMUA.Common;
 
 namespace Nhom8_IMUA.Controllers
 {
@@ -61,6 +62,7 @@ namespace Nhom8_IMUA.Controllers
                         ViewBag.Success = "Đăng ký thành công";
                         ModelState.Clear();
                         MvcCaptcha.ResetCaptcha("registerCaptcha");
+                        return RedirectToAction("Login", "User");
                     } else
                     {
                         ModelState.AddModelError("", "Đăng ký thất bại");
@@ -69,6 +71,56 @@ namespace Nhom8_IMUA.Controllers
                 }
             }
             return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var dao = new UserDAO();
+                var result = dao.Login(model.TenDangNhap, Encryptor.MD5Hash(model.MatKhau));
+                if (result == 1)
+                {
+                    var user = dao.GetByID(model.TenDangNhap);
+                    var userSession = new UserLogin();
+                    userSession.UserName = user.TenDangNhap;
+                    userSession.UserID = user.MaND;
+                    userSession.HoTen = user.HoTen;
+                    userSession.AnhDaiDien = user.AnhDaiDien;
+                    Session.Add(CommonConstants.USER_SESSION, userSession);
+                    return RedirectToAction("Index", "Home");
+                }
+                else if (result == 0)
+                {
+                    ModelState.AddModelError("", "Tài khoản không tồn tại");
+                }
+                else if (result == -1)
+                {
+                    ModelState.AddModelError("", "Tài khoản đã bị vô hiệu hóa");
+                }
+                else if (result == -2)
+                {
+                    ModelState.AddModelError("", "Mật khẩu không chính xác");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Đăng nhập không thành công");
+                }
+            }
+
+            return View(model);
+        }
+
+        public ActionResult Logout()
+        {
+            Session[CommonConstants.USER_SESSION] = null;
+            return RedirectToAction("Index", "Home");
         }
     }
 }

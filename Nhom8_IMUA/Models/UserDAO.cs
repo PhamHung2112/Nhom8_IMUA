@@ -30,5 +30,42 @@ namespace Nhom8_IMUA.Models
         {
             return db.NguoiDungs.Count(x => x.Email == email) > 0;
         }
+
+        public NguoiDung GetByID(string userName)
+        {
+            return db.NguoiDungs.SingleOrDefault(p => p.TenDangNhap == userName);
+        }
+
+        public int Login(string userName, string passWord)
+        {
+            var result = db.NguoiDungs.SingleOrDefault(p => p.TenDangNhap == userName);
+            if (result == null)
+            {
+                //Tài khoản không tồn tại
+                return 0;
+            }
+            else
+            {
+                if (result.TrangThai == false)
+                {
+                    //Tài khoản đã bị vô hiệu hóa
+                    return -1;
+
+                }
+                else
+                {
+                    if (result.MatKhau == passWord)
+                    {
+                        //Đúng
+                        return 1;
+                    }
+                    else
+                    {
+                        //Sai mật khẩu
+                        return -2;
+                    }
+                }
+            }
+        }
     }
 }
