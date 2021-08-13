@@ -62,7 +62,7 @@ namespace Nhom8_IMUA.Controllers
                         ViewBag.Success = "Đăng ký thành công";
                         ModelState.Clear();
                         MvcCaptcha.ResetCaptcha("registerCaptcha");
-                        return RedirectToAction("Login", "User");
+                        //return RedirectToAction("Login", "User");
                     } else
                     {
                         ModelState.AddModelError("", "Đăng ký thất bại");

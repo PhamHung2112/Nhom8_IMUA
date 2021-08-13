@@ -19,7 +19,7 @@ namespace Nhom8_IMUA.Controllers
             ViewBag.SanPhamBanChay = db.SanPhams.OrderBy(p=>p.MaSP).Select(p => p).Take(5);
 
             //Danh muc san pham
-            ViewBag.DanhMuc = db.DanhMucs.Include("LoaiSPs").Select(p => p);
+            ViewBag.DanhMuc = db.DanhMucs.Include("LoaiSPs").Select(p => p).Take(8);
 
             //Tin tuc
             ViewBag.TinTuc = db.TinTucs.Select(p => p).Take(4);
@@ -32,7 +32,7 @@ namespace Nhom8_IMUA.Controllers
         [ChildActionOnly]
         public ActionResult DanhMuc()
         {
-            var danhMuc = db.DanhMucs.Include("LoaiSPs").Select(p => p);
+            var danhMuc = db.DanhMucs.Include("LoaiSPs").Select(p => p).Take(8);
             return PartialView(danhMuc);
         }
 
