@@ -100,10 +100,10 @@ go
 Alter table [ChiTietHoaDon] add  foreign key([MaHD]) references [HoaDon] ([MaHD])  on update no action on delete no action 
 go
 --------------------------------------------------------------------------------------------------------------------------
-Insert into [NguoiDung] values ('levulong', '123456', N'Lê Vũ Long', 'admin1.png', '0147852369', N'Thanh Sơn - Phú Thọ', 'levulong@gmail.com', '1', '1')
-Insert into [NguoiDung] values ('nguyenvantien', '123456', N'Nguyễn Văn Tiến', 'admin2.png', '0159784632', N'Thanh Hóa', 'nguyenvantien@gmail.com', '1', '1')
-Insert into [NguoiDung] values ('phamanhduong', '123456', N'Phạm Anh Dương', 'customer1.png', '0345612987', N'Hòa Đức - Hà Nội', 'phamanhduong@gmail.com', '0', '1')
-Insert into [NguoiDung] values ('phamduyhung', '123456', N'Phạm Duy Hưng', 'customer2.png', '0951236478', N'Cầu Diễn - Hà Nội', 'phamduyhung@gmail.com', '0', '0')
+Insert into [NguoiDung] values ('levulong', 'e10adc3949ba59abbe56e057f20f883e', N'Lê Vũ Long', 'admin1.png', '0147852369', N'Thanh Sơn - Phú Thọ', 'levulong@gmail.com', '1', '1')
+Insert into [NguoiDung] values ('nguyenvantien', 'e10adc3949ba59abbe56e057f20f883e', N'Nguyễn Văn Tiến', 'admin2.png', '0159784632', N'Thanh Hóa', 'nguyenvantien@gmail.com', '1', '1')
+Insert into [NguoiDung] values ('phamanhduong', 'e10adc3949ba59abbe56e057f20f883e', N'Phạm Anh Dương', 'customer1.png', '0345612987', N'Hòa Đức - Hà Nội', 'phamanhduong@gmail.com', '0', '1')
+Insert into [NguoiDung] values ('phamduyhung', 'e10adc3949ba59abbe56e057f20f883e', N'Phạm Duy Hưng', 'customer2.png', '0951236478', N'Cầu Diễn - Hà Nội', 'phamduyhung@gmail.com', '0', '0')
 
 Insert into [DanhMuc] values (N'Mỹ Phẩm Trang Điểm', 'dm1.png', 'icon-dm1.png')
 Insert into [DanhMuc] values (N'Hỗ Trợ Điều Trị', 'dm2.png', 'icon-dm2.png')
