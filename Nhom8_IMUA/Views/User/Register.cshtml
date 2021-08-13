@@ -130,9 +130,9 @@
         var image = document.getElementById('output');
         var loadFile = function (event) {
             image.src = URL.createObjectURL(event.target.files[0]);
-            localStorage.setItem("imageUrl", JSON.stringify(image.src));
+            /*localStorage.setItem("imageUrl", JSON.stringify(image.src));*/
         }
-        image.src = JSON.parse(localStorage.getItem("imageUrl"));
+        //image.src = JSON.parse(localStorage.getItem("imageUrl"));
 
         var inputElements = document.querySelectorAll('.form-input input');
         var errorMessage = document.querySelectorAll('.form-message');

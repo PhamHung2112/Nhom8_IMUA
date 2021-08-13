@@ -45,11 +45,15 @@
                 {
                     <ul class="user__menu">
                         <li class="user__item">
-                            <img src="~/assets/Images/AnhDaiDien/@session.AnhDaiDien" alt="" class="user__img">
+                            @{ 
+                                string ImagePath = "~/assets/Images/AnhDaiDien/" + session.AnhDaiDien;
+                            }
+                            <img src="@Url.Content(ImagePath)" alt="" class="user__img">
                             <span class="user__name">@session.HoTen</span>
                             <div class="block"></div>
                             <ul class="user__control">
                                 <li class="user__control--item"><a href="">Tài khoản của tôi</a></li>
+                                <li class="user__control--item"><a href="">Đổi mật khẩu</a></li>
                                 <li class="user__control--item"><a href="">Đơn mua</a></li>
                                 <li class="user__control--item"><a href="@Url.Action("Logout", "User")">Đăng xuất</a></li>
                             </ul>

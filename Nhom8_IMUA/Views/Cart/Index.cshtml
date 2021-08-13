@@ -81,7 +81,17 @@
                 <input type="checkbox" name="" id="" disabled checked>
                 <span>Phương thức thanh toán: NHẬN HÀNG VÀ THANH TOÁN TẠI NHÀ !</span>
             </div>
-            <a href="#">Hoàn tất đơn hàng</a>
+            @{
+                var session = (Nhom8_IMUA.Common.UserLogin)Session[Nhom8_IMUA.Common.CommonConstants.USER_SESSION];
+            }
+            @if (session == null)
+            {
+                <a href="@Url.Action("Login", "User")">Hoàn tất đơn hàng</a>
+            }
+            else
+            {
+                <a href="@Url.Action("Register", "User")">Hoàn tất đơn hàng</a>
+            }
         </div>
     </div>
         }
