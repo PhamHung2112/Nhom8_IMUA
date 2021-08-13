@@ -235,3 +235,9 @@ select * from [DanhMuc]
 select * from [LoaiSP]
 select * from [SanPham]
 select * from [TinTuc]
+select * from [HoaDon]
+select * from [ChiTietHoaDon]
+
+delete from HoaDon where MaHD = 2
+
+

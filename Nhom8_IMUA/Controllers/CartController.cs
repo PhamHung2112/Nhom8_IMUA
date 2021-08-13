@@ -4,16 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Nhom8_IMUA.Models;
+using Nhom8_IMUA.Common;
 
 namespace Nhom8_IMUA.Controllers
 {
     public class CartController : Controller
     {
         private Nhom8DB db = new Nhom8DB();
+        private decimal money;
         // GET: Cart
         public ActionResult Index()
         {
             List<GioHang> li = (List<GioHang>)Session["cart"];
+            
             return View(li);
         }
 
@@ -42,6 +45,9 @@ namespace Nhom8_IMUA.Controllers
                     cart.Add(new GioHang() { Product = db.SanPhams.Find(id), Quantity = quantity });
                 }
                 Session["cart"] = cart;
+               
+                
+                
             }
             return Json(new { SoLuong = ((List<GioHang>)Session["cart"]).Count });
         }
@@ -73,11 +79,61 @@ namespace Nhom8_IMUA.Controllers
 
         public ActionResult Order()
         {
-            if(Session["user_id"] == null)
+            if(Session[CommonConstants.USER_SESSION] == null)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Login","User");
+            }
+            else
+            {
+                if(Session["cart"] == null)
+                {
+                    Response.Write("<script>alert('không có sản phẩm');</script>");
+                }
+                else
+                {
+                    List<GioHang> li = (List<GioHang>)Session["cart"];
+                    foreach (var item in li)
+                    {
+                        money += (item.Product.Gia - (item.Product.Gia * item.Product.KhuyenMai) / 100) * item.Quantity;
+                    }
+                    UserLogin user = (UserLogin)Session[CommonConstants.USER_SESSION];
+                    HoaDon invoid = new HoaDon();
+                    invoid.MaND = user.UserID;
+                    if (money >= 400000)
+                    {
+                        invoid.PhiVanChuyen = 0;
+                    }
+                    else
+                    {
+                        invoid.PhiVanChuyen = 10000;
+                    }
+                    invoid.NgayMua = System.DateTime.Now;
+                    invoid.ThanhTien = decimal.Parse(money + "") + invoid.PhiVanChuyen;
+                    db.HoaDons.Add(invoid);
+                    db.SaveChanges();
+
+                    //thêm chi tiết hóa đơn
+                    OrderDetial(invoid);
+                }
+                
             }
             return View();
+        }
+
+        public void OrderDetial(HoaDon invoid)
+        {
+           
+            List<GioHang> cart = (List<GioHang>)Session["cart"];
+            foreach (var item in cart)
+            {
+                ChiTietHoaDon detailInvoid = new ChiTietHoaDon();
+                detailInvoid.MaHD = invoid.MaHD;
+                detailInvoid.MaSP = item.Product.MaSP;
+                detailInvoid.SoLuong = item.Quantity;
+
+                db.ChiTietHoaDons.Add(detailInvoid);
+                db.SaveChanges();
+            }
         }
     }
 }
