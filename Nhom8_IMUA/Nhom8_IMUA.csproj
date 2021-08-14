@@ -144,11 +144,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-<<<<<<< HEAD
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
-=======
     <Compile Include="Areas\Admin\Controllers\CustomerController.cs" />
->>>>>>> origin/tien
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
