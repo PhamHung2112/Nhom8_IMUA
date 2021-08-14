@@ -1,5 +1,6 @@
 ﻿@model PagedList.IPagedList<Nhom8_IMUA.Models.NguoiDung>
 @using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Index";
@@ -53,10 +54,9 @@
                                 </tr>
                             }
                         </tbody>
-
                     </table>
-                    <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("ListNews", new { page }))</div>
                 </div>
+                <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
             </div>
         </div>
     </div>

@@ -13,6 +13,17 @@
             <div class="card-body">
                 <div class="table-header">
                     <h4 class="card-title">Danh sách sản phẩm</h4>
+                    <div class="header__middle--search">
+                        <div action="" class="header__search--input">
+                            @using (Html.BeginForm("Index", "SanPham"))
+                            {
+                                <input type="text" placeholder="Tìm kiếm sản phẩm..." id="SearchString" name="SearchString" />
+                                <button type="submit" class="header__search--icon">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            }
+                        </div>
+                    </div>
                     <a class="btn btn-primary">
                         <i class="ti-plus"></i>
                     </a>
@@ -55,7 +66,7 @@
                             }
                         </tbody>
                     </table>
-                    <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
+                    <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))</div>
                 </div>
             </div>
         </div>
