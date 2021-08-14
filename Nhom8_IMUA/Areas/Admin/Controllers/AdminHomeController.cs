@@ -16,14 +16,5 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         {
             return View();
         }
-
-        public ActionResult SanPham(int? page)
-        {
-            var sanPham = db.SanPhams.Select(x => x);
-            sanPham = sanPham.OrderBy(s => s.MaSP);
-            int pageSize = 10;
-            int pageNumber = (page ?? 1);
-            return PartialView(sanPham.ToPagedList(pageNumber, pageSize));
-        }
     }
 }
