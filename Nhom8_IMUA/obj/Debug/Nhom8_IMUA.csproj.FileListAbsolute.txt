@@ -271,7 +271,6 @@ E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CoreCo
 E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CopyComplete
 E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.dll
 E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.pdb
-<<<<<<< HEAD
 D:\asp-project\Nhom8_IMUA\bin\Nhom8_IMUA.dll.config
 D:\asp-project\Nhom8_IMUA\bin\Nhom8_IMUA.dll
 D:\asp-project\Nhom8_IMUA\bin\Nhom8_IMUA.pdb
@@ -455,4 +454,3 @@ E:\BTL_NHOM8\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CoreCompileInputs.cache
 E:\BTL_NHOM8\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CopyComplete
 E:\BTL_NHOM8\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.dll
 E:\BTL_NHOM8\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.pdb
->>>>>>> origin/tien
