@@ -14,10 +14,22 @@
             <div class="card-body">
                 <div class="table-header">
                     <h4 class="card-title">Danh sách tài khoản</h4>
+                    <div class="header__middle--search">
+                        <div action="" class="header__search--input">
+                            @using (Html.BeginForm("Index", "Customer"))
+                            {
+                                <input type="text" placeholder="Tìm kiếm khách hàng..." id="SearchString" name="SearchString" />
+                                <button type="submit" class="header__search--icon">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            }
+                        </div>
+                    </div>
                     <a class="btn btn-primary">
                         <i class="ti-plus"></i>
                     </a>
                 </div>
+                <h4 style="text-transform: uppercase;">có <text style="color: red;">@ViewData["Count"]</text> khách hàng phù hợp với từ khoá: <text style="color: red">@ViewBag.CurrentFilter</text></h4>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -39,15 +51,33 @@
                                     <td>@item.SoDT</td>
                                     <td>@item.DiaChi</td>
                                     <td>@item.Email</td>
-                                    <td>@Html.CheckBoxFor(model => item.Loai)</td>
-                                    <td>@Html.CheckBoxFor(model => item.TrangThai)</td>
+                                    <td>
+                                        @if (item.Loai.Equals(false))
+                                        {
+                                            <span>User</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Admin</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("ChangeStatus","Customer",new { id = item.MaND })" style="text-decoration: none; color: #f27922;;">
+                                            @if (item.TrangThai.Equals(false))
+                                            {
+                                                <span style="color: dodgerblue;">Disable</span>
+                                            }
+                                            else
+                                            {
+                                                <span style="color: #f27922;">Active</span>
+                                            }
+                                        </a>
+                                        @Html.HiddenFor(model => item.MaND)
+                                    </td>
                                     <td>
                                         <div>
                                             <a class="btn btn-primary">
                                                 <i class="ti-eye"></i>
-                                            </a> &nbsp;
-                                            <a class="btn btn-primary">
-                                                <i class="ti-pencil-alt"></i>
                                             </a>
                                         </div>
                                     </td>
@@ -56,7 +86,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
+                <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))</div>
             </div>
         </div>
     </div>
