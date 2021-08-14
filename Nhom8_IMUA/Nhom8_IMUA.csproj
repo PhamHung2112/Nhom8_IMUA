@@ -484,7 +484,6 @@
     <Content Include="Areas\Admin\assets\css\maps\vertical-layout-light\style.css.map" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Customer\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Customer\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SanPham\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DanhMuc\Index.cshtml" />

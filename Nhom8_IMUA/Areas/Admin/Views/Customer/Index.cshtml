@@ -9,54 +9,76 @@
 
 
 
-    <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card">
-            <div class="card-body">
-                <div class="table-header">
-                    <h4 class="card-title">Danh sách tài khoản</h4>
-                    <a class="btn btn-primary">
-                        <i class="ti-plus"></i>
-                    </a>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Họ tên</th>
-                                <th>Số điện thoại</th>
-                                <th>Địa chỉ</th>
-                                <th>Email</th>
-                                <th>Loại tài khoản</th>
-                                <th>Trạng thái</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>@item.HoTen</td>
-                                    <td>@item.SoDT</td>
-                                    <td>@item.DiaChi</td>
-                                    <td>@item.Email</td>
-                                    <td>@Html.CheckBoxFor(model => item.Loai)</td>
-                                    <td>@Html.CheckBoxFor(model => item.TrangThai)</td>
-                                    <td>
-                                        <div>
-                                            <a class="btn btn-primary">
-                                                <i class="ti-eye"></i>
-                                            </a> &nbsp;
-                                            <a class="btn btn-primary">
-                                                <i class="ti-pencil-alt"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-                <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-header">
+                <h4 class="card-title">Danh sách tài khoản</h4>
+                <a class="btn btn-primary">
+                    <i class="ti-plus"></i>
+                </a>
             </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Họ tên</th>
+                            <th>Số điện thoại</th>
+                            <th>Địa chỉ</th>
+                            <th>Email</th>
+                            <th>Loại tài khoản</th>
+                            <th>Trạng thái</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.HoTen</td>
+                                <td>@item.SoDT</td>
+                                <td>@item.DiaChi</td>
+                                <td>@item.Email</td>
+                                <td>
+                                    @if (item.Loai.Equals(false))
+                                    {
+                                        <span>User</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Admin</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("ChangeStatus","Customer",new { id = item.MaND })" style="text-decoration: none; color: #f27922;;">
+                                        @if (item.TrangThai.Equals(false))
+                                        {
+                                            <span style="color: dodgerblue;">Disable</span>
+                                        }
+                                        else
+                                        {
+                                            <span style="color: #f27922;">Active</span>
+                                        }
+                                    </a>
+                                    @Html.HiddenFor(model => item.MaND)
+                                </td>
+                                <td>
+                                    <div>
+                                        <a class="btn btn-primary">
+                                            <i class="ti-eye"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
         </div>
     </div>
+</div>
+<script>
+
+</script>
