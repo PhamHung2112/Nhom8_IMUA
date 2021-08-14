@@ -478,13 +478,10 @@
     <Content Include="Areas\Admin\assets\vendors\ti-icons\fonts\themify.woff" />
     <Content Include="Areas\Admin\assets\css\maps\vertical-layout-light\style.css.map" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-<<<<<<< HEAD
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\SanPham.cshtml" />
-=======
     <Content Include="Areas\Admin\Views\Customer\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Customer\Index.cshtml" />
->>>>>>> origin/tien
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
