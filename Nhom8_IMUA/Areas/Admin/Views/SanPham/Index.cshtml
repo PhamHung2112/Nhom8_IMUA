@@ -3,7 +3,7 @@
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
-    ViewBag.Title = "SanPham";
+    ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -55,7 +55,7 @@
                             }
                         </tbody>
                     </table>
-                    <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("SanPham", new { page }))</div>
+                    <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
                 </div>
             </div>
         </div>
