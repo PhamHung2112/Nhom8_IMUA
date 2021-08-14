@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<Nhom8_IMUA.Models.SanPham>
+﻿@model PagedList.IPagedList<Nhom8_IMUA.Models.DanhMuc>
 @using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
@@ -11,12 +11,12 @@
     <div class="card">
         <div class="card-body">
             <div class="table-header">
-                <h4 class="card-title">Danh sách sản phẩm</h4>
+                <h4 class="card-title">Danh sách danh mục</h4>
                 <div class="header__middle--search">
                     <div action="" class="header__search--input">
-                        @using (Html.BeginForm("Index", "SanPham"))
+                        @using (Html.BeginForm("Index", "DanhMuc"))
                         {
-                            <input type="text" placeholder="Tìm kiếm sản phẩm..." id="SearchString" name="SearchString" />
+                            <input type="text" placeholder="Tìm kiếm danh mục sản phẩm..." id="SearchString" name="SearchString" />
                             <button type="submit" class="header__search--icon">
                                 <i class="fas fa-search"></i>
                             </button>
@@ -27,16 +27,13 @@
                     <i class="ti-plus"></i>
                 </a>
             </div>
-            <h4 style="text-transform: uppercase;">có <text style="color: red;">@ViewData["Count"]</text> sản phẩm phù hợp với từ khoá: <text style="color: red">@ViewBag.CurrentFilter</text></h4>
+            <h4 style="text-transform: uppercase;">có <text style="color: red;">@ViewData["Count"]</text> danh mục phù hợp với từ khoá: <text style="color: red">@ViewBag.CurrentFilter</text></h4>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Tên sản phẩm</th>
-                            <th>Giá</th>
-                            <th>Khuyến mãi (%)</th>
-                            <th>Xuất xứ</th>
-                            <th>Trọng lượng</th>
+                            <th>Mã danh mục</th>
+                            <th>Tên danh mục</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -44,11 +41,8 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@item.TenSP</td>
-                                <td>@string.Format("{0:c0}", item.Gia)</td>
-                                <td>@item.KhuyenMai</td>
-                                <td>@item.XuatXu</td>
-                                <td>@string.Format("{0:c0}", item.TrongLuong)</td>
+                                <td>@item.MaDM</td>
+                                <td>@item.TenDM</td>
                                 <td>
                                     <div>
                                         <a class="btn btn-primary">
