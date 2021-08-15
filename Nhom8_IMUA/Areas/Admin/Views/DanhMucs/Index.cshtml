@@ -14,7 +14,7 @@
                 <h4 class="card-title">Danh sách danh mục</h4>
                 <div class="header__middle--search">
                     <div action="" class="header__search--input">
-                        @using (Html.BeginForm("Index", "DanhMuc"))
+                        @using (Html.BeginForm("Index", "DanhMucs"))
                         {
                             <input type="text" placeholder="Tìm kiếm danh mục sản phẩm..." id="SearchString" name="SearchString" />
                             <button type="submit" class="header__search--icon">
@@ -23,7 +23,7 @@
                         }
                     </div>
                 </div>
-                <a class="btn btn-primary">
+                <a class="btn btn-primary" href="@Url.Action("Create", "DanhMucs")">
                     <i class="ti-plus"></i>
                 </a>
             </div>
@@ -45,13 +45,13 @@
                                 <td>@item.TenDM</td>
                                 <td>
                                     <div>
-                                        <a class="btn btn-primary">
+                                        <a class="btn btn-primary" href="@Url.Action("Details", "DanhMucs", new { id = item.MaDM })">
                                             <i class="ti-eye"></i>
                                         </a> &nbsp;
-                                        <a class="btn btn-primary">
+                                        <a class="btn btn-primary" href="@Url.Action("Edit", "DanhMucs", new { id = item.MaDM })">
                                             <i class="ti-pencil-alt"></i>
                                         </a> &nbsp;
-                                        <a class="btn btn-primary">
+                                        <a class="btn btn-primary" href="@Url.Action("Delete", "DanhMucs", new { id = item.MaDM })">
                                             <i class="ti-trash"></i>
                                         </a>
                                     </div>
