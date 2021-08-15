@@ -23,7 +23,7 @@
                         }
                     </div>
                 </div>
-                <a class="btn btn-primary">
+                <a class="btn btn-primary" href="@Url.Action("Create", "LoaiSPs")">
                     <i class="ti-plus"></i>
                 </a>
             </div>
@@ -47,13 +47,13 @@
                                 <td>@item.DanhMuc.TenDM</td>
                                 <td>
                                     <div>
-                                        <a class="btn btn-primary">
+                                        <a class="btn btn-primary" href="@Url.Action("Details", "LoaiSPs", new { id = item.MaLoai })">
                                             <i class="ti-eye"></i>
                                         </a> &nbsp;
-                                        <a class="btn btn-primary">
+                                        <a class="btn btn-primary" href="@Url.Action("Edit", "LoaiSPs", new { id = item.MaLoai })">
                                             <i class="ti-pencil-alt"></i>
                                         </a> &nbsp;
-                                        <a class="btn btn-primary">
+                                        <a class="btn btn-primary" href="@Url.Action("Delete", "LoaiSPs", new { id = item.MaLoai })">
                                             <i class="ti-trash"></i>
                                         </a>
                                     </div>
