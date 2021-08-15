@@ -89,6 +89,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/TinTucs/Edit/5
+        [ValidateInput(false)]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -107,6 +108,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MaTinTuc,TieuDe,TomTat,NoiDung,AnhTinTuc")] TinTuc tinTuc)
         {
