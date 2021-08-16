@@ -157,6 +157,7 @@
     <Compile Include="Areas\Admin\Controllers\TinTucsController.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Common\HasCredentialAttribute .cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -168,6 +169,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ChiTietHoaDon.cs" />
+    <Compile Include="Models\Credential.cs" />
     <Compile Include="Models\DanhMuc.cs" />
     <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\HoaDon.cs" />
@@ -176,9 +178,11 @@
     <Compile Include="Models\NguoiDung.cs" />
     <Compile Include="Models\Nhom8DB.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\SanPham.cs" />
     <Compile Include="Models\TinTuc.cs" />
     <Compile Include="Models\UserDAO.cs" />
+    <Compile Include="Models\UserGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1627,6 +1631,7 @@
     <Content Include="Areas\Admin\assets\js\plugin\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Areas\Admin\assets\js\plugin\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <Content Include="Areas\Admin\assets\js\plugin\ckfinder\userfiles\.htaccess" />
+    <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1668,6 +1673,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\ChangeInfor.cshtml" />
+    <Content Include="Views\User\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

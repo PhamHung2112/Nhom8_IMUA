@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using Nhom8_IMUA.Models;
+using Nhom8_IMUA.Common;
 
 namespace Nhom8_IMUA.Areas.Admin.Controllers
 {
@@ -14,6 +15,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         private Nhom8DB db = new Nhom8DB();
 
         // GET: Admin/DanhMucs
+        [HasCredential(RoleID = "VIEW_DANHMUC")]
         public ActionResult Index(string sortOrder, string searchString, string currentFilter, int? page)
         {
             ViewBag.CurrentSort = sortOrder;
@@ -51,6 +53,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/DanhMucs/Details/5
+        [HasCredential(RoleID = "VIEW_DANHMUC")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -66,6 +69,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/DanhMucs/Create
+        [HasCredential(RoleID = "ADD_DANHMUC")]
         public ActionResult Create()
         {
             return View();
@@ -78,17 +82,43 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MaDM,TenDM,AnhDM,BieuTuong")] DanhMuc danhMuc)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.DanhMucs.Add(danhMuc);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    danhMuc.AnhDM = "";
+                    danhMuc.BieuTuong = "";
+                    var f1 = Request.Files["ImageFile"];
+                    var f2 = Request.Files["ImageFile2"];
+
+                    if (f1 != null && f1.ContentLength > 0)
+                    {
+                        string FileName = System.IO.Path.GetFileName(f1.FileName);
+                        string UploadPath = Server.MapPath("~/assets/Images/DanhMuc/" + FileName);
+                        f1.SaveAs(UploadPath);
+                        danhMuc.AnhDM = FileName;
+                    }
+                    if (f2 != null && f2.ContentLength > 0)
+                    {
+                        string FileName = System.IO.Path.GetFileName(f2.FileName);
+                        string UploadPath = Server.MapPath("~/assets/Images/DanhMuc/" + FileName);
+                        f2.SaveAs(UploadPath);
+                        danhMuc.BieuTuong = FileName;
+                    }
+                    db.DanhMucs.Add(danhMuc);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            } catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message;
             }
 
             return View(danhMuc);
         }
 
         // GET: Admin/DanhMucs/Edit/5
+        [HasCredential(RoleID = "EDIT_DANHMUC")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -120,6 +150,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/DanhMucs/Delete/5
+        [HasCredential(RoleID = "DELETE_DANHMUC")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

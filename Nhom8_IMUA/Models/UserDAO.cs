@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Nhom8_IMUA.Models;
+using Nhom8_IMUA.Common;
 
 namespace Nhom8_IMUA.Models
 {
@@ -56,8 +57,16 @@ namespace Nhom8_IMUA.Models
                 {
                     if (result.MatKhau == passWord)
                     {
-                        //Đúng
-                        return 1;
+                        if (result.GroupID == CommonConstants.ADMIN_GROUP || result.GroupID == CommonConstants.MOD_GROUP)
+                        {
+                            //admin and mod
+                            return 2;
+                        }
+                        else
+                        {
+                            //member
+                            return 1;
+                        }
                     }
                     else
                     {
@@ -66,6 +75,30 @@ namespace Nhom8_IMUA.Models
                     }
                 }
             }
+        }
+
+        public NguoiDung ViewDetails(int id)
+        {
+            return db.NguoiDungs.Find(id);
+        }
+
+        public List<string> GetListCredential(string userName)
+        {
+            var user = db.NguoiDungs.Single(x => x.TenDangNhap == userName);
+            var data = (from a in db.Credentials
+                        join b in db.UserGroups on a.GroupID equals b.GroupID
+                        join c in db.Roles on a.RoleID equals c.RoleID
+                        where b.GroupID == user.GroupID
+                        select new
+                        {
+                            RoleID = a.RoleID,
+                            GroupID = a.GroupID
+                        }).AsEnumerable().Select(x => new Credential()
+                        {
+                            RoleID = x.RoleID,
+                            GroupID = x.GroupID
+                        });
+            return data.Select(x => x.RoleID).ToList();
         }
     }
 }

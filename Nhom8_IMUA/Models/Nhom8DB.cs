@@ -12,13 +12,16 @@ namespace Nhom8_IMUA.Models
         {
         }
 
+        public virtual DbSet<Credential> Credentials { get; set; }
         public virtual DbSet<ChiTietHoaDon> ChiTietHoaDons { get; set; }
         public virtual DbSet<DanhMuc> DanhMucs { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<LoaiSP> LoaiSPs { get; set; }
         public virtual DbSet<NguoiDung> NguoiDungs { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<TinTuc> TinTucs { get; set; }
+        public virtual DbSet<UserGroup> UserGroups { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -65,6 +68,11 @@ namespace Nhom8_IMUA.Models
                 .Property(e => e.Email)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Role>()
+                .HasMany(e => e.Credentials)
+                .WithRequired(e => e.Role)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<SanPham>()
                 .Property(e => e.AnhDaiDien)
                 .IsUnicode(false);
@@ -85,6 +93,16 @@ namespace Nhom8_IMUA.Models
             modelBuilder.Entity<TinTuc>()
                 .Property(e => e.AnhTinTuc)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<UserGroup>()
+                .HasMany(e => e.Credentials)
+                .WithRequired(e => e.UserGroup)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<UserGroup>()
+                .HasMany(e => e.NguoiDungs)
+                .WithRequired(e => e.UserGroup)
+                .WillCascadeOnDelete(false);
         }
     }
 }

@@ -7,7 +7,7 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "DanhMucs", FormMethod.Post, new { enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
     
@@ -18,7 +18,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TenDM, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TenDM, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.TenDM, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TenDM, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -26,16 +26,18 @@
         <div class="form-group">
             @Html.LabelFor(model => model.AnhDM, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.AnhDM, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AnhDM, "", new { @class = "text-danger" })
+                <img id="output" class="img-rounded" width="180" height="200" src="~/assets/Images/DanhMuc/dm6.png" />
+                <p><label for="ufile" style="cursor:pointer;">Chọn ảnh</label></p>
+                <input name="ImageFile" id="ufile" type="file" style="display:none;" onchange="loadFile(event)" />
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.BieuTuong, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.BieuTuong, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BieuTuong, "", new { @class = "text-danger" })
+                <img id="output2" class="img-rounded" width="180" height="200" src="~/assets/Images/DanhMuc/dm6.png" />
+                <p><label for="ufile2" style="cursor:pointer;">Chọn ảnh</label></p>
+                <input name="ImageFile2" id="ufile2" type="file" style="display:none;" onchange="loadFile2(event)" />
             </div>
         </div>
 
@@ -50,3 +52,21 @@
 <div>
     @Html.ActionLink("Quay lại", "Index")
 </div>
+
+<script>
+    var loadFile = function (event) {
+        var image = document.getElementById('output');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    }
+
+    var loadFile2 = function (event) {
+        var image = document.getElementById('output2');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
+
+@if(ViewBag.Error != null)
+            {
+                <br/>
+                <div class="alert-fill-warning">@ViewBag.Error</div>
+            }

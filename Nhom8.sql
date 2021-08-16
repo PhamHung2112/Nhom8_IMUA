@@ -8,6 +8,12 @@ go
 use [Nhom8]
 go
 --------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE UserGroup(
+	GroupID NVARCHAR(50) NOT NULL PRIMARY KEY,
+	[Name] NVARCHAR(200) NOT NULL
+)
+GO
+
 Create table [NguoiDung]
 (
 	[MaND] Integer Identity NOT NULL,
@@ -20,9 +26,25 @@ Create table [NguoiDung]
 	[Email] Varchar(50) NOT NULL,
 	[Loai] Bit NOT NULL, --- 0: Khách hàng / 1: Quản trị viên
 	[TrangThai] Bit NOT NULL, --- 0: Disable / 1: Active
+	[GroupID] NVARCHAR(50) NOT NULL
 Primary Key ([MaND])
 ) 
 go
+
+CREATE TABLE [Role](
+	RoleID  NVARCHAR(50) NOT NULL PRIMARY KEY,
+	[Name] NVARCHAR(200) NOT NULL
+)
+GO
+
+CREATE TABLE [Credential](
+	CredentialID  BIGINT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	GroupID NVARCHAR(50) NOT NULL,
+	RoleID  NVARCHAR(50) NOT NULL,
+	CONSTRAINT fk_Credential_UserGroup FOREIGN KEY (GroupID) REFERENCES UserGroup(GroupID),
+	CONSTRAINT fk_Credential_Role FOREIGN KEY (RoleID) REFERENCES Role(RoleID)
+)
+GO
 
 Create table [DanhMuc]
 (
@@ -89,6 +111,8 @@ Primary Key ([MaHD],[MaSP])
 ) 
 go
 
+Alter table [NguoiDung] add  foreign key([GroupID]) references UserGroup ([GroupID])  on update no action on delete no action 
+go
 Alter table [HoaDon] add  foreign key([MaND]) references [NguoiDung] ([MaND])  on update no action on delete no action 
 go
 Alter table [LoaiSP] add  foreign key([MaDM]) references [DanhMuc] ([MaDM])  on update no action on delete no action 
@@ -100,10 +124,74 @@ go
 Alter table [ChiTietHoaDon] add  foreign key([MaHD]) references [HoaDon] ([MaHD])  on update no action on delete no action 
 go
 --------------------------------------------------------------------------------------------------------------------------
-Insert into [NguoiDung] values ('levulong', 'e10adc3949ba59abbe56e057f20f883e', N'Lê Vũ Long', 'admin1.png', '0147852369', N'Thanh Sơn - Phú Thọ', 'levulong@gmail.com', '1', '1')
-Insert into [NguoiDung] values ('nguyenvantien', 'e10adc3949ba59abbe56e057f20f883e', N'Nguyễn Văn Tiến', 'admin2.png', '0159784632', N'Thanh Hóa', 'nguyenvantien@gmail.com', '1', '1')
-Insert into [NguoiDung] values ('phamanhduong', 'e10adc3949ba59abbe56e057f20f883e', N'Phạm Anh Dương', 'customer1.png', '0345612987', N'Hòa Đức - Hà Nội', 'phamanhduong@gmail.com', '0', '1')
-Insert into [NguoiDung] values ('phamduyhung', 'e10adc3949ba59abbe56e057f20f883e', N'Phạm Duy Hưng', 'customer2.png', '0951236478', N'Cầu Diễn - Hà Nội', 'phamduyhung@gmail.com', '0', '0')
+--Thêm dữ liệu
+--Role--User
+INSERT INTO [Role] VALUES('VIEW_USER', N'Xem danh sách người dùng')
+INSERT INTO [Role] VALUES('ADD_USER', N'Thêm người dùng')
+INSERT INTO [Role] VALUES('EDIT_USER', N'Sửa người dùng')
+INSERT INTO [Role] VALUES('DELETE_USER', N'Xoá người dùng')
+--Role--UserGroup
+INSERT INTO [Role] VALUES('VIEW_USERGROUP', N'Xem danh sách nhóm người dùng')
+INSERT INTO [Role] VALUES('ADD_USERGROUP', N'Thêm nhóm người dùng')
+INSERT INTO [Role] VALUES('EDIT_USERGROUP', N'Sửa nhóm người dùng')
+INSERT INTO [Role] VALUES('DELETE_USERGROUP', N'Xoá nhóm người dùng')
+--Role--Credential
+INSERT INTO [Role] VALUES('VIEW_CREDENTIAL', N'Xem danh sách uỷ quyền')
+INSERT INTO [Role] VALUES('ADD_CREDENTIAL', N'Thêm nhóm uỷ quyền')
+INSERT INTO [Role] VALUES('EDIT_CREDENTIAL', N'Sửa nhóm uỷ quyền')
+INSERT INTO [Role] VALUES('DELETE_CREDENTIAL', N'Xoá nhóm uỷ quyền')
+--Role--Role
+INSERT INTO [Role] VALUES('VIEW_ROLE', N'Xem danh sách vai trò')
+INSERT INTO [Role] VALUES('ADD_ROLE', N'Thêm vai trò')
+INSERT INTO [Role] VALUES('EDIT_ROLE', N'Sửa vai trò')
+INSERT INTO [Role] VALUES('DELETE_ROLE', N'Xoá vai trò')
+--Role--DanhMuc
+INSERT INTO [Role] VALUES('VIEW_DANHMUC', N'Xem danh sách danh mục')
+INSERT INTO [Role] VALUES('ADD_DANHMUC', N'Thêm danh mục')
+INSERT INTO [Role] VALUES('EDIT_DANHMUC', N'Sửa danh mục')
+INSERT INTO [Role] VALUES('DELETE_DANHMUC', N'Xoá danh mục')
+--Role--LoaiSP
+INSERT INTO [Role] VALUES('VIEW_LOAISP', N'Xem danh sách loại sản phẩm')
+INSERT INTO [Role] VALUES('ADD_LOAISP', N'Thêm loại sản phẩm')
+INSERT INTO [Role] VALUES('EDIT_LOAISP', N'Sửa loại sản phẩm')
+INSERT INTO [Role] VALUES('DELETE_LOAISP', N'Xoá loại sản phẩm')
+--Role--SanPham
+INSERT INTO [Role] VALUES('VIEW_SANPHAM', N'Xem danh sách sản phẩm')
+INSERT INTO [Role] VALUES('ADD_SANPHAM', N'Thêm sản phẩm')
+INSERT INTO [Role] VALUES('EDIT_SANPHAM', N'Sửa sản phẩm')
+INSERT INTO [Role] VALUES('DELETE_SANPHAM', N'Xoá sản phẩm')
+--Role--HoaDon
+INSERT INTO [Role] VALUES('VIEW_HOADON', N'Xem danh sách hoá đơn')
+INSERT INTO [Role] VALUES('ADD_HOADON', N'Thêm hoá đơn')
+INSERT INTO [Role] VALUES('EDIT_HOADON', N'Sửa hoá đơn')
+INSERT INTO [Role] VALUES('DELETE_HOADON', N'Xoá hoá đơn')
+--Role--ChiTietHoaDon
+INSERT INTO [Role] VALUES('VIEW_CHITIETHOADON', N'Xem danh sách chi tiết hoá đơn')
+INSERT INTO [Role] VALUES('ADD_CHITIETHOADON', N'Thêm chi tiết hoá đơn')
+INSERT INTO [Role] VALUES('EDIT_CHITIETHOADON', N'Sửa chi tiết hoá đơn')
+INSERT INTO [Role] VALUES('DELETE_CHITIETHOADON', N'Xoá chi tiết hoá đơn')
+--Role--TinTuc
+INSERT INTO [Role] VALUES('VIEW_TINTUC', N'Xem danh sách tin tức')
+INSERT INTO [Role] VALUES('ADD_TINTUC', N'Thêm tin tức')
+INSERT INTO [Role] VALUES('EDIT_TINTUC', N'Sửa tin tức')
+INSERT INTO [Role] VALUES('DELETE_TINTUC', N'Xoá tin tức')
+SELECT * FROM [Role]
+
+--UserGroup
+INSERT INTO [UserGroup] VALUES ('ADMIN',N'Quản trị')
+INSERT INTO [UserGroup] VALUES ('MEMBER',N'Thành viên')
+INSERT INTO [UserGroup] VALUES ('MOD',N'Quản lý')
+SELECT * FROM [UserGroup]
+
+--NguoiDung
+Insert into [NguoiDung] values ('levulong', 'e10adc3949ba59abbe56e057f20f883e', N'Lê Vũ Long', 'admin1.png', '0147852369', N'Thanh Sơn - Phú Thọ', 'levulong@gmail.com', '1', '1', 'ADMIN')
+Insert into [NguoiDung] values ('nguyenvantien', 'e10adc3949ba59abbe56e057f20f883e', N'Nguyễn Văn Tiến', 'admin2.png', '0159784632', N'Thanh Hóa', 'nguyenvantien@gmail.com', '1', '1', 'MEMBER')
+Insert into [NguoiDung] values ('phamanhduong', 'e10adc3949ba59abbe56e057f20f883e', N'Phạm Anh Dương', 'customer1.png', '0345612987', N'Hòa Đức - Hà Nội', 'phamanhduong@gmail.com', '0', '1', 'MEMBER')
+Insert into [NguoiDung] values ('phamduyhung', 'e10adc3949ba59abbe56e057f20f883e', N'Phạm Duy Hưng', 'customer2.png', '0951236478', N'Cầu Diễn - Hà Nội', 'phamduyhung@gmail.com', '0', '0', 'MOD')
+
+--Credential--User
+INSERT INTO [Credential](GroupID,RoleID) VALUES ('MOD','VIEW_USER')
+INSERT INTO [Credential](GroupID,RoleID) VALUES ('MOD','ADD_USER')
 
 Insert into [DanhMuc] values (N'Mỹ Phẩm Trang Điểm', 'dm1.png', 'icon-dm1.png')
 Insert into [DanhMuc] values (N'Hỗ Trợ Điều Trị', 'dm2.png', 'icon-dm2.png')
@@ -238,6 +326,4 @@ select * from [TinTuc]
 select * from [HoaDon]
 select * from [ChiTietHoaDon]
 
-delete from HoaDon where MaHD = 2
-
-
+update NguoiDung set TrangThai = 1 where ManD = 4

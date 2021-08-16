@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
           integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
           crossorigin="anonymous" />
+    <link href="~/assets/fonts/material-icon/css/material-design-iconic-font.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/assets/css/reset.css">
     <link href="~/assets/css/AddCSS.css" rel="stylesheet" />
     <link href="~/assets/css/Cart.css" rel="stylesheet" />
@@ -52,8 +53,8 @@
                             <span class="user__name">@session.HoTen</span>
                             <div class="block"></div>
                             <ul class="user__control">
-                                <li class="user__control--item"><a href="">Tài khoản của tôi</a></li>
-                                <li class="user__control--item"><a href="">Đổi mật khẩu</a></li>
+                                <li class="user__control--item"><a href="@Url.Action("ChangeInfor", "User", new { id = session.UserID })">Tài khoản của tôi</a></li>
+                                <li class="user__control--item"><a href="@Url.Action("ChangePassword", "User")">Đổi mật khẩu</a></li>
                                 <li class="user__control--item"><a href="">Đơn mua</a></li>
                                 <li class="user__control--item"><a href="@Url.Action("Logout", "User")">Đăng xuất</a></li>
                             </ul>

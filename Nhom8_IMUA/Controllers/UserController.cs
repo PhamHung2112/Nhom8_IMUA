@@ -11,6 +11,7 @@ namespace Nhom8_IMUA.Controllers
 {
     public class UserController : Controller
     {
+        Nhom8DB db = new Nhom8DB();
         // GET: User
         [HttpGet]
         public ActionResult Register()
@@ -85,18 +86,7 @@ namespace Nhom8_IMUA.Controllers
             {
                 var dao = new UserDAO();
                 var result = dao.Login(model.TenDangNhap, Encryptor.MD5Hash(model.MatKhau));
-                if (result == 1)
-                {
-                    var user = dao.GetByID(model.TenDangNhap);
-                    var userSession = new UserLogin();
-                    userSession.UserName = user.TenDangNhap;
-                    userSession.UserID = user.MaND;
-                    userSession.HoTen = user.HoTen;
-                    userSession.AnhDaiDien = user.AnhDaiDien;
-                    Session.Add(CommonConstants.USER_SESSION, userSession);
-                    return RedirectToAction("Index", "Home");
-                }
-                else if (result == 0)
+                if (result == 0)
                 {
                     ModelState.AddModelError("", "Tài khoản không tồn tại");
                 }
@@ -110,17 +100,128 @@ namespace Nhom8_IMUA.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Đăng nhập không thành công");
+                    var user = dao.GetByID(model.TenDangNhap);
+                    var userSession = new UserLogin();
+                    userSession.UserName = user.TenDangNhap;
+                    userSession.Password = user.MatKhau;
+                    userSession.UserID = user.MaND;
+                    userSession.HoTen = user.HoTen;
+                    userSession.AnhDaiDien = user.AnhDaiDien;
+                    userSession.GroupID = user.GroupID;
+                    Session.Add(CommonConstants.USER_SESSION, userSession);
+                    if (result == 1)
+                    {
+                        return Redirect("/");
+                    }
+                    else
+                    {
+                        var listCredentials = dao.GetListCredential(model.TenDangNhap);
+                        Session.Add(CommonConstants.SESSION_CREDENTIALS, listCredentials);
+                        return Redirect("/Admin/AdminHome/Index");
+                    }
                 }
             }
 
-            return View(model);
+            return View();
         }
 
         public ActionResult Logout()
         {
             Session[CommonConstants.USER_SESSION] = null;
-            return RedirectToAction("Index", "Home");
+            Session[CommonConstants.SESSION_CREDENTIALS] = null;
+            return Redirect("/");
+        }
+
+        public ActionResult ChangeInfor(int id)
+        {
+            var user = new UserDAO().ViewDetails(id);
+            return View(user);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeInfor(NguoiDung nguoiDung)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    nguoiDung.AnhDaiDien = "";
+                    
+                    var backupImg = Request["Image1"];
+                    var f = Request.Files["ImageFile"];
+                    
+                    if (f != null && f.ContentLength > 0)
+                    {
+                        string FileName = System.IO.Path.GetFileName(f.FileName);
+                        string UploadPath = Server.MapPath("~/assets/Images/AnhDaiDien/" + FileName);
+                        f.SaveAs(UploadPath);
+                        nguoiDung.AnhDaiDien = FileName;
+                    }
+                    else
+                    {
+                        nguoiDung.AnhDaiDien = backupImg;
+                    }
+                    var userSession = new UserLogin();
+                    var user = db.NguoiDungs.Find(nguoiDung.MaND);
+                    user.HoTen = nguoiDung.HoTen;
+                    user.SoDT = nguoiDung.SoDT;
+                    user.Email = nguoiDung.Email;
+                    user.DiaChi = nguoiDung.DiaChi;
+                    user.AnhDaiDien = nguoiDung.AnhDaiDien;
+                    db.SaveChanges();
+                    userSession.UserID = user.MaND;
+                    userSession.HoTen = user.HoTen;
+                    userSession.AnhDaiDien = user.AnhDaiDien;
+                    userSession.GroupID = user.GroupID;
+                    Session.Add(CommonConstants.USER_SESSION, userSession);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Thay đổi thông tin thất bại");
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error(ex.Message);
+            }
+            return View(nguoiDung);
+        }
+
+        [HttpGet]
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ChangePassword(string oldpass, string newpass)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var session = (Nhom8_IMUA.Common.UserLogin)Session[Nhom8_IMUA.Common.CommonConstants.USER_SESSION];
+                if (session != null)
+                {
+                    if (session.Password != Encryptor.MD5Hash(oldpass))
+                    {
+                        ModelState.AddModelError("", "Mật khẩu cũ không chính xác");
+                    }
+                    else
+                    {
+                        NguoiDung edit = db.NguoiDungs.Where(p => p.MaND == session.UserID).FirstOrDefault();
+                        edit.MatKhau = Encryptor.MD5Hash(newpass);
+                        db.SaveChanges();
+                        session.Password = Encryptor.MD5Hash(newpass);
+                        ViewBag.Success = "Thay đổi mật khẩu thành công";
+                    }
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Đổi mật khẩu thất bại");
+            }
+            return View();
         }
     }
 }
