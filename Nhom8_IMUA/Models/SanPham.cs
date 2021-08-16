@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -20,32 +19,30 @@
         public int MaSP { get; set; }
 
         [Required(ErrorMessage = "Tên sản phẩm không được để trống")]
-        [DisplayName("Tên sản phẩm")]
         [StringLength(100)]
         public string TenSP { get; set; }
 
         [Column(TypeName = "text")]
         [Required(ErrorMessage = "Ảnh sản phẩm không được để trống")]
-        [DisplayName("Ảnh sản phẩm")]
         public string AnhDaiDien { get; set; }
 
         [Column(TypeName = "money")]
-        [Required(ErrorMessage = "Giá sản phẩm được để trống")]
-        [DisplayName("Giá sản phẩm")]
+        [Required(ErrorMessage = "Giá sản phẩm không được để trống")]
         public decimal Gia { get; set; }
 
+        [Required(ErrorMessage = "Khuyến mãi không được để trống")]
         public int KhuyenMai { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Mô tả không được để trống")]
         [StringLength(4000)]
         public string MoTa { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Xuất xứ không được để trống")]
         [StringLength(100)]
         public string XuatXu { get; set; }
 
         [Column(TypeName = "text")]
-        [Required]
+        [Required(ErrorMessage = "Trọng lượng không được để trống")]
         public string TrongLuong { get; set; }
 
         public int MaLoai { get; set; }

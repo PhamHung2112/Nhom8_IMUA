@@ -187,7 +187,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\assets\css\vertical-layout-light\style.css" />
-    <Content Include="Areas\Admin\assets\images\face.png" />
     <Content Include="Areas\Admin\assets\images\logo-mini.png" />
     <Content Include="Areas\Admin\assets\images\logo.png" />
     <Content Include="Areas\Admin\assets\js\off-canvas.js" />
@@ -1394,14 +1393,7 @@
     <Content Include="assets\img\cham-soc-toan-than-menu-right.jpg" />
     <Content Include="assets\img\chi-tay-nho.png" />
     <Content Include="assets\img\DangKyBoCongThuong.png" />
-    <Content Include="assets\img\dm1.png" />
-    <Content Include="assets\img\dm2.png" />
-    <Content Include="assets\img\dm3.png" />
-    <Content Include="assets\img\dm4.png" />
-    <Content Include="assets\img\dm5.png" />
-    <Content Include="assets\img\dm6.png" />
-    <Content Include="assets\img\dm7.png" />
-    <Content Include="assets\img\dm8.png" />
+    <Content Include="assets\img\default-img.png" />
     <Content Include="assets\img\DMCA_logo-grn-btn150w.png" />
     <Content Include="assets\img\doi-tra-mien-phi--2.png" />
     <Content Include="assets\img\giao-hang--1.png" />
@@ -1412,14 +1404,6 @@
     <Content Include="assets\img\ho-tro-dieu-tri-menu-left.jpg" />
     <Content Include="assets\img\ho-tro-dieu-tri-menu-right.jpg" />
     <Content Include="assets\img\hoan-tra-tien--1.png" />
-    <Content Include="assets\img\icon-dm1.png" />
-    <Content Include="assets\img\icon-dm2.png" />
-    <Content Include="assets\img\icon-dm3.png" />
-    <Content Include="assets\img\icon-dm4.png" />
-    <Content Include="assets\img\icon-dm5.png" />
-    <Content Include="assets\img\icon-dm6.png" />
-    <Content Include="assets\img\icon-dm7.png" />
-    <Content Include="assets\img\icon-dm8.png" />
     <Content Include="assets\img\iconlogo.ico" />
     <Content Include="assets\img\Kem-Chong-Nang-Ice-Sun-Nature-Republic-SPF50-.jpg" />
     <Content Include="assets\img\Kem-tri-seo-Scar-Esthetique-10gr-.jpg" />
@@ -1439,16 +1423,6 @@
     <Content Include="assets\img\sale-off-moi-tuan-menu-right.jpg" />
     <Content Include="assets\img\sologan.png" />
     <Content Include="assets\img\Son-Duong-Tri-Tham-Moi-Dhc-Lip-Cream-Nhat-Ban-.png" />
-    <Content Include="assets\img\sp-sonmoi1.png" />
-    <Content Include="assets\img\sp-sonmoi10.jpg" />
-    <Content Include="assets\img\sp-sonmoi2.png" />
-    <Content Include="assets\img\sp-sonmoi3.png" />
-    <Content Include="assets\img\sp-sonmoi4.png" />
-    <Content Include="assets\img\sp-sonmoi5.png" />
-    <Content Include="assets\img\sp-sonmoi6.png" />
-    <Content Include="assets\img\sp-sonmoi7.png" />
-    <Content Include="assets\img\sp-sonmoi8.png" />
-    <Content Include="assets\img\sp-sonmoi9.png" />
     <Content Include="assets\img\Sua-Duong-The-Vaseline-30x-Chinh-Hang-.jpg" />
     <Content Include="assets\img\suc-khoe-dinh-duong-menu-right.jpg" />
     <Content Include="assets\img\thanh-toan--1.png" />
@@ -1464,7 +1438,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
-    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

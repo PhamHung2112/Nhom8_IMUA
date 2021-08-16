@@ -3,52 +3,78 @@
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var AnhDMPath = "~/assets/Images/DanhMuc/" + Model.AnhDM;
+    var BieuTuongPath = "~/assets/Images/DanhMuc/" + Model.BieuTuong;
 }
 
-<h2>Edit</h2>
-
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "DanhMucs", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>DanhMuc</h4>
-        <hr />
+
+    <div class="col-lg-12 grid-margin stretch-card">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.MaDM)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TenDM, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TenDM, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TenDM, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <div class="card">
+            <div class="card-body">
+                <h3 class="elements-header">Sửa danh mục</h3>
+                <br />
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tr>
+                            <td>
+                                <label class="elements-title">Tên danh mục :</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.EditorFor(model => model.TenDM, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TenDM, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="elements-title">Ảnh danh mục :</label>
+                                <label for="ufile1" style="cursor:pointer;" class="modal-label">Chọn ảnh</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img id="output1" src="@Url.Content(AnhDMPath)" />
+                                <input name="AnhDM" id="ufile1" type="file" style="display:none;" onchange="loadFile1(event)" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="elements-title">Biểu tượng danh mục :</label>
+                                <label for="ufile2" style="cursor:pointer;" class="modal-label">Chọn ảnh</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img id="output2" src="@Url.Content(BieuTuongPath)" />
+                                <input name="BieuTuong" id="ufile2" type="file" style="display:none;" onchange="loadFile2(event)" />
+                            </td>
+                        </tr>
+                    </table>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.AnhDM, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AnhDM, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AnhDM, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.BieuTuong, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.BieuTuong, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BieuTuong, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+                <input type="submit" value="Lưu" class="btn btn-outline-warning btn-fw" />
+                <button class="btn btn-inverse-dark btn-fw" onclick="location.href='@Url.Action("Index", "DanhMucs")';return false;">Hủy</button>
             </div>
         </div>
     </div>
+
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<script>
+    var loadFile1 = function (event) {
+        var image = document.getElementById('output1');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    }
+
+    var loadFile2 = function (event) {
+        var image = document.getElementById('output2');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>

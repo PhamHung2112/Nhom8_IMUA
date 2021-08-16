@@ -18,18 +18,18 @@
         <th>
             @Html.DisplayNameFor(model => model.TenSP)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.AnhDaiDien)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Gia)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.KhuyenMai)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.MoTa)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.XuatXu)
         </th>
@@ -47,18 +47,18 @@
         <td>
             @Html.DisplayFor(modelItem => item.TenSP)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.AnhDaiDien)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Gia)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.KhuyenMai)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.MoTa)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.XuatXu)
         </td>
@@ -66,8 +66,8 @@
             @Html.DisplayFor(modelItem => item.TrongLuong)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaSP }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaSP }) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.MaSP }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MaSP }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.MaSP })
         </td>
     </tr>
