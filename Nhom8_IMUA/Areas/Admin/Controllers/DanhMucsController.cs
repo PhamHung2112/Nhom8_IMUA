@@ -50,6 +50,24 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                danhMuc.AnhDM = "";
+                var f1 = Request.Files["AnhDM"];
+                if (f1 != null && f1.ContentLength > 0)
+                {
+                    string FileName = System.IO.Path.GetFileName(f1.FileName);
+                    string UploadPath = Server.MapPath("~/assets/Images/DanhMuc/" + FileName);
+                    f1.SaveAs(UploadPath);
+                    danhMuc.AnhDM = FileName;
+                }
+                danhMuc.BieuTuong = "";
+                var f2 = Request.Files["BieuTuong"];
+                if (f2 != null && f2.ContentLength > 0)
+                {
+                    string FileName = System.IO.Path.GetFileName(f2.FileName);
+                    string UploadPath = Server.MapPath("~/assets/Images/DanhMuc/" + FileName);
+                    f2.SaveAs(UploadPath);
+                    danhMuc.BieuTuong = FileName;
+                }
                 db.DanhMucs.Add(danhMuc);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -82,6 +100,24 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                danhMuc.AnhDM = "";
+                var f1 = Request.Files["AnhDM"];
+                if (f1 != null && f1.ContentLength > 0)
+                {
+                    string FileName = System.IO.Path.GetFileName(f1.FileName);
+                    string UploadPath = Server.MapPath("~/assets/Images/DanhMuc/" + FileName);
+                    f1.SaveAs(UploadPath);
+                    danhMuc.AnhDM = FileName;
+                }
+                danhMuc.BieuTuong = "";
+                var f2 = Request.Files["BieuTuong"];
+                if (f2 != null && f2.ContentLength > 0)
+                {
+                    string FileName = System.IO.Path.GetFileName(f2.FileName);
+                    string UploadPath = Server.MapPath("~/assets/Images/DanhMuc/" + FileName);
+                    f2.SaveAs(UploadPath);
+                    danhMuc.BieuTuong = FileName;
+                }
                 db.Entry(danhMuc).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

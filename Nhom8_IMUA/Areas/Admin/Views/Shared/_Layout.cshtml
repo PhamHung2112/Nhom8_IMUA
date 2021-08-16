@@ -19,6 +19,37 @@
           crossorigin="anonymous" />
     <link rel="stylesheet" href="~/assets/css/reset.css">
     <style type="text/css">
+        .modal-label {
+            display: inline-block;
+            line-height: 2.2em;
+            padding: 0 0.62em;
+            border: 1px solid #666;
+            border-radius: 0.25em;
+            background-image: linear-gradient(to bottom, #fff, #ccc);
+            box-shadow: inset 0 0 0.1em #fff, 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
+            font-family: arial, sans-serif;
+            font-size: 0.8em;
+        }
+
+            .modal-label:hover {
+                border-color: #3c7fb1;
+                background-image: linear-gradient(to bottom, #fff, #a9dbf6);
+            }
+
+            .modal-label:focus {
+                padding: 0 0.56em 0 0.68em;
+            }
+
+        .elements-header {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .elements-title {
+            font-size: large;
+            font-weight: 500;
+        }
+
         .table-header {
             position: relative;
         }
@@ -109,9 +140,15 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index", "AdminHome")">
-                            <i class="icon-grid menu-icon"></i>
+                        <a class="nav-link" href="@Url.Action("Index", "TrangChu")">
+                            <i class="ti-home menu-icon"></i>
                             <span class="menu-title">Trang chủ</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="ti-shopping-cart-full menu-icon"></i>
+                            <span class="menu-title">Sản phẩm bán chạy</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -175,7 +212,6 @@
     <script src="~/Areas/Admin/assets/js/plugin/ckfinder/ckfinder.js"></script>
     <script src="~/Areas/Admin/assets/vendors/js/vendor.bundle.base.js"></script>
     <script src="~/Areas/Admin/assets/js/template.js"></script>
-    <script src="~/Areas/Admin/assets/js/off-canvas.js"></script>
 
 </body>
 

@@ -111,17 +111,17 @@ Primary Key ([MaHD],[MaSP])
 ) 
 go
 
-Alter table [NguoiDung] add  foreign key([GroupID]) references UserGroup ([GroupID])  on update no action on delete no action 
+Alter table [NguoiDung] add  foreign key([GroupID]) references UserGroup ([GroupID])  on update cascade on delete cascade  
 go
-Alter table [HoaDon] add  foreign key([MaND]) references [NguoiDung] ([MaND])  on update no action on delete no action 
+Alter table [HoaDon] add  foreign key([MaND]) references [NguoiDung] ([MaND])  on update cascade on delete cascade 
 go
-Alter table [LoaiSP] add  foreign key([MaDM]) references [DanhMuc] ([MaDM])  on update no action on delete no action 
+Alter table [LoaiSP] add  foreign key([MaDM]) references [DanhMuc] ([MaDM])  on update cascade on delete cascade  
 go
-Alter table [SanPham] add  foreign key([MaLoai]) references [LoaiSP] ([MaLoai])  on update no action on delete no action 
+Alter table [SanPham] add  foreign key([MaLoai]) references [LoaiSP] ([MaLoai])  on update cascade on delete cascade  
 go
-Alter table [ChiTietHoaDon] add  foreign key([MaSP]) references [SanPham] ([MaSP])  on update no action on delete no action 
+Alter table [ChiTietHoaDon] add  foreign key([MaSP]) references [SanPham] ([MaSP])  on update cascade on delete cascade  
 go
-Alter table [ChiTietHoaDon] add  foreign key([MaHD]) references [HoaDon] ([MaHD])  on update no action on delete no action 
+Alter table [ChiTietHoaDon] add  foreign key([MaHD]) references [HoaDon] ([MaHD])  on update cascade on delete cascade  
 go
 --------------------------------------------------------------------------------------------------------------------------
 --Thêm dữ liệu

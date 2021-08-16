@@ -52,6 +52,15 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                sanPham.AnhDaiDien = "";
+                var f = Request.Files["AnhDaiDien"];
+                if (f != null && f.ContentLength > 0)
+                {
+                    string FileName = System.IO.Path.GetFileName(f.FileName);
+                    string UploadPath = Server.MapPath("~/assets/Images/SanPham/" + FileName);
+                    f.SaveAs(UploadPath);
+                    sanPham.AnhDaiDien = FileName;
+                }
                 db.SanPhams.Add(sanPham);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -86,6 +95,15 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                sanPham.AnhDaiDien = "";
+                var f = Request.Files["AnhDaiDien"];
+                if (f != null && f.ContentLength > 0)
+                {
+                    string FileName = System.IO.Path.GetFileName(f.FileName);
+                    string UploadPath = Server.MapPath("~/assets/Images/SanPham/" + FileName);
+                    f.SaveAs(UploadPath);
+                    sanPham.AnhDaiDien = FileName;
+                }
                 db.Entry(sanPham).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
