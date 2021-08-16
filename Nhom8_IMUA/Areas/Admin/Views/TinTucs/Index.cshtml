@@ -1,67 +1,52 @@
-﻿@model PagedList.IPagedList<Nhom8_IMUA.Models.TinTuc>
-@using PagedList.Mvc;
-<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+﻿@model IEnumerable<Nhom8_IMUA.Models.TinTuc>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<div class="col-lg-12 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <div class="table-header">
-                <h4 class="card-title">Danh sách tin tức</h4>
-                <div class="header__middle--search">
-                    <div action="" class="header__search--input">
-                        @using (Html.BeginForm("Index", "TinTucs"))
-                        {
-                            <input type="text" placeholder="Tìm kiếm tin tức..." id="SearchString" name="SearchString" />
-                            <button type="submit" class="header__search--icon">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        }
-                    </div>
-                </div>
-                <a class="btn btn-primary" href="@Url.Action("Create", "TinTucs")">
-                    <i class="ti-plus"></i>
-                </a>
-            </div>
-            <h4 style="text-transform: uppercase;">có <text style="color: red;">@ViewData["Count"]</text> tin tức phù hợp với từ khoá: <text style="color: red">@ViewBag.CurrentFilter</text></h4>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Mã tin tức</th>
-                            <th>Tiêu đề</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>@item.MaTinTuc</td>
-                                <td>@item.TieuDe</td>
-                                <td>
-                                    <div>
-                                        <a class="btn btn-primary" href="@Url.Action("Details", "TinTucs", new { id = item.MaTinTuc })">
-                                            <i class="ti-eye"></i>
-                                        </a> &nbsp;
-                                        <a class="btn btn-primary" href="@Url.Action("Edit", "TinTucs", new { id = item.MaTinTuc })">
-                                            <i class="ti-pencil-alt"></i>
-                                        </a> &nbsp;
-                                        <a class="btn btn-primary" href="@Url.Action("Delete", "TinTucs", new { id = item.MaTinTuc })">
-                                            <i class="ti-trash"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-                <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))</div>
-            </div>
-        </div>
-    </div>
-</div>
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TieuDe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TomTat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnhTinTuc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TieuDe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TomTat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoiDung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnhTinTuc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaTinTuc }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaTinTuc }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaTinTuc })
+        </td>
+    </tr>
+}
+
+</table>

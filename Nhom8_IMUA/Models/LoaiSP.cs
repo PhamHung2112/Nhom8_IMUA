@@ -1,7 +1,8 @@
-namespace Nhom8_IMUA.Models
+﻿namespace Nhom8_IMUA.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -18,7 +19,8 @@ namespace Nhom8_IMUA.Models
         [Key]
         public int MaLoai { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Tên loại không được để trống")]
+        [DisplayName("Tên loại")]
         [StringLength(100)]
         public string TenLoai { get; set; }
 

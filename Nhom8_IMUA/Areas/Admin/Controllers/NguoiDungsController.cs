@@ -1,12 +1,12 @@
 ﻿using System;
-using PagedList;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using Nhom8_IMUA.Models;
-using Nhom8_IMUA.Common;
 
 namespace Nhom8_IMUA.Areas.Admin.Controllers
 {
@@ -15,64 +15,11 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         private Nhom8DB db = new Nhom8DB();
 
         // GET: Admin/NguoiDungs
-        public ActionResult Index(string sortOrder, string searchString, string currentFilter, int? page)
+        public ActionResult Index()
         {
-            ViewBag.CurrentSort = sortOrder;
-            ViewBag.SapTheoID = String.IsNullOrEmpty(sortOrder) ? "ten_desc" : "";
-            if (searchString != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
-            ViewBag.CurrentFilter = searchString;
-
-            var custom = db.NguoiDungs.Where(x => x.Loai == false).Select(x => x);
-            custom = custom.OrderBy(c => c.MaND);
-            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
-            {
-                custom = custom.Where(p => p.HoTen.Contains(searchString)); //lọc theo chuỗi tìm kiếm
-            }
-
-            switch (sortOrder)
-            {
-                case "ten_desc":
-                    custom = custom.OrderByDescending(s => s.MaND);
-                    break;
-                default:
-                    custom = custom.OrderBy(s => s.MaND);
-                    break;
-            }
-            ViewData["Count"] = custom.Count().ToString();
-            int pageSize = 5;
-            int pageNumber = (page ?? 1);
-            return View(custom.ToPagedList(pageNumber, pageSize));
+            var nguoiDungs = db.NguoiDungs.Include(n => n.UserGroup);
+            return View(nguoiDungs.ToList());
         }
-
-        // GET: Admin/NguoiDungs/ChangeStatus
-        public ActionResult ChangeStatus(int? id)
-        {
-            Response.Write("<script>alert(" + id + ");</script>");
-            if (id == null)
-            {
-                return RedirectToAction("Index");
-            }
-            NguoiDung custom = db.NguoiDungs.Find(id);
-            if (custom.TrangThai.Equals(false))
-            {
-                custom.TrangThai = true;
-            }
-            else
-            {
-                custom.TrangThai = false;
-            }
-            db.Entry(custom).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
 
         // GET: Admin/NguoiDungs/Details/5
         public ActionResult Details(int? id)
@@ -92,6 +39,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         // GET: Admin/NguoiDungs/Create
         public ActionResult Create()
         {
+            ViewBag.GroupID = new SelectList(db.UserGroups, "GroupID", "Name");
             return View();
         }
 
@@ -100,7 +48,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaND,TenDangNhap,MatKhau,HoTen,AnhDaiDien,SoDT,DiaChi,Email,Loai,TrangThai")] NguoiDung nguoiDung)
+        public ActionResult Create([Bind(Include = "MaND,TenDangNhap,MatKhau,HoTen,AnhDaiDien,SoDT,DiaChi,Email,Loai,TrangThai,GroupID")] NguoiDung nguoiDung)
         {
             if (ModelState.IsValid)
             {
@@ -109,6 +57,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.GroupID = new SelectList(db.UserGroups, "GroupID", "Name", nguoiDung.GroupID);
             return View(nguoiDung);
         }
 
@@ -124,6 +73,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.GroupID = new SelectList(db.UserGroups, "GroupID", "Name", nguoiDung.GroupID);
             return View(nguoiDung);
         }
 
@@ -132,7 +82,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaND,TenDangNhap,MatKhau,HoTen,AnhDaiDien,SoDT,DiaChi,Email,Loai,TrangThai")] NguoiDung nguoiDung)
+        public ActionResult Edit([Bind(Include = "MaND,TenDangNhap,MatKhau,HoTen,AnhDaiDien,SoDT,DiaChi,Email,Loai,TrangThai,GroupID")] NguoiDung nguoiDung)
         {
             if (ModelState.IsValid)
             {
@@ -140,6 +90,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.GroupID = new SelectList(db.UserGroups, "GroupID", "Name", nguoiDung.GroupID);
             return View(nguoiDung);
         }
 
@@ -176,13 +127,6 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        public ActionResult Logout()
-        {
-            Session[CommonConstants.USER_SESSION] = null;
-            Session[CommonConstants.SESSION_CREDENTIALS] = null;
-            return Redirect("/");
         }
     }
 }

@@ -1,7 +1,8 @@
-namespace Nhom8_IMUA.Models
+﻿namespace Nhom8_IMUA.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -18,15 +19,19 @@ namespace Nhom8_IMUA.Models
         [Key]
         public int MaSP { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Tên sản phẩm không được để trống")]
+        [DisplayName("Tên sản phẩm")]
         [StringLength(100)]
         public string TenSP { get; set; }
 
         [Column(TypeName = "text")]
-        [Required]
+        [Required(ErrorMessage = "Ảnh sản phẩm không được để trống")]
+        [DisplayName("Ảnh sản phẩm")]
         public string AnhDaiDien { get; set; }
 
         [Column(TypeName = "money")]
+        [Required(ErrorMessage = "Giá sản phẩm được để trống")]
+        [DisplayName("Giá sản phẩm")]
         public decimal Gia { get; set; }
 
         public int KhuyenMai { get; set; }

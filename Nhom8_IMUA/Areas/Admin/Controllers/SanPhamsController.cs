@@ -1,9 +1,10 @@
 ﻿using System;
-using PagedList;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using Nhom8_IMUA.Models;
 
@@ -14,40 +15,10 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         private Nhom8DB db = new Nhom8DB();
 
         // GET: Admin/SanPhams
-        public ActionResult Index(string sortOrder, string searchString, string currentFilter, int? page)
+        public ActionResult Index()
         {
-            ViewBag.CurrentSort = sortOrder;
-            ViewBag.SapTheoID = String.IsNullOrEmpty(sortOrder) ? "ten_desc" : "";
-            if (searchString != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
-            ViewBag.CurrentFilter = searchString;
-
-            var sanPham = db.SanPhams.Select(p => p);
-
-            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
-            {
-                sanPham = sanPham.Where(p => p.TenSP.Trim().Contains(searchString)); //lọc theo chuỗi tìm kiếm
-            }
-
-            switch (sortOrder)
-            {
-                case "ten_desc":
-                    sanPham = sanPham.OrderByDescending(s => s.MaSP);
-                    break;
-                default:
-                    sanPham = sanPham.OrderBy(s => s.MaSP);
-                    break;
-            }
-            ViewData["Count"] = sanPham.Count().ToString();
-            int pageSize = 12;
-            int pageNumber = (page ?? 1);
-            return View(sanPham.ToPagedList(pageNumber, pageSize));
+            var sanPhams = db.SanPhams.Include(s => s.LoaiSP);
+            return View(sanPhams.ToList());
         }
 
         // GET: Admin/SanPhams/Details/5

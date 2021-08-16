@@ -86,7 +86,6 @@ D:\Nhom8_IMUA\Nhom8_IMUA\bin\System.Web.WebPages.Razor.xml
 D:\Nhom8_IMUA\Nhom8_IMUA\bin\Newtonsoft.Json.xml
 D:\Nhom8_IMUA\Nhom8_IMUA\bin\Antlr3.Runtime.pdb
 D:\Nhom8_IMUA\Nhom8_IMUA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.AssemblyReference.cache
 D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CoreCompileInputs.cache
 D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CopyComplete
 D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.dll

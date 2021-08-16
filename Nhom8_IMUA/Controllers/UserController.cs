@@ -117,7 +117,7 @@ namespace Nhom8_IMUA.Controllers
                     {
                         var listCredentials = dao.GetListCredential(model.TenDangNhap);
                         Session.Add(CommonConstants.SESSION_CREDENTIALS, listCredentials);
-                        return Redirect("/Admin/AdminHome/Index");
+                        return Redirect("/Admin/TrangChu/Index");
                     }
                 }
             }

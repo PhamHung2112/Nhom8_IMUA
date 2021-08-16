@@ -1,9 +1,10 @@
 ﻿using System;
-using PagedList;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using Nhom8_IMUA.Models;
 
@@ -14,40 +15,10 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         private Nhom8DB db = new Nhom8DB();
 
         // GET: Admin/HoaDons
-        public ActionResult Index(string sortOrder, string searchString, string currentFilter, int? page)
+        public ActionResult Index()
         {
-            ViewBag.CurrentSort = sortOrder;
-            ViewBag.SapTheoID = String.IsNullOrEmpty(sortOrder) ? "ten_desc" : "";
-            if (searchString != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
-            ViewBag.CurrentFilter = searchString;
-
-            var hoaDon = db.HoaDons.Select(p => p);
-
-            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
-            {
-                hoaDon = hoaDon.Where(p => p.MaHD.Equals(searchString)); //lọc theo chuỗi tìm kiếm
-            }
-
-            switch (sortOrder)
-            {
-                case "ten_desc":
-                    hoaDon = hoaDon.OrderByDescending(s => s.MaHD);
-                    break;
-                default:
-                    hoaDon = hoaDon.OrderBy(s => s.MaHD);
-                    break;
-            }
-            ViewData["Count"] = hoaDon.Count().ToString();
-            int pageSize = 3;
-            int pageNumber = (page ?? 1);
-            return View(hoaDon.ToPagedList(pageNumber, pageSize));
+            var hoaDons = db.HoaDons.Include(h => h.NguoiDung);
+            return View(hoaDons.ToList());
         }
 
         // GET: Admin/HoaDons/Details/5

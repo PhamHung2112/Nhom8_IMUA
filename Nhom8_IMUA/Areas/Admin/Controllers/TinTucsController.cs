@@ -1,9 +1,10 @@
 ﻿using System;
-using PagedList;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using Nhom8_IMUA.Models;
 
@@ -14,40 +15,9 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         private Nhom8DB db = new Nhom8DB();
 
         // GET: Admin/TinTucs
-        public ActionResult Index(string sortOrder, string searchString, string currentFilter, int? page)
+        public ActionResult Index()
         {
-            ViewBag.CurrentSort = sortOrder;
-            ViewBag.SapTheoID = String.IsNullOrEmpty(sortOrder) ? "ten_desc" : "";
-            if (searchString != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
-            ViewBag.CurrentFilter = searchString;
-
-            var tinTuc = db.TinTucs.Select(p => p);
-
-            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
-            {
-                tinTuc = tinTuc.Where(p => p.TieuDe.Trim().Contains(searchString)); //lọc theo chuỗi tìm kiếm
-            }
-
-            switch (sortOrder)
-            {
-                case "ten_desc":
-                    tinTuc = tinTuc.OrderByDescending(s => s.MaTinTuc);
-                    break;
-                default:
-                    tinTuc = tinTuc.OrderBy(s => s.MaTinTuc);
-                    break;
-            }
-            ViewData["Count"] = tinTuc.Count().ToString();
-            int pageSize = 3;
-            int pageNumber = (page ?? 1);
-            return View(tinTuc.ToPagedList(pageNumber, pageSize));
+            return View(db.TinTucs.ToList());
         }
 
         // GET: Admin/TinTucs/Details/5
@@ -89,7 +59,6 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/TinTucs/Edit/5
-        [ValidateInput(false)]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -108,7 +77,6 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MaTinTuc,TieuDe,TomTat,NoiDung,AnhTinTuc")] TinTuc tinTuc)
         {

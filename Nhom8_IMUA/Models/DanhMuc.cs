@@ -1,7 +1,8 @@
-namespace Nhom8_IMUA.Models
+﻿namespace Nhom8_IMUA.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -18,16 +19,19 @@ namespace Nhom8_IMUA.Models
         [Key]
         public int MaDM { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Tên danh mục không được để trống")]
+        [DisplayName("Tên danh mục")]
         [StringLength(100)]
         public string TenDM { get; set; }
 
         [Column(TypeName = "text")]
-        [Required]
+        [Required(ErrorMessage = "Ảnh danh mục không được để trống")]
+        [DisplayName("Ảnh danh mục")]
         public string AnhDM { get; set; }
 
         [Column(TypeName = "text")]
-        [Required]
+        [Required(ErrorMessage = "Biểu tượng không được để trống")]
+        [DisplayName("Biểu tượng")]
         public string BieuTuong { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
