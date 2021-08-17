@@ -183,3 +183,4 @@ E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CoreCo
 E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CopyComplete
 E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.dll
 E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.pdb
+D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.AssemblyReference.cache

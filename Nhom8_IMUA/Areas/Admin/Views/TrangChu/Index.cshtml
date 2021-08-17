@@ -4,5 +4,35 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Admin</h2>
+<div class="container">
+    <div class="box">
+        <div class="container__item">
+            <span>
+                <img src="~/assets/img/logo.png" alt="">
+            </span>
+            <span>
+                IMUA - Mỹ phẩm online chính hãng, Cam kết chất lượng, Mua là có quà
+            </span>
+        </div>
+        <div class="container__item">
+            @{
+                var session = (Nhom8_IMUA.Common.UserLogin)Session[Nhom8_IMUA.Common.CommonConstants.USER_SESSION];
+            }
+            @if (session != null)
+            {
+                <span>
+                    Xin chào, <span class="item__name">@session.HoTen</span>
+                </span>
+                <span>
+                    <img src="~/assets/Images/AnhDaiDien/@session.AnhDaiDien" alt="">
+                </span>
+            }
+        </div>
+    </div>
+    <div class="box">
+        <p>Chào mừng bạn đến mới IMUA</p>
+        <span id="box__clock"></span>
+        <span id="box__calendar"></span>
+    </div>
+</div>
 

@@ -186,9 +186,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\assets\css\admin.css" />
     <Content Include="Areas\Admin\assets\css\vertical-layout-light\style.css" />
     <Content Include="Areas\Admin\assets\images\logo-mini.png" />
     <Content Include="Areas\Admin\assets\images\logo.png" />
+    <Content Include="Areas\Admin\assets\js\admin.js" />
     <Content Include="Areas\Admin\assets\js\off-canvas.js" />
     <Content Include="Areas\Admin\assets\js\plugin\ckeditor\adapters\jquery.js" />
     <Content Include="Areas\Admin\assets\js\plugin\ckeditor\build-config.js" />
