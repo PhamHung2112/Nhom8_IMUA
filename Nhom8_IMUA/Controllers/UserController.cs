@@ -128,6 +128,7 @@ namespace Nhom8_IMUA.Controllers
         {
             Session[CommonConstants.USER_SESSION] = null;
             Session[CommonConstants.SESSION_CREDENTIALS] = null;
+            Session["Cart"] = null;
             return Redirect("/");
         }
 
