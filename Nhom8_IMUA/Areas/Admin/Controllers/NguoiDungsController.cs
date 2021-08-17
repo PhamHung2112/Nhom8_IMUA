@@ -244,7 +244,6 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult ChangePassword(string oldpass, string newpass)
         {
-
             if (ModelState.IsValid)
             {
                 var session = (Nhom8_IMUA.Common.UserLogin)Session[Nhom8_IMUA.Common.CommonConstants.USER_SESSION];

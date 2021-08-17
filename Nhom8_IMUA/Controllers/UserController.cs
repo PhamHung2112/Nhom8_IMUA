@@ -23,7 +23,7 @@ namespace Nhom8_IMUA.Controllers
         [CaptchaValidation("CaptchaCode", "registerCaptcha", "Mã xác nhận không đúng!")]
         public ActionResult Register(RegisterModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 model.AnhDaiDien = "";
                 var f = Request.Files["ImageFile"];
@@ -33,19 +33,22 @@ namespace Nhom8_IMUA.Controllers
                     string UploadPath = Server.MapPath("~/assets/Images/AnhDaiDien/" + FileName);
                     f.SaveAs(UploadPath);
                     model.AnhDaiDien = FileName;
-                } else
+                }
+                else
                 {
                     model.AnhDaiDien = "avatar_2x.png";
                 }
                 var dao = new UserDAO();
-                if(dao.CheckUserName(model.TenDangNhap))
+                if (dao.CheckUserName(model.TenDangNhap))
                 {
                     ModelState.AddModelError("", "Tên đăng nhập đã tồn tại");
                     ViewBag.Error = true;
-                } else if(dao.CheckEmail(model.Email))
+                }
+                else if (dao.CheckEmail(model.Email))
                 {
                     ModelState.AddModelError("", "Email đã tồn tại");
-                } else
+                }
+                else
                 {
                     var user = new NguoiDung();
                     user.TenDangNhap = model.TenDangNhap;
@@ -58,12 +61,13 @@ namespace Nhom8_IMUA.Controllers
                     user.Loai = false;
                     user.TrangThai = true;
                     var result = dao.Insert(user);
-                    if(result > 0)
+                    if (result > 0)
                     {
                         ViewBag.Success = "Đăng ký thành công";
                         ModelState.Clear();
                         MvcCaptcha.ResetCaptcha("registerCaptcha");
-                    } else
+                    }
+                    else
                     {
                         ModelState.AddModelError("", "Đăng ký thất bại");
                     }
@@ -147,10 +151,10 @@ namespace Nhom8_IMUA.Controllers
                 if (ModelState.IsValid)
                 {
                     nguoiDung.AnhDaiDien = "";
-                    
+
                     var backupImg = Request["Image1"];
                     var f = Request.Files["ImageFile"];
-                    
+
                     if (f != null && f.ContentLength > 0)
                     {
                         string FileName = System.IO.Path.GetFileName(f.FileName);
@@ -197,29 +201,34 @@ namespace Nhom8_IMUA.Controllers
         [HttpPost]
         public ActionResult ChangePassword(string oldpass, string newpass)
         {
-
-            if (ModelState.IsValid)
+            try
             {
-                var session = (Nhom8_IMUA.Common.UserLogin)Session[Nhom8_IMUA.Common.CommonConstants.USER_SESSION];
-                if (session != null)
+                if (ModelState.IsValid)
                 {
-                    if (session.Password != Encryptor.MD5Hash(oldpass))
+                    var session = (Nhom8_IMUA.Common.UserLogin)Session[Nhom8_IMUA.Common.CommonConstants.USER_SESSION];
+                    if (session != null)
                     {
-                        ModelState.AddModelError("", "Mật khẩu cũ không chính xác");
-                    }
-                    else
-                    {
-                        NguoiDung edit = db.NguoiDungs.Where(p => p.MaND == session.UserID).FirstOrDefault();
-                        edit.MatKhau = Encryptor.MD5Hash(newpass);
-                        db.SaveChanges();
-                        session.Password = Encryptor.MD5Hash(newpass);
-                        ViewBag.Success = "Thay đổi mật khẩu thành công";
+                        if (Encryptor.MD5Hash(oldpass) != session.Password)
+                        {
+                            ViewBag.Error = "Mật khẩu cũ không chính xác"
+                        }
+                        else
+                        {
+                            NguoiDung edit = db.NguoiDungs.Where(p => p.MaND == session.UserID).FirstOrDefault();
+                            edit.MatKhau = Encryptor.MD5Hash(newpass);
+                            db.SaveChanges();
+                            session.Password = Encryptor.MD5Hash(newpass);
+                            ViewBag.Success = "Thay đổi mật khẩu thành công";
+                        }
                     }
                 }
-            }
-            else
+                else
+                {
+                    ModelState.AddModelError("ChangePassword", "Đổi mật khẩu thất bại");
+                }
+            } catch (Exception ex)
             {
-                ModelState.AddModelError("", "Đổi mật khẩu thất bại");
+                ViewBag.Error(ex.Message);
             }
             return View();
         }

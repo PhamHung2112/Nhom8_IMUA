@@ -14,7 +14,7 @@
                 <div class="form-group">
                     @Html.ValidationSummary(true, "", new { @class = "text-error" })
                 </div>
-                @using (Html.BeginForm("ChangeInfor", "User", FormMethod.Post, new { @class = "register-form", @id = "register-form", enctype = "multipart/form-data" }))
+                @using (Html.BeginForm("ChangeInfor", "NguoiDungs", FormMethod.Post, new { @class = "register-form", @id = "register-form", enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.HiddenFor(model => model.MaND)
