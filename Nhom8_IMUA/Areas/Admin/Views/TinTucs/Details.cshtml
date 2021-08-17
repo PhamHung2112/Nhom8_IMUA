@@ -24,7 +24,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TomTat)
+            @Html.Raw(HttpUtility.HtmlDecode(Model.TomTat))
         </dd>
 
         <dt>
@@ -32,7 +32,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.NoiDung)
+            @Html.Raw(HttpUtility.HtmlDecode(Model.NoiDung))
         </dd>
 
         <dt>
