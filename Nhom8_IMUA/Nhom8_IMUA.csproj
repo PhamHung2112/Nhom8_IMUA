@@ -2683,14 +2683,12 @@
     <Content Include="Areas\Admin\Views\HoaDons\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HoaDons\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TrangChu\Index.cshtml" />
-<<<<<<< HEAD
     <Content Include="Areas\Admin\Views\DanhMucs\Search.cshtml" />
     <Content Include="Areas\Admin\Views\HoaDons\Search.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSPs\Search.cshtml" />
     <Content Include="Areas\Admin\Views\NguoiDungs\Search.cshtml" />
     <Content Include="Areas\Admin\Views\SanPhams\Search.cshtml" />
     <Content Include="Areas\Admin\Views\TinTucs\Search.cshtml" />
-=======
     <Content Include="assets\js\plugin\ckeditor\bender-runner.config.json" />
     <Content Include="assets\js\plugin\ckeditor\CHANGES.md" />
     <Content Include="assets\js\plugin\ckeditor\LICENSE.md" />
@@ -2726,7 +2724,6 @@
     <Content Include="assets\js\plugin\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="assets\js\plugin\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <Content Include="assets\js\plugin\ckfinder\userfiles\.htaccess" />
->>>>>>> origin/tien
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
