@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using PagedList;
 using System.Web.Mvc;
 using Nhom8_IMUA.Common;
 using Nhom8_IMUA.Models;
@@ -16,12 +17,53 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         private Nhom8DB db = new Nhom8DB();
 
         // GET: Admin/NguoiDungs
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var nguoiDungs = db.NguoiDungs.Include(n => n.UserGroup);
-            return View(nguoiDungs.ToList());
+            var nguoiDung = db.NguoiDungs.Select(p => p).OrderBy(s => s.MaND);
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(nguoiDung.ToPagedList(pageNumber, pageSize));
         }
 
+        // GET: Admin/NguoiDungs/Search
+        public ActionResult Search(string searchString, int? page)
+        {
+            ViewBag.CurrentFilter = searchString;
+
+            var nguoiDung = db.NguoiDungs.Select(p => p);
+
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                nguoiDung = nguoiDung.Where(p => p.HoTen.Trim().Contains(searchString)); //lọc theo chuỗi tìm kiếm
+            }
+            nguoiDung = nguoiDung.OrderBy(p => p.MaND);
+            ViewData["Count"] = nguoiDung.Count().ToString();
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(nguoiDung.ToPagedList(pageNumber, pageSize));
+        }
+
+        // GET: Admin/NguoiDungs/ChangeStatus
+        public ActionResult ChangeStatus(int? id)
+        {
+            Response.Write("<script>alert(" + id + ");</script>");
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            NguoiDung custom = db.NguoiDungs.Find(id);
+            if (custom.TrangThai.Equals(false))
+            {
+                custom.TrangThai = true;
+            }
+            else
+            {
+                custom.TrangThai = false;
+            }
+            db.Entry(custom).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         // GET: Admin/NguoiDungs/Details/5
         public ActionResult Details(int? id)
         {

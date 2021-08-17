@@ -1609,6 +1609,12 @@
     <Content Include="Areas\Admin\Views\HoaDons\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HoaDons\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TrangChu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DanhMucs\Search.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Search.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSPs\Search.cshtml" />
+    <Content Include="Areas\Admin\Views\NguoiDungs\Search.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\Search.cshtml" />
+    <Content Include="Areas\Admin\Views\TinTucs\Search.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
