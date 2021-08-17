@@ -183,3 +183,4 @@ D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CoreCompileInputs.cache
 D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CopyComplete
 D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.dll
 D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.pdb
+D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.AssemblyReference.cache
