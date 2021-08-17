@@ -2724,6 +2724,8 @@
     <Content Include="assets\js\plugin\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="assets\js\plugin\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <Content Include="assets\js\plugin\ckfinder\userfiles\.htaccess" />
+    <Content Include="Areas\Admin\Views\NguoiDungs\ChangeInfor.cshtml" />
+    <Content Include="Areas\Admin\Views\NguoiDungs\ChangePassword.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
