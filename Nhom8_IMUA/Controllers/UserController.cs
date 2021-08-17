@@ -210,7 +210,6 @@ namespace Nhom8_IMUA.Controllers
                     {
                         if (session.Password != Encryptor.MD5Hash(oldpass))
                         {
-                            ViewBag.Display = "block";
                             ModelState.AddModelError("ErrorUpdate", "Mật khẩu cũ không chính xác");
                         }
                         else
