@@ -191,8 +191,7 @@
                     dataType: 'json',
                     success: function (data) {
                         if (data != null) {
-
-                            window.location.href = $(location).attr("href");
+                            window.location.reload();
                             alert("Thêm vào giỏ hàng thành công!");
                             $(".cart__number").html("(" + data.SoLuong + ")");
                         }

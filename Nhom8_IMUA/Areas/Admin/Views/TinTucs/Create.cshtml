@@ -5,12 +5,15 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+@section footer{
+    <script src="~/Areas/Admin/assets/js/replace.js"></script>
+}
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm(Html.BeginForm("Create", "TinTucs", FormMethod.Post, new { enctype = "multipart/form-data" })))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>TinTuc</h4>
         <hr />
@@ -26,7 +29,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TomTat, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TomTat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.TomTat, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TomTat, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -34,16 +37,17 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NoiDung, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NoiDung, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.NoiDung, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.AnhTinTuc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="elements-title">Ảnh Tin Tức :</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.AnhTinTuc, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AnhTinTuc, "", new { @class = "text-danger" })
+                <img id="output" src="~/assets/img/default-img.png" />
+                <label for="ufile" style="cursor:pointer;" class="modal-label">Chọn ảnh</label>
+                <input name="AnhTinTuc" id="ufile" type="file" style="display:none;" onchange="loadFile(event)" />
             </div>
         </div>
 
@@ -58,3 +62,9 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+<script>
+    var loadFile = function (event) {
+        var image = document.getElementById('output');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
