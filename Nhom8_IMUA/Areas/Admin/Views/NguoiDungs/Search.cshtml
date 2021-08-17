@@ -25,6 +25,7 @@
                 </div>
 
             </div>
+            <div id="search__result" style="text-transform: uppercase;">có <text style="color: red;">@ViewData["Count"]</text> khách hàng phù hợp với từ khoá: <text style="color: red">@ViewBag.CurrentFilter</text></div>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -81,7 +82,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</div>
+            <div class="phan-trang">@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = ViewBag.CurrentFilter }))</div>
         </div>
     </div>
 </div>

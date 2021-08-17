@@ -214,6 +214,17 @@
     <script src="~/Areas/Admin/assets/vendors/js/vendor.bundle.base.js"></script>
     <script src="~/Areas/Admin/assets/js/template.js"></script>
     <script src="~/Areas/Admin/assets/js/admin.js"></script>
+    <script language="javascript">
+        function valid_search() {
+            var search = document.getElementById('SearchString');
+            if (search.value == "") {
+                alert("Vui lòng nhập từ khoá tìm kiếm!");
+                search.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 
 </html>

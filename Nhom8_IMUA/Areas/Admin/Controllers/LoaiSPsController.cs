@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using PagedList;
 using System.Web.Mvc;
 using Nhom8_IMUA.Models;
 
@@ -15,10 +16,30 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         private Nhom8DB db = new Nhom8DB();
 
         // GET: Admin/LoaiSPs
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var loaiSPs = db.LoaiSPs.Include(l => l.DanhMuc);
-            return View(loaiSPs.ToList());
+            var loaiSP = db.LoaiSPs.Select(p => p).OrderBy(s => s.MaLoai);
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(loaiSP.ToPagedList(pageNumber, pageSize));
+        }
+
+        // GET: Admin/LoaiSPs/Search
+        public ActionResult Search(string searchString, int? page)
+        {
+            ViewBag.CurrentFilter = searchString;
+
+            var loaiSP = db.LoaiSPs.Select(p => p);
+
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                loaiSP = loaiSP.Where(p => p.TenLoai.Trim().Contains(searchString)); //lọc theo chuỗi tìm kiếm
+            }
+            loaiSP = loaiSP.OrderBy(p => p.MaLoai);
+            ViewData["Count"] = loaiSP.Count().ToString();
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(loaiSP.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Admin/LoaiSPs/Details/5
