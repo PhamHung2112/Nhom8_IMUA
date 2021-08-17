@@ -192,7 +192,6 @@
     <Content Include="Areas\Admin\assets\images\logo.png" />
     <Content Include="Areas\Admin\assets\images\qrcode_imua.com.vn.png" />
     <Content Include="Areas\Admin\assets\js\delete.js" />
-    <Content Include="Areas\Admin\assets\js\off-canvas.js" />
     <Content Include="Areas\Admin\assets\js\plugin\ckeditor\adapters\jquery.js" />
     <Content Include="Areas\Admin\assets\js\plugin\ckeditor\build-config.js" />
     <Content Include="Areas\Admin\assets\js\plugin\ckeditor\ckeditor.js" />
