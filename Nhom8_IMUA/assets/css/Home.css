@@ -1714,3 +1714,25 @@ a:active {
     display: inline-block;
     font-weight: 700;
 }
+
+/*Order success*/
+.container .center-content h1, .container .center-content h4 {
+    font-size: 36px;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.container .center-content {
+    display: block;
+    text-align: center;
+}
+
+    .container .center-content a {
+        color: #333;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+        .container .center-content a:hover {
+            color: #f27922;
+        }

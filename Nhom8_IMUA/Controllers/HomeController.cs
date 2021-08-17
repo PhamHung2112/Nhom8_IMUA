@@ -97,5 +97,10 @@ namespace Nhom8_IMUA.Controllers
         {
             return PartialView();
         }
+
+        public ActionResult OrderSuccess()
+        {
+            return PartialView();
+        }
     }
 }
