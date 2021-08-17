@@ -208,9 +208,10 @@ namespace Nhom8_IMUA.Controllers
                     var session = (Nhom8_IMUA.Common.UserLogin)Session[Nhom8_IMUA.Common.CommonConstants.USER_SESSION];
                     if (session != null)
                     {
-                        if (Encryptor.MD5Hash(oldpass) != session.Password)
+                        if (session.Password != Encryptor.MD5Hash(oldpass))
                         {
-                            ViewBag.Error = "Mật khẩu cũ không chính xác"
+                            ViewBag.Display = "block";
+                            ModelState.AddModelError("ErrorUpdate", "Mật khẩu cũ không chính xác");
                         }
                         else
                         {
@@ -224,7 +225,7 @@ namespace Nhom8_IMUA.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("ChangePassword", "Đổi mật khẩu thất bại");
+                    ModelState.AddModelError("ErrorUpdate", "Đổi mật khẩu thất bại");
                 }
             } catch (Exception ex)
             {
