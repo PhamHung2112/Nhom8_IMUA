@@ -73,7 +73,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                sanPham.AnhDaiDien = "";
+                //sanPham.AnhDaiDien = "";
                 var f = Request.Files["AnhDaiDien"];
                 if (f != null && f.ContentLength > 0)
                 {
@@ -116,7 +116,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                sanPham.AnhDaiDien = "";
+                //sanPham.AnhDaiDien = "";
                 var f = Request.Files["AnhDaiDien"];
                 if (f != null && f.ContentLength > 0)
                 {

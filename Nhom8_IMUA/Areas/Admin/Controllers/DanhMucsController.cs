@@ -72,7 +72,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                danhMuc.AnhDM = "";
+                //danhMuc.AnhDM = "";
                 var f1 = Request.Files["AnhDM"];
                 if (f1 != null && f1.ContentLength > 0)
                 {
@@ -81,7 +81,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
                     f1.SaveAs(UploadPath);
                     danhMuc.AnhDM = FileName;
                 }
-                danhMuc.BieuTuong = "";
+                //danhMuc.BieuTuong = "";
                 var f2 = Request.Files["BieuTuong"];
                 if (f2 != null && f2.ContentLength > 0)
                 {
@@ -122,7 +122,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                danhMuc.AnhDM = "";
+                //danhMuc.AnhDM = "";
                 var f1 = Request.Files["AnhDM"];
                 if (f1 != null && f1.ContentLength > 0)
                 {
@@ -131,7 +131,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
                     f1.SaveAs(UploadPath);
                     danhMuc.AnhDM = FileName;
                 } 
-                danhMuc.BieuTuong = "";
+                //danhMuc.BieuTuong = "";
                 var f2 = Request.Files["BieuTuong"];
                 if (f2 != null && f2.ContentLength > 0)
                 {

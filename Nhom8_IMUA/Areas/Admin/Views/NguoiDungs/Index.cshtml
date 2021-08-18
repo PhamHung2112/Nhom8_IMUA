@@ -16,14 +16,16 @@
                     <div action="" class="header__search--input">
                         @using (Html.BeginForm("Search", "NguoiDungs"))
                         {
-                            <input type="text" placeholder="Tìm kiếm khách hàng..." id="SearchString" name="SearchString" style="right: 2.3rem" />
+                            <input type="text" placeholder="Tìm kiếm khách hàng" id="SearchString" name="SearchString" style="right: 2.3rem" />
                             <button type="submit" class="header__search--icon" style="right: 0" onclick="return valid_search();">
                                 <i class="fas fa-search"></i>
                             </button>
                         }
                     </div>
                 </div>
-
+                @*<a class="btn btn-primary" href="@Url.Action("Create", "NguoiDungs")">
+                    <i class="ti-plus"></i>
+                </a>*@
             </div>
             <div class="table-responsive">
                 <table class="table table-striped">
@@ -47,14 +49,7 @@
                                 <td>@item.DiaChi</td>
                                 <td>@item.Email</td>
                                 <td>
-                                    @if (item.Loai.Equals(false))
-                                    {
-                                        <span>User</span>
-                                    }
-                                    else
-                                    {
-                                        <span>Admin</span>
-                                    }
+                                    @item.GroupID
                                 </td>
                                 <td>
                                     <a href="@Url.Action("ChangeStatus","NguoiDungs",new { id = item.MaND })" style="text-decoration: none; color: #f27922;">

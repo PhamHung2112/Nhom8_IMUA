@@ -36,7 +36,7 @@ namespace Nhom8_IMUA.Controllers
                 }
                 else
                 {
-                    model.AnhDaiDien = "avatar_2x.png";
+                    model.AnhDaiDien = "default-avatar.png";
                 }
                 var dao = new UserDAO();
                 if (dao.CheckUserName(model.TenDangNhap))

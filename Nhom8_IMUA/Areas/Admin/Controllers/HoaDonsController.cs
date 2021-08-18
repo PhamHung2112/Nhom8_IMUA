@@ -141,12 +141,6 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult SanPhamBanChay()
-        {
-            ViewBag.SanPhamBanChay = db.SanPhamBanChays.Take(3);
-            return View();
-        }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

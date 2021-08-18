@@ -95,9 +95,11 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 db.NguoiDungs.Add(nguoiDung);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+
             }
 
             ViewBag.GroupID = new SelectList(db.UserGroups, "GroupID", "Name", nguoiDung.GroupID);
