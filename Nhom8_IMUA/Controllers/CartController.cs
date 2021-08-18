@@ -113,8 +113,8 @@ namespace Nhom8_IMUA.Controllers
                     db.SaveChanges();
 
                     //thêm chi tiết hóa đơn
-                    Session["Cart"] = null;
                     OrderDetial(invoid);
+                    Session["Cart"] = null;
                 }
                 
             }

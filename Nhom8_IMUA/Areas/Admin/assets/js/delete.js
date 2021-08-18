@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     $(".delBtn").click(function (e) {
         e.preventDefault();
-        var result = confirm("Bạn muốn xóa tin tức này ?");
+        var result = confirm("Bạn muốn xóa tin tức này không?");
         if (result) {
             $.ajax({
                 url: "/Admin/TinTucs/Delete",

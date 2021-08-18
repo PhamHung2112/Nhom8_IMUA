@@ -180,7 +180,25 @@
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\SanPham.cs" />
+    <Compile Include="Models\SanPhamBanChay_Result.cs">
+      <DependentUpon>TopSell.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TinTuc.cs" />
+    <Compile Include="Models\TopSell.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TopSell.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TopSell.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TopSell.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TopSell.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TopSell.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserDAO.cs" />
     <Compile Include="Models\UserGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1445,6 +1463,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\TopSell.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TopSell.edmx</DependentUpon>
+      <LastGenOutput>TopSell.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\TopSell.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TopSell.edmx</DependentUpon>
+      <LastGenOutput>TopSell.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
@@ -1651,6 +1679,13 @@
     <Content Include="assets\js\plugin\ckfinder\userfiles\.htaccess" />
     <Content Include="Areas\Admin\Views\NguoiDungs\ChangeInfor.cshtml" />
     <Content Include="Areas\Admin\Views\NguoiDungs\ChangePassword.cshtml" />
+    <EntityDeploy Include="Models\TopSell.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TopSell.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\TopSell.edmx.diagram">
+      <DependentUpon>TopSell.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1715,6 +1750,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

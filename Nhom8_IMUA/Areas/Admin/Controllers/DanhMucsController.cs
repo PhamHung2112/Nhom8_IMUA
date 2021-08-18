@@ -161,7 +161,6 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
             }
             return View(danhMuc);
         }
-
         // POST: Admin/DanhMucs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
