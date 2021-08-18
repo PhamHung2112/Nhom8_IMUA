@@ -188,6 +188,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\assets\css\admin.css" />
+    <Content Include="Areas\Admin\assets\css\Home.css" />
+    <Content Include="Areas\Admin\assets\css\setting.css" />
     <Content Include="Areas\Admin\assets\css\vertical-layout-light\style.css" />
     <Content Include="Areas\Admin\assets\images\logo-mini.png" />
     <Content Include="Areas\Admin\assets\images\logo.png" />
@@ -1652,6 +1654,7 @@
     <Content Include="assets\js\plugin\ckfinder\userfiles\.htaccess" />
     <Content Include="Areas\Admin\Views\NguoiDungs\ChangeInfor.cshtml" />
     <Content Include="Areas\Admin\Views\NguoiDungs\ChangePassword.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\SanPhamBanChay.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

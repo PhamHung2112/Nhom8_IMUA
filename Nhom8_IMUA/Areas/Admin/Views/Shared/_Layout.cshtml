@@ -95,6 +95,7 @@
             margin-top: 1rem;
         }
     </style>
+    @RenderSection("cssType", required: false)
 </head>
 
 <body>
@@ -148,7 +149,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="@Url.Action("SanPhamBanChay", "HoaDons")">
                             <i class="ti-shopping-cart-full menu-icon"></i>
                             <span class="menu-title">Sản phẩm bán chạy</span>
                         </a>
