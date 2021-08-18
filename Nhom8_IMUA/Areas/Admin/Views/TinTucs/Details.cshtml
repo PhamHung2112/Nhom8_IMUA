@@ -6,7 +6,7 @@
 }
 
 
-<div class="card">
+<div class="card" onload="init();">
     <div class="card-body">
         <h3 class="elements-header">Chi tiết tin tức</h3>
         <br />
@@ -49,7 +49,7 @@
                 </tr>
                 <tr>
                     <td>
-                        @Html.Raw(HttpUtility.HtmlDecode(Model.NoiDung))
+                        <textarea style="width: 100%; font-size: 1.2rem; line-height: 1.5rem">@Html.Raw(HttpUtility.HtmlDecode(Model.NoiDung))</textarea>
                     </td>
                 </tr>
                 <tr>
