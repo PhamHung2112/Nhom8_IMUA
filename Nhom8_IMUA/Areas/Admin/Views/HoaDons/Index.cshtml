@@ -16,7 +16,7 @@
                     <div action="" class="header__search--input">
                         @using (Html.BeginForm("Search", "HoaDons"))
                         {
-                            <input type="text" placeholder="Tìm kiếm hoá đơn..." id="SearchString" name="SearchString" />
+                            <input type="text" placeholder="Tìm kiếm hoá đơn" id="SearchString" name="SearchString" />
                             <button type="submit" class="header__search--icon" onclick="return valid_search();">
                                 <i class="fas fa-search"></i>
                             </button>
@@ -47,7 +47,7 @@
                                 <td>@item.MaND</td>
                                 <td>@item.NgayMua</td>
                                 <td>@item.NguoiDung.HoTen</td>
-                                <td>@item.ThanhTien</td>
+                                <td>@string.Format("{0:c0}", item.ThanhTien)</td>
                                 <td>
                                     <div>
                                         <a class="btn btn-primary" href="@Url.Action("Details", "HoaDons", new { id = item.MaHD })">
