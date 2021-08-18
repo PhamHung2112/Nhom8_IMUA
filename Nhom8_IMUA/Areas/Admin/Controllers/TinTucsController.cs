@@ -73,7 +73,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                tinTuc.AnhTinTuc = "";
+                
                 var f = Request.Files["AnhTinTuc"];
                 if (f != null && f.ContentLength > 0)
                 {
@@ -82,6 +82,11 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
                     f.SaveAs(UploadPath);
                     tinTuc.AnhTinTuc = FileName;
                 }
+                else
+                {
+                    tinTuc.AnhTinTuc = "default-img.png";
+                }
+                
                 db.TinTucs.Add(tinTuc);
                 db.SaveChanges();
                 return RedirectToAction("Index");
