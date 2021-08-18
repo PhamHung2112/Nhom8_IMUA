@@ -89,7 +89,7 @@
                                     </div>
                                     <div class="product__info">
                                         <h3 class="product__title">
-                                            <a href="">@product.TenSP</a>
+                                            <a href="@Url.Action("Index","Product",new { MaSP = product.MaSP })">@product.TenSP</a>
                                         </h3>
                                         <div class="product__price">
                                             <ins class="product__price--new">@string.Format("{0:c0}", product.Gia - product.Gia * product.KhuyenMai / 100)</ins>

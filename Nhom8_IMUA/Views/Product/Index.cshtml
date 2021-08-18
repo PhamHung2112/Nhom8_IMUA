@@ -94,7 +94,7 @@
                                     <input type="number" name="" id="ipQuantity" value="1">
                                 </form>
                                 <div class="cart">
-                                    <a href="" class="button">Đặt hàng ngay</a>
+                                    <a href="" class="button" id="buynow">Đặt hàng ngay</a>
                                     <a href="" class="button" id="addtocart">
                                         <i class="fas fa-shopping-basket"></i>
                                         Thêm vào giỏ hàng
@@ -216,6 +216,25 @@
                     success: function (data) {
                         alert("Thêm giỏ hàng thành công!");
                         $(".cart__number").html("(" + data.SoLuong + ")");
+                    },
+                    error: function () {
+                        alert("Lỗi trong khi thêm vào giỏ hàng!");
+                    }
+                });
+                return false;
+            });
+            $('#buynow').off().click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: '/Cart/AddToCart',
+                    data: {
+                        id: parseInt($('#ma').text()),
+                        quantity: parseInt($('#ipQuantity').val())
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        $(".cart__number").html("(" + data.SoLuong + ")");
+                        location.href = "@Url.Action("Index", "Cart")";
                     },
                     error: function () {
                         alert("Lỗi trong khi thêm vào giỏ hàng!");

@@ -58,7 +58,7 @@
                 </div>
                 <div class="product__info">
                     <h3 class="product__title">
-                        <a href="">@product.TenSP</a>
+                        <a href="@Url.Action("Index","Product",new { MaSP = product.MaSP })">@product.TenSP</a>
                     </h3>
                     <div class="product__price">
                         @if (product.KhuyenMai == 0)

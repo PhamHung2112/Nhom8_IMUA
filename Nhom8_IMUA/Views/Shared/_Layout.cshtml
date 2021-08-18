@@ -81,7 +81,7 @@
                             @using (Html.BeginForm("Index", "TimKiem"))
                             {
                                 <input type="text" placeholder="Tìm kiếm sản phẩm..." id="SearchString" name="SearchString" />
-                                <button type="submit" class="header__search--icon">
+                                <button type="submit" class="header__search--icon" onclick="return valid_search();">
                                     <i class="fas fa-search"></i>
                                 </button>
                             }
@@ -206,6 +206,15 @@
 
             });
         });
+        function valid_search() {
+            var search = document.getElementById('SearchString');
+            if (search.value == "") {
+                alert("Vui lòng nhập từ khoá tìm kiếm!");
+                search.focus();
+                return false;
+            }
+            return true;
+        }
     </script>
     @RenderSection("addMoreCart", required: false)
     @RenderSection("scriptUp", required: false)

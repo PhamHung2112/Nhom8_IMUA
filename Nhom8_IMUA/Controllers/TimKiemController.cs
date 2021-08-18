@@ -15,19 +15,9 @@ namespace Nhom8_IMUA.Controllers
     {
         private Nhom8DB db = new Nhom8DB();
         // GET: TimKiem
-        public ActionResult Index(string sortOrder, string searchString, string currentFilter, int? page)
+        public ActionResult Index(string searchString, int? page)
         {
             List<GioHang> li = (List<GioHang>)Session["cart"];
-            ViewBag.CurrentSort = sortOrder;
-            ViewBag.SapTheoID = String.IsNullOrEmpty(sortOrder) ? "ten_desc" : "";
-            if (searchString != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
             ViewBag.CurrentFilter = searchString;
 
             var sanphams = db.SanPhams.Select(p => p);
@@ -36,16 +26,7 @@ namespace Nhom8_IMUA.Controllers
             {
                 sanphams = sanphams.Where(p => p.TenSP.Trim().Contains(searchString)); //lọc theo chuỗi tìm kiếm
             }
-
-            switch (sortOrder)
-            {
-                case "ten_desc":
-                    sanphams = sanphams.OrderByDescending(s => s.MaSP);
-                    break;
-                default:
-                    sanphams = sanphams.OrderBy(s => s.MaSP);
-                    break;
-            }
+            sanphams = sanphams.OrderBy(s => s.MaSP);
             ViewData["Count"] = sanphams.Count().ToString();
             int pageSize = 12;
             int pageNumber = (page ?? 1);
