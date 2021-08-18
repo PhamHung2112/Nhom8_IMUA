@@ -48,7 +48,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="cart__link" href="">Son Dưỡng Môi có màu Ecosy Nature Tint Stick The Collagen</a>
+                                    <a class="cart__link" href="@Url.Action("Index","Product",new { MaSP = item.Product.MaSP })">@item.Product.TenSP</a>
                                     <div class="product__price">
                                         <ins>@string.Format("{0:c0}", item.Product.Gia - item.Product.Gia * item.Product.KhuyenMai / 100)</ins>
                                         <del>@string.Format("{0:c0}", item.Product.Gia)</del>

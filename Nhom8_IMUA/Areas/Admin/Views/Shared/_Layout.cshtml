@@ -223,6 +223,16 @@
                 return false;
             }
             return true;
+        };
+        const tx = document.getElementsByTagName('textarea');
+        for (let i = 0; i < tx.length; i++) {
+            tx[i].setAttribute('style', 'height:' + (tx[i].scrollHeight) + 'px;overflow-y:hidden; width: 100%; outline: none; border: none; font-size: 1.2rem; line-height: 1.5rem');
+            tx[i].addEventListener("input", OnInput, false);
+        }
+
+        function OnInput() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
         }
     </script>
     <script src="~/Areas/Admin/assets/vendors/js/vendor.bundle.base.js"></script>
