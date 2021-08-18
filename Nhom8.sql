@@ -326,4 +326,12 @@ select * from [TinTuc]
 select * from [HoaDon]
 select * from [ChiTietHoaDon]
 
-update NguoiDung set TrangThai = 1 where ManD = 4
+create proc SanPhamBanChay
+as
+begin
+	select top 10 SanPham.MaSP,TenSP,Cast(AnhDaiDien as nvarchar(100)) as AnhDaiDien,Gia,KhuyenMai,Sum(SoLuong) as Tong 
+	from SanPham join ChiTietHoaDon on
+	SanPham.MaSP = ChiTietHoaDon.MaSP
+	group by SanPham.MaSP,SanPham.TenSP,Cast(AnhDaiDien as nvarchar(100)),Gia,KhuyenMai
+	order by Sum(SoLuong) desc
+end
