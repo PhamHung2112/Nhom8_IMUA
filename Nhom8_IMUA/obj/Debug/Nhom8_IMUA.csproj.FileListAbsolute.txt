@@ -90,7 +90,6 @@ D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CoreCompileInputs.cache
 D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CopyComplete
 D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.dll
 D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.pdb
-D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.AssemblyReference.cache
 E:\Learning\BTL ASP.NET\BTL\Nhom8_IMUA\bin\Nhom8_IMUA.dll.config
 E:\Learning\BTL ASP.NET\BTL\Nhom8_IMUA\bin\Nhom8_IMUA.dll
 E:\Learning\BTL ASP.NET\BTL\Nhom8_IMUA\bin\Nhom8_IMUA.pdb
@@ -370,3 +369,4 @@ E:\ASP-IMUA\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CoreCompileInputs.
 E:\ASP-IMUA\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CopyComplete
 E:\ASP-IMUA\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.dll
 E:\ASP-IMUA\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.pdb
+D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.AssemblyReference.cache
