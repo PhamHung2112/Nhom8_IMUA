@@ -22,6 +22,7 @@ namespace Nhom8_IMUA.Models
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<TinTuc> TinTucs { get; set; }
         public virtual DbSet<UserGroup> UserGroups { get; set; }
+        public virtual DbSet<SanPhamBanChay> SanPhamBanChays { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -33,11 +34,6 @@ namespace Nhom8_IMUA.Models
                 .Property(e => e.BieuTuong)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<DanhMuc>()
-                .HasMany(e => e.LoaiSPs)
-                .WithRequired(e => e.DanhMuc)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<HoaDon>()
                 .Property(e => e.PhiVanChuyen)
                 .HasPrecision(19, 4);
@@ -45,16 +41,6 @@ namespace Nhom8_IMUA.Models
             modelBuilder.Entity<HoaDon>()
                 .Property(e => e.ThanhTien)
                 .HasPrecision(19, 4);
-
-            modelBuilder.Entity<HoaDon>()
-                .HasMany(e => e.ChiTietHoaDons)
-                .WithRequired(e => e.HoaDon)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<LoaiSP>()
-                .HasMany(e => e.SanPhams)
-                .WithRequired(e => e.LoaiSP)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<NguoiDung>()
                 .Property(e => e.AnhDaiDien)
@@ -67,6 +53,11 @@ namespace Nhom8_IMUA.Models
             modelBuilder.Entity<NguoiDung>()
                 .Property(e => e.Email)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<NguoiDung>()
+                .HasMany(e => e.HoaDons)
+                .WithOptional(e => e.NguoiDung)
+                .WillCascadeOnDelete();
 
             modelBuilder.Entity<Role>()
                 .HasMany(e => e.Credentials)
@@ -85,11 +76,6 @@ namespace Nhom8_IMUA.Models
                 .Property(e => e.TrongLuong)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<SanPham>()
-                .HasMany(e => e.ChiTietHoaDons)
-                .WithRequired(e => e.SanPham)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<TinTuc>()
                 .Property(e => e.AnhTinTuc)
                 .IsUnicode(false);
@@ -99,10 +85,9 @@ namespace Nhom8_IMUA.Models
                 .WithRequired(e => e.UserGroup)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<UserGroup>()
-                .HasMany(e => e.NguoiDungs)
-                .WithRequired(e => e.UserGroup)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<SanPhamBanChay>()
+                .Property(e => e.Gia)
+                .HasPrecision(19, 4);
         }
     }
 }

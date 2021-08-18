@@ -60,6 +60,7 @@ namespace Nhom8_IMUA.Controllers
                     user.AnhDaiDien = model.AnhDaiDien;
                     user.Loai = false;
                     user.TrangThai = true;
+                    user.GroupID = "MEMBER";
                     var result = dao.Insert(user);
                     if (result > 0)
                     {

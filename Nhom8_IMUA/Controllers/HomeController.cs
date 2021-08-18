@@ -11,12 +11,12 @@ namespace Nhom8_IMUA.Controllers
     public class HomeController : Controller
     {
         private Nhom8DB db = new Nhom8DB();
-        private Nhom8Entities topsell = new Nhom8Entities();
+        //private Nhom8Entities topsell = new Nhom8Entities();
         public ActionResult Index()
         {
             //San pham ban chay
             //ViewBag.SanPhamBanChay = db.SanPhams.OrderBy(p=>p.MaSP).Select(p => p).Take(5);
-            ViewBag.SanPhamBanChay = topsell.SanPhamBanChay().Take(5);
+            ViewBag.SanPhamBanChay = db.SanPhamBanChays.Take(5);
 
             //Danh muc san pham
             ViewBag.DanhMuc = db.DanhMucs.Include("LoaiSPs").Select(p => p).Take(4);
