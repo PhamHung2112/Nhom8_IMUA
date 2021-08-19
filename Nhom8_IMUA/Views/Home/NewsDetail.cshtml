@@ -71,8 +71,8 @@
                         @foreach (var item in Model)
                         {
                             <h1 style="font-size: 1.8rem; font-weight: 700; color: red; margin: 1rem 0 1rem">@item.TieuDe</h1>
-                            <h2 style="font-size: 1.4rem; color: #333333; margin: 2rem 0 1rem; line-height: 1.6; font-weight: 700; color: #008000 ">@item.TomTat</h2>
-                            <p style="font-size: 1.4rem; color: #333333; line-height: 1.8; margin-bottom: 1rem; text-align: justify">@item.NoiDung</p>
+                            <h2 style="font-size: 1.4rem; color: #333333; margin: 2rem 0 1rem; line-height: 1.6; font-weight: 700; color: #008000 ">@Html.Raw(HttpUtility.HtmlDecode(item.TomTat))</h2>
+                            <p style="font-size: 1.4rem; color: #333333; line-height: 1.8; margin-bottom: 1rem; text-align: justify">@Html.Raw(HttpUtility.HtmlDecode(item.NoiDung))</p>
                             <img src="~/assets/Images/TinTuc/@item.AnhTinTuc" style="margin: 2rem auto; display: flex; object-fit: cover" />
                         }
                     </div>
