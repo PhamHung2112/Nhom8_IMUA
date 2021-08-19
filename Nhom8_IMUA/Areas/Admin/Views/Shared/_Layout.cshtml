@@ -148,12 +148,12 @@
                             <span class="menu-title">Trang chủ</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("SanPhamBanChay", "TrangChu")">
-                            <i class="ti-shopping-cart-full menu-icon"></i>
-                            <span class="menu-title">Sản phẩm bán chạy</span>
-                        </a>
-                    </li>
+                    @*<li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("SanPhamBanChay", "TrangChu")">
+                                <i class="ti-shopping-cart-full menu-icon"></i>
+                                <span class="menu-title">Sản phẩm bán chạy</span>
+                            </a>
+                        </li>*@
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index", "DanhMucs")">
                             <i class="icon-layout menu-icon"></i>
@@ -184,11 +184,26 @@
                             <span class="menu-title">Quản lý hóa đơn</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    @*<li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index","NguoiDungs")">
                             <i class="icon-head menu-icon"></i>
                             <span class="menu-title">Quản lý tài khoản</span>
                         </a>
+                    </li>*@
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                            <i class="icon-head menu-icon"></i>
+                            <span class="menu-title">Quản lý tài khoản</span>
+                            <i class="menu-arrow" style="margin-left: 10px"></i>
+                        </a>
+                        <div class="collapse" id="auth">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="@Url.Action("Index","NguoiDungs")">Danh sách tài khoản</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#"> 1 </a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#"> 2 </a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#"> 3 </a></li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </nav>
