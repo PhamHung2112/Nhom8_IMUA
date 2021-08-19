@@ -56,7 +56,7 @@
                                         <a class="btn btn-primary" href="@Url.Action("Edit", "SanPhams", new { id = item.MaSP })">
                                             <i class="ti-pencil-alt"></i>
                                         </a> &nbsp;
-                                        <a class="btn btn-primary" href="@Url.Action("Delete", "SanPhams", new { id = item.MaSP })">
+                                        <a class="btn btn-primary delBtnSP" href="" data-id="@item.MaSP">
                                             <i class="ti-trash"></i>
                                         </a>
                                     </div>
@@ -70,3 +70,6 @@
         </div>
     </div>
 </div>
+@section ajaxDel{
+    <script src="~/Areas/Admin/assets/js/delete.js"></script>
+}

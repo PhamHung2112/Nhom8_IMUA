@@ -133,30 +133,15 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
             return View(sanPham);
         }
 
-        // GET: Admin/SanPhams/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SanPham sanPham = db.SanPhams.Find(id);
-            if (sanPham == null)
-            {
-                return HttpNotFound();
-            }
-            return View(sanPham);
-        }
 
         // POST: Admin/SanPhams/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpPost]
+        public JsonResult Delete(int id)
         {
             SanPham sanPham = db.SanPhams.Find(id);
             db.SanPhams.Remove(sanPham);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(new { ThongBao = "successs" });
         }
 
         protected override void Dispose(bool disposing)

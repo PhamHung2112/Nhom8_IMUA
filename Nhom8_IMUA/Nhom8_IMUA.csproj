@@ -1582,7 +1582,6 @@
     <Content Include="Areas\Admin\assets\js\plugin\ckfinder\userfiles\.htaccess" />
     <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
     <Content Include="Areas\Admin\Views\DanhMucs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\DanhMucs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\DanhMucs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DanhMucs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DanhMucs\Index.cshtml" />
@@ -1592,7 +1591,6 @@
     <Content Include="Areas\Admin\Views\NguoiDungs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\NguoiDungs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SanPhams\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\SanPhams\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\SanPhams\Details.cshtml" />
     <Content Include="Areas\Admin\Views\SanPhams\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\SanPhams\Index.cshtml" />
@@ -1601,12 +1599,10 @@
     <Content Include="Areas\Admin\Views\TinTucs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\TinTucs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSPs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\LoaiSPs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSPs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSPs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSPs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\HoaDons\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\HoaDons\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\HoaDons\Details.cshtml" />
     <Content Include="Areas\Admin\Views\HoaDons\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HoaDons\Index.cshtml" />

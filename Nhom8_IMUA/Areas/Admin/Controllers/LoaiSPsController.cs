@@ -115,32 +115,14 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
             return View(loaiSP);
         }
 
-        // GET: Admin/LoaiSPs/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            LoaiSP loaiSP = db.LoaiSPs.Find(id);
-            if (loaiSP == null)
-            {
-                return HttpNotFound();
-            }
-            return View(loaiSP);
-        }
-
-        // POST: Admin/LoaiSPs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpPost]
+        public JsonResult Delete(int id)
         {
             LoaiSP loaiSP = db.LoaiSPs.Find(id);
             db.LoaiSPs.Remove(loaiSP);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(new { ThongBao = "successs" });
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

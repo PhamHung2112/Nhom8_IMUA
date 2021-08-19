@@ -115,32 +115,16 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
             return View(hoaDon);
         }
 
-        // GET: Admin/HoaDons/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            HoaDon hoaDon = db.HoaDons.Find(id);
-            if (hoaDon == null)
-            {
-                return HttpNotFound();
-            }
-            return View(hoaDon);
-        }
 
         // POST: Admin/HoaDons/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpPost]
+        public JsonResult Delete(int id)
         {
             HoaDon hoaDon = db.HoaDons.Find(id);
             db.HoaDons.Remove(hoaDon);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(new { ThongBao = "successs" });
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

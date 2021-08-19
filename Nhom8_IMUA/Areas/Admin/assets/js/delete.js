@@ -22,5 +22,103 @@
                 }
             });
         }
-    })
+    });
+
+    $(".delBtnDM").click(function (e) {
+        e.preventDefault();
+        var result = confirm("Bạn muốn xóa danh mục này không?");
+        if (result) {
+            $.ajax({
+                url: "/Admin/DanhMucs/Delete",
+                type: "POST",
+                data: {
+                    id: $(this).data("id")
+                },
+                dataType: "json",
+                success: function (data) {
+                    if (data != null) {
+                        window.location.reload();
+                    } else {
+                        alert("loi");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi trong khi xóa!");
+                }
+            });
+        }
+    });
+
+    $(".delBtnHD").click(function (e) {
+        e.preventDefault();
+        var result = confirm("Bạn muốn xóa hóa đơn này không?");
+        if (result) {
+            $.ajax({
+                url: "/Admin/HoaDons/Delete",
+                type: "POST",
+                data: {
+                    id: $(this).data("id")
+                },
+                dataType: "json",
+                success: function (data) {
+                    if (data != null) {
+                        window.location.reload();
+                    } else {
+                        alert("loi");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi trong khi xóa!");
+                }
+            });
+        }
+    });
+    $(".delBtnLSP").click(function (e) {
+        e.preventDefault();
+        var result = confirm("Bạn muốn xóa loại sản phẩm này không?");
+        if (result) {
+            $.ajax({
+                url: "/Admin/LoaiSPs/Delete",
+                type: "POST",
+                data: {
+                    id: $(this).data("id")
+                },
+                dataType: "json",
+                success: function (data) {
+                    if (data != null) {
+                        window.location.reload();
+                    } else {
+                        alert("loi");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi trong khi xóa!");
+                }
+            });
+        }
+    });
+    $(".delBtnSP").click(function (e) {
+        e.preventDefault();
+        var result = confirm("Bạn muốn xóa sản phẩm này không?");
+        if (result) {
+            $.ajax({
+                url: "/Admin/SanPhams/Delete",
+                type: "POST",
+                data: {
+                    id: $(this).data("id")
+                },
+                dataType: "json",
+                success: function (data) {
+                    if (data != null) {
+                        window.location.reload();
+                    } else {
+                        alert("loi");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi trong khi xóa!");
+                }
+            });
+        }
+    });
 });

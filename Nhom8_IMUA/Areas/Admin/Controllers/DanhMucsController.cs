@@ -148,28 +148,27 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/DanhMucs/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DanhMuc danhMuc = db.DanhMucs.Find(id);
-            if (danhMuc == null)
-            {
-                return HttpNotFound();
-            }
-            return View(danhMuc);
-        }
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    DanhMuc danhMuc = db.DanhMucs.Find(id);
+        //    if (danhMuc == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(danhMuc);
+        //}
         // POST: Admin/DanhMucs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpPost]
+        public JsonResult Delete(int id)
         {
             DanhMuc danhMuc = db.DanhMucs.Find(id);
             db.DanhMucs.Remove(danhMuc);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(new { ThongBao = "successs" });
         }
 
         protected override void Dispose(bool disposing)
