@@ -25,7 +25,7 @@
                                     <img src="~/assets/Images/TinTuc/@item.AnhTinTuc" alt="">
                                     <div class="news__content">
                                         <a href="@Url.Action("NewsDetail", "Home", new { id = item.MaTinTuc })" class="news__link">@item.TieuDe</a>
-                                        <p>@item.TomTat</p>
+                                        <p>@Html.Raw(HttpUtility.HtmlDecode(item.TomTat))</p>
                                     </div>
                                 </li>
                             }
