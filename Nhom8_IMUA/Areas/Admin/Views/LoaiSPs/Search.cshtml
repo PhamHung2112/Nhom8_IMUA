@@ -16,7 +16,7 @@
                     <div action="" class="header__search--input">
                         @using (Html.BeginForm("Search", "LoaiSPs"))
                         {
-                            <input type="text" placeholder="Tìm kiếm loại sản phẩm..." id="SearchString" name="SearchString" />
+                            <input type="text" placeholder="Tìm kiếm loại sản phẩm" id="SearchString" name="SearchString" />
                             <button type="submit" class="header__search--icon" onclick="return valid_search();">
                                 <i class="fas fa-search"></i>
                             </button>
@@ -53,7 +53,7 @@
                                         <a class="btn btn-primary" href="@Url.Action("Edit", "LoaiSPs", new { id = item.MaLoai })">
                                             <i class="ti-pencil-alt"></i>
                                         </a> &nbsp;
-                                        <a class="btn btn-primary" href="@Url.Action("Delete", "LoaiSPs", new { id = item.MaLoai })">
+                                        <a class="btn btn-primary delBtnLSP" href="" data-id="@item.MaLoai">
                                             <i class="ti-trash"></i>
                                         </a>
                                     </div>
@@ -67,3 +67,7 @@
         </div>
     </div>
 </div>
+
+@section ajaxDel{
+    <script src="~/Areas/Admin/assets/js/delete.js"></script>
+}

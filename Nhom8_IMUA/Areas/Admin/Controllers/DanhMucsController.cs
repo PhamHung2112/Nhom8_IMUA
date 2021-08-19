@@ -81,6 +81,10 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
                     f1.SaveAs(UploadPath);
                     danhMuc.AnhDM = FileName;
                 }
+                else
+                {
+                    danhMuc.AnhDM = "default-img.png";
+                }    
                 //danhMuc.BieuTuong = "";
                 var f2 = Request.Files["BieuTuong"];
                 if (f2 != null && f2.ContentLength > 0)
@@ -89,6 +93,10 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
                     string UploadPath = Server.MapPath("~/assets/Images/DanhMuc/" + FileName);
                     f2.SaveAs(UploadPath);
                     danhMuc.BieuTuong = FileName;
+                }
+                else
+                {
+                    danhMuc.BieuTuong = "default-img.png";
                 }
                 db.DanhMucs.Add(danhMuc);
                 db.SaveChanges();

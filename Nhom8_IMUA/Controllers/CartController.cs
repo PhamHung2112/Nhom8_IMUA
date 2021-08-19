@@ -87,7 +87,7 @@ namespace Nhom8_IMUA.Controllers
             {
                 if(Session["cart"] == null)
                 {
-                    Response.Write("<script>alert('không có sản phẩm');</script>");
+                    Response.Write("<script>alert('Không có sản phẩm.');</script>");
                 }
                 else
                 {

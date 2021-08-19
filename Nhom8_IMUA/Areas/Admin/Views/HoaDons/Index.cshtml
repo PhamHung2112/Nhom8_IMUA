@@ -12,6 +12,8 @@
         <div class="card-body">
             <div class="table-header">
                 <h4 class="card-title">Danh sách hoá đơn</h4>
+                <br />
+                <br />
                 <div class="header__middle--search">
                     <div action="" class="header__search--input">
                         @using (Html.BeginForm("Search", "HoaDons"))
@@ -23,16 +25,12 @@
                         }
                     </div>
                 </div>
-                <a class="btn btn-primary" href="@Url.Action("Create", "HoaDons")">
-                    <i class="ti-plus"></i>
-                </a>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>Mã hoá đơn</th>
-                            <th>Mã người dùng</th>
                             <th>Ngày mua</th>
                             <th>Người dùng</th>
                             <th>Thành tiền</th>
@@ -44,7 +42,6 @@
                         {
                             <tr>
                                 <td>@item.MaHD</td>
-                                <td>@item.MaND</td>
                                 <td>@item.NgayMua</td>
                                 <td>@item.NguoiDung.HoTen</td>
                                 <td>@string.Format("{0:c0}", item.ThanhTien)</td>
@@ -52,9 +49,6 @@
                                     <div>
                                         <a class="btn btn-primary" href="@Url.Action("Details", "HoaDons", new { id = item.MaHD })">
                                             <i class="ti-eye"></i>
-                                        </a> &nbsp;
-                                        <a class="btn btn-primary" href="@Url.Action("Edit", "HoaDons", new { id = item.MaHD })">
-                                            <i class="ti-pencil-alt"></i>
                                         </a> &nbsp;
                                         <a class="btn btn-primary delBtnHD" href="" data-id="@item.MaHD">
                                             <i class="ti-trash"></i>
@@ -70,6 +64,7 @@
         </div>
     </div>
 </div>
+
 @section ajaxDel{
     <script src="~/Areas/Admin/assets/js/delete.js"></script>
 }

@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
-    $(".delBtn").click(function (e) {
+    $(".delBtnTT").click(function (e) {
         e.preventDefault();
-        var result = confirm("Bạn muốn xóa tin tức này không?");
+        var result = confirm("Bạn có chắc chắn muốn xóa tin tức này không?");
         if (result) {
             $.ajax({
                 url: "/Admin/TinTucs/Delete",
@@ -26,7 +26,7 @@
 
     $(".delBtnDM").click(function (e) {
         e.preventDefault();
-        var result = confirm("Bạn muốn xóa danh mục này không?");
+        var result = confirm("Bạn có chắc chắn muốn xóa danh mục này không?");
         if (result) {
             $.ajax({
                 url: "/Admin/DanhMucs/Delete",
@@ -51,7 +51,7 @@
 
     $(".delBtnHD").click(function (e) {
         e.preventDefault();
-        var result = confirm("Bạn muốn xóa hóa đơn này không?");
+        var result = confirm("Bạn có chắc chắn muốn xóa hóa đơn này không?");
         if (result) {
             $.ajax({
                 url: "/Admin/HoaDons/Delete",
@@ -73,9 +73,10 @@
             });
         }
     });
+
     $(".delBtnLSP").click(function (e) {
         e.preventDefault();
-        var result = confirm("Bạn muốn xóa loại sản phẩm này không?");
+        var result = confirm("Bạn có chắc chắn muốn xóa loại sản phẩm này không?");
         if (result) {
             $.ajax({
                 url: "/Admin/LoaiSPs/Delete",
@@ -97,9 +98,10 @@
             });
         }
     });
+
     $(".delBtnSP").click(function (e) {
         e.preventDefault();
-        var result = confirm("Bạn muốn xóa sản phẩm này không?");
+        var result = confirm("Bạn có chắc chắn muốn xóa sản phẩm này không?");
         if (result) {
             $.ajax({
                 url: "/Admin/SanPhams/Delete",

@@ -13,7 +13,8 @@
             </a>
             <span>Giỏ hàng</span>
         </div>
-        @{
+        @if (Model != null)
+        {
             decimal tien = 0;
             if (Model.Sum(x => (x.Product.Gia - x.Product.Gia * x.Product.KhuyenMai / 100) * x.Quantity) >= 400000)
             {
@@ -23,9 +24,6 @@
             {
                 tien = 10000;
             }
-        }
-        @if (Model != null)
-        {
             <div class="cart__item">
                 <p class="cart__qty">Giỏ hàng có: <span>@Model.Count sản phẩm</span></p>
                 <p class="cart__total">Tổng tiền: <span>@string.Format("{0:c0}", @Model.Sum(x => (x.Product.Gia - x.Product.Gia * x.Product.KhuyenMai / 100) * x.Quantity) + tien)</span></p>

@@ -276,3 +276,9 @@ E:\ASP\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CoreCompileInputs.cache
 E:\ASP\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CopyComplete
 E:\ASP\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.dll
 E:\ASP\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.pdb
+E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\bin\Microsoft.ReportViewer.WebForms.dll
+E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\bin\Microsoft.ReportViewer.Common.dll
+E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\bin\Microsoft.SqlServer.Types.dll
+E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\RdlCompile.cache
+E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\RdlCompile.compiled

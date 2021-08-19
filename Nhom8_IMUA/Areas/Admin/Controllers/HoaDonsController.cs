@@ -8,6 +8,7 @@ using System.Web;
 using PagedList;
 using System.Web.Mvc;
 using Nhom8_IMUA.Models;
+using Microsoft.Reporting.WebForms;
 
 namespace Nhom8_IMUA.Areas.Admin.Controllers
 {
@@ -125,6 +126,44 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
             db.SaveChanges();
             return Json(new { ThongBao = "successs" });
         }
+
+        public ActionResult ExportFile(int? id, string ReportType)
+        {
+            LocalReport localreport = new LocalReport();
+            localreport.ReportPath = Server.MapPath("~/Areas/Admin/Reports/HoaDonND.rdlc");
+
+            ReportDataSource reportDataSource = new ReportDataSource();
+            reportDataSource.Name = "Nhom8DBDataSet";
+            reportDataSource.Value = db.HoaDons.Where(p => p.MaHD == id).ToList();
+            localreport.DataSources.Add(reportDataSource);
+            string reportType = ReportType;
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+            if (reportType == "Excel")
+            {
+                fileNameExtension = "xlsx";
+            }
+            else if (reportType == "Word")
+            {
+                fileNameExtension = "docx";
+            }
+            else if (reportType == "PDF")
+            {
+                fileNameExtension = "pdf";
+            }
+            else if (reportType == "Image")
+            {
+                fileNameExtension = "jpg";
+            }
+            string[] streams;
+            Warning[] warnings;
+            byte[] renderedByte;
+            renderedByte = localreport.Render(reportType, "", out mimeType, out encoding, out fileNameExtension, out streams, out warnings);
+            Response.AddHeader("content-disposition", "attachment;filename= hoadon." + fileNameExtension);
+            return File(renderedByte, fileNameExtension);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

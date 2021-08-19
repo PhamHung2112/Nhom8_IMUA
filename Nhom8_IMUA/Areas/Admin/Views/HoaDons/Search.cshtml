@@ -12,20 +12,19 @@
         <div class="card-body">
             <div class="table-header">
                 <h4 class="card-title">Danh sách hoá đơn</h4>
+                <br />
+                <br />
                 <div class="header__middle--search">
                     <div action="" class="header__search--input">
                         @using (Html.BeginForm("Search", "HoaDons"))
                         {
-                            <input type="text" placeholder="Tìm kiếm hoá đơn..." id="SearchString" name="SearchString" />
+                            <input type="text" placeholder="Tìm kiếm hoá đơn" id="SearchString" name="SearchString" />
                             <button type="submit" class="header__search--icon" onclick="return valid_search();">
                                 <i class="fas fa-search"></i>
                             </button>
                         }
                     </div>
                 </div>
-                <a class="btn btn-primary" href="@Url.Action("Create", "HoaDons")">
-                    <i class="ti-plus"></i>
-                </a>
             </div>
             <div id="search__result" style="text-transform: uppercase;">có <text style="color: red;">@ViewData["Count"]</text> hoá đơn phù hợp với từ khoá: <text style="color: red">@ViewBag.CurrentFilter</text></div>
             <div class="table-responsive">
@@ -57,7 +56,7 @@
                                         <a class="btn btn-primary" href="@Url.Action("Edit", "HoaDons", new { id = item.MaHD })">
                                             <i class="ti-pencil-alt"></i>
                                         </a> &nbsp;
-                                        <a class="btn btn-primary" href="@Url.Action("Delete", "HoaDons", new { id = item.MaHD })">
+                                        <a class="btn btn-primary delBtnHD" href="" data-id="@item.MaHD">
                                             <i class="ti-trash"></i>
                                         </a>
                                     </div>
@@ -71,3 +70,7 @@
         </div>
     </div>
 </div>
+
+@section ajaxDel{
+    <script src="~/Areas/Admin/assets/js/delete.js"></script>
+}

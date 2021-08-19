@@ -5,7 +5,7 @@
         <div class="container">
             <ul class="nav__menu">
                 <li class="nav__item">
-                    <a class="nav__link"">
+                    <a class="nav__link" ">
                         <i class="fas fa-bars"></i>
                         danh mục sản phẩm
                         <i class="fas fa-chevron-down"></i>
@@ -36,7 +36,7 @@
             <div class="nav__item--img">
                 <a href="@Url.Action("Index", "Category", new { id = item.MaDM })">
                     @{
-                        string image = "~/assets/img/" + item.AnhDM;
+                        string image = "~/assets/Images/DanhMuc/" + item.AnhDM;
                     }
                     <img src="@Url.Content(image)" alt="" />
                 </a>
@@ -144,7 +144,7 @@
                         <div class="nav__item--img">
                             <a href="@Url.Action("Index", "Category", new { id = item.MaDM })">
                                 @{
-                                    string ImagePath = "~/assets/img/" + item.AnhDM;
+                                    string ImagePath = "~/assets/Images/DanhMuc/" + item.AnhDM;
                                 }
                                 <img src="@Url.Content(ImagePath)" alt="" />
 
@@ -190,13 +190,13 @@
                                                 <div>
                                                     <h4>danh sách sản phẩm</h4>
                                                     <!-- <div class="slide">
-                  <a href="">
-                    <i class="fas fa-angle-left"></i>
-                  </a>
-                  <a href="">
-                    <i class="fas fa-angle-right"></i>
-                  </a>
-                </div> -->
+                                                      <a href="">
+                                                        <i class="fas fa-angle-left"></i>
+                                                      </a>
+                                                      <a href="">
+                                                        <i class="fas fa-angle-right"></i>
+                                                      </a>
+                                                    </div> -->
                                                 </div>
                                                 <div class="item">
                                                     @{ Html.RenderAction("ProductSaleOff", "Home");}

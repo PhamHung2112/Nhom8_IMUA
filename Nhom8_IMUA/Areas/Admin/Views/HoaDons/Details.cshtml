@@ -48,4 +48,5 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.MaHD }) |
     @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Tải xuống", "ExportFile", new { id = Model.MaHD, ReportType = "PDF" })
 </p>
