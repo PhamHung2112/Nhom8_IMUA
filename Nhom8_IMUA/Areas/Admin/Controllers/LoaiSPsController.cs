@@ -8,6 +8,7 @@ using System.Web;
 using PagedList;
 using System.Web.Mvc;
 using Nhom8_IMUA.Models;
+using Nhom8_IMUA.Common;
 
 namespace Nhom8_IMUA.Areas.Admin.Controllers
 {
@@ -16,6 +17,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         private Nhom8DB db = new Nhom8DB();
 
         // GET: Admin/LoaiSPs
+        [HasCredential(RoleID = "VIEW_LOAISP")]
         public ActionResult Index(int? page)
         {
             var loaiSP = db.LoaiSPs.Select(p => p).OrderBy(s => s.MaLoai);
@@ -43,6 +45,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/LoaiSPs/Details/5
+        [HasCredential(RoleID = "VIEW_LOAISP")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -58,6 +61,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/LoaiSPs/Create
+        [HasCredential(RoleID = "ADD_LOAISP")]
         public ActionResult Create()
         {
             ViewBag.MaDM = new SelectList(db.DanhMucs, "MaDM", "TenDM");
@@ -83,6 +87,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/LoaiSPs/Edit/5
+        [HasCredential(RoleID = "EDIT_LOAISP")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -115,6 +120,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
             return View(loaiSP);
         }
 
+        [HasCredential(RoleID = "DELETE_LOAISP")]
         [HttpPost]
         public JsonResult Delete(int id)
         {

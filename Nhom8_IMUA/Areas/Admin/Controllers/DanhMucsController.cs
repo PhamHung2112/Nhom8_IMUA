@@ -8,6 +8,7 @@ using System.Web;
 using PagedList;
 using System.Web.Mvc;
 using Nhom8_IMUA.Models;
+using Nhom8_IMUA.Common;
 
 namespace Nhom8_IMUA.Areas.Admin.Controllers
 {
@@ -16,6 +17,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         private Nhom8DB db = new Nhom8DB();
 
         // GET: Admin/DanhMucs
+        [HasCredential(RoleID = "VIEW_DANHMUC")]
         public ActionResult Index(int? page)
         {
             var danhMuc = db.DanhMucs.Select(p => p).OrderBy(s => s.MaDM);
@@ -43,6 +45,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/DanhMucs/Details/5
+        [HasCredential(RoleID = "VIEW_DANHMUC")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -58,6 +61,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/DanhMucs/Create
+        [HasCredential(RoleID = "ADD_DANHMUC")]
         public ActionResult Create()
         {
             return View();
@@ -107,6 +111,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/DanhMucs/Edit/5
+        [HasCredential(RoleID = "EDIT_DANHMUC")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -169,7 +174,9 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         //    }
         //    return View(danhMuc);
         //}
-        // POST: Admin/DanhMucs/Delete/5
+
+        //POST: Admin/DanhMucs/Delete/5
+        [HasCredential(RoleID = "DELETE_DANHMUC")]
         [HttpPost]
         public JsonResult Delete(int id)
         {

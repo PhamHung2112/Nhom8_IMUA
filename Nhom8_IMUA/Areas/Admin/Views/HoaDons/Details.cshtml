@@ -47,6 +47,12 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.MaHD }) |
-    @Html.ActionLink("Back to List", "Index")
-    @Html.ActionLink("Tải xuống", "ExportFile", new { id = Model.MaHD, ReportType = "PDF" })
+    @Html.ActionLink("Back to List", "Index")|
+</p>
+<p>
+    <span style="margin-right: 10px">Tải xuống theo: </span>
+    @Html.ActionLink("PDF", "ExportFile", new { id = Model.MaHD, ReportType = "PDF" }) |
+    @Html.ActionLink("Excel", "ExportFile", new { id = Model.MaHD, ReportType = "Excel" }) |
+    @Html.ActionLink("Word", "ExportFile", new { id = Model.MaHD, ReportType = "Word" }) |
+    @Html.ActionLink("Image", "ExportFile", new { id = Model.MaHD, ReportType = "Image" }) |
 </p>

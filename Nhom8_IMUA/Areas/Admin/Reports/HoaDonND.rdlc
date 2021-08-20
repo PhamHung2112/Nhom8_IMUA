@@ -10,21 +10,27 @@
             <TextRuns>
               <TextRun>
                 <Value>Hóa đơn của bạn</Value>
-                <Style />
+                <Style>
+                  <FontSize>20pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.21333in</Top>
-        <Left>2.89667in</Left>
-        <Height>0.225in</Height>
-        <Width>1.81667in</Width>
+        <Top>2.21333in</Top>
+        <Left>1.03833in</Left>
+        <Height>0.57917in</Height>
+        <Width>5.66875in</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+          <VerticalAlign>Middle</VerticalAlign>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -35,19 +41,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.58646in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.58646in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.58646in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.58646in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -63,19 +66,31 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Ma HD</Value>
-                              <Style />
+                              <Value>Mã hóa đơn</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Style>None</Style>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Style>None</Style>
+                        </BottomBorder>
+                        <BackgroundColor>#f27922</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -93,19 +108,31 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Phi Van Chuyen</Value>
-                              <Style />
+                              <Value>Phí vận chuyển</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox4</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
+                        <TopBorder>
+                          <Style>None</Style>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Style>None</Style>
+                        </BottomBorder>
+                        <BackgroundColor>#f27922</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -123,11 +150,16 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Ngay Mua</Value>
-                              <Style />
+                              <Value>Ngày mua</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox8</rd:DefaultName>
@@ -136,6 +168,21 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <TopBorder>
+                          <Style>None</Style>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Style>None</Style>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Black</Color>
+                          <Width>1.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Black</Color>
+                          <Width>1.5pt</Width>
+                        </RightBorder>
+                        <BackgroundColor>#f27922</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -154,10 +201,15 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Thành tiền</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox6</rd:DefaultName>
@@ -166,36 +218,21 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox10">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Ma ND</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox10</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
+                        <TopBorder>
+                          <Style>None</Style>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Style>None</Style>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Black</Color>
+                          <Width>1.5pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Black</Color>
+                          <Width>1.5pt</Width>
+                        </RightBorder>
+                        <BackgroundColor>#f27922</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -219,17 +256,22 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!MaHD.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>MaHD</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
+                          <Color>#ce834f</Color>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -249,17 +291,22 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!PhiVanChuyen.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>PhiVanChuyen</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
+                          <Color>#ce834f</Color>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -279,17 +326,22 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!NgayMua.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>NgayMua</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
+                          <Color>#ce834f</Color>
                           <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -309,47 +361,22 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!ThanhTien.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>ThanhTien</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
+                          <Color>#ce834f</Color>
                           <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="MaND">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!MaND.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>MaND</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Width>1.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -369,7 +396,6 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -383,10 +409,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Nhom8DBDataSet</DataSetName>
-        <Top>0.81333in</Top>
-        <Left>1.27167in</Left>
+        <Top>4.0425in</Top>
+        <Left>0.72583in</Left>
         <Height>0.5in</Height>
-        <Width>5in</Width>
+        <Width>6.34584in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -394,11 +420,237 @@
           </Border>
         </Style>
       </Tablix>
+      <Image Name="logoIMUA">
+        <Source>Embedded</Source>
+        <Value>logo</Value>
+        <Top>0.2175in</Top>
+        <Left>1.03833in</Left>
+        <Height>1.27cm</Height>
+        <Width>3.38667cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>IMUA - Mỹ phẩm online chính hãng</Value>
+                <Style>
+                  <FontSize>14pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>1.11333in</Top>
+        <Left>0.26958in</Left>
+        <Height>0.5in</Height>
+        <Width>3.24167in</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox5">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>0911 403 114</Value>
+                <Style>
+                  <FontSize>14pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox5</rd:DefaultName>
+        <Top>0.2175in</Top>
+        <Left>4.905in</Left>
+        <Height>0.5in</Height>
+        <Width>1.80208in</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Image Name="globalIMUA">
+        <Source>Embedded</Source>
+        <Value>globalIMUA</Value>
+        <Sizing>FitProportional</Sizing>
+        <Top>1.11333in</Top>
+        <Left>6.97444in</Left>
+        <Height>0.5in</Height>
+        <Width>0.5in</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="phoneIMUA">
+        <Source>Embedded</Source>
+        <Value>phoneIMUA</Value>
+        <Sizing>FitProportional</Sizing>
+        <Top>0.2175in</Top>
+        <Left>6.97444in</Left>
+        <Height>0.5in</Height>
+        <Width>0.5in</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Textbox Name="Textbox9">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Mã khách hàng:</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox9</rd:DefaultName>
+        <Top>3.22792in</Top>
+        <Left>1.0076in</Left>
+        <Height>0.375in</Height>
+        <Width>1.44792in</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox7">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>https://imua.com.vn/ </Value>
+                <Style>
+                  <FontSize>14pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox7</rd:DefaultName>
+        <Top>1.11333in</Top>
+        <Left>4.7925in</Left>
+        <Height>0.5in</Height>
+        <Width>1.91458in</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox11">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!MaND.Value</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox11</rd:DefaultName>
+        <Top>3.22792in</Top>
+        <Left>2.45552in</Left>
+        <Height>0.375in</Height>
+        <Width>1.375in</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>3.41667in</Height>
+    <Height>7.38542in</Height>
     <Style />
   </Body>
-  <Width>7.675in</Width>
+  <Width>8.28958in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -454,6 +706,22 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
+  <EmbeddedImages>
+    <EmbeddedImage Name="logo">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>iVBORw0KGgoAAAANSUhEUgAAAIAAAAAwCAYAAADZ9HK+AAAES0lEQVR4nO2bwa2jMBCGI2W1dy4UkAoi0QItcNzbihY450YFK9ECLSBtBbRACygdsDPL+D2HZ+MxYOBFM9IvJTg2iP+zPTbhcv39twINoBpUgPKLIeB4SuUl/b41/U5i3xiGYZXQ2IwM9Rb3Ih/1zwhUgCrQYFBL5amjnYJkaqOjssz3Jj5//UhBg0PVBm00vteGEf9pU1ABqkGDQQ2Vp94AqABDIxoFXMY3NBIkrgsHMxJQbTHMJjQy19pAeErPNnq9DVecFQAytbOYblOP9bwBwEBTHebP3gQ9ZnoqVw2OCATEmjYi17WeDQDq8b7GT9VxRoSXAINvDgBYvWpBjw2p1gXBmQCgXr/G+KnKXQHYoOeHUP0dAAhgvlK1CwA0X/cnMNwka4J5BgACmq9kzAu2BuCMvV/JevOPBgDMSQKbr5SEBqA9gdFzMuYCJwBgbcLHVRsagKMNdsm4R3AkAGBKvpP5SlkQAODm3pgmvKzRH+NeQeNhYq8b+RiXityRpzghAI2HefjbfFL/Bio92qhDAZAwTTAmYx4mftmAevCTz1MBAGZEPkmc6bzKSMojemZbUQgAUoYB1ucHD14COVefs/dQrjAvBAAZ0zDjdWPovdmjvewoAKyZOLO+1QQmQMb6BwLAWfphr7ZuZE2TupiXUBZHATBnoABgydznzmsAgJMPlAKAFkzztthN3AMAzqqiEgC0YJo3awSUZ74QBZoCUgHAH4AbwzyU1QgoK32nka2TQAFgOQAREwDbKgIB6n3rxxsuAwWAFQCQiRwD//difSSAzzmoY9b9YiLO8R4Q4EbQy26mtvwrBIB1ANRME9foyyYWM2njqBMA1gGQBza/M52XpoEtHgYJAGvqEwTcaWCJjHM4QcBNBgWAwACEGgW658wKAgNNEQAOBgAjUC7g/Ac1Ruz3ZFAAmNTfBAAMMKzZ0Hz239Mx
+VkCwCQCuv4Vb57F3AgDjOS731hiP+YT3SyoY8bL/B64D4Mp7MaTDUcJiwFsBgIFD98Ip4WWvYEnE4/N925tAVlO9AbiOb/nMmW7Ty772OwKg4jnuFBZP+3ZvT+XWEXJpxOMyEUcE01O+nsqSxTuB18+XPau5IR6DpoiCRgLjulZi3+C+AmZ9L2BtA6LvrcMvQCQAvI3u9/tUCagFDaRcK6u04zUoouPqWAHqtc8NfW4N56mprKTvPf0up+Oddj48/vmn0KNv2jtpYkqkGagrmZiv1EwAmNNtcq5CayPRoMkt9T/eGj78pr2TLKb0hh6rwECDMs2YSPucaaA0ZLoNgEQ7lzpvogGgrkEAOACAzgDAhxEGY/UyLgA6VN39c5rQpwAB4CAAeurZlWaePrfbRgBfAEqtXOUCAsDOAEwNm+YAaijm5AAuADoNossEpEQAOB6AC5mojOrpu0oQXasAXwCi+ytkAoDIrcMvQCQAiAQAkQAgEgBEAoBIABAJAKLd9A9WhlloospIKgAAAABJRU5ErkJggg==</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="globalIMUA">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALESURBVFhH7ZdfSFNhGMafs6k7zs0zDDeZ1LKwEdkfCrLoIiTYhTS7iLrsJhAv0puutO6Euqmr0ZU34UU3FWFI4ApqdREOi61AF1GyEjfdzM7+uLO1ndN3dj4VFHfORjYifzB43+/52Pvs/b73sMPk5z5K2We3UPj2Dijkse3oa6DfcwKG7iHoWzvAJG4ekP5K4Y0QI8a+x9BVpbgMqSt3XkfTqiAfe1UNyF2orgHCjoF/0ICQhz8mAvwKbjyJ4NpUlizlEYwU6IbyKMOAhE/TS3Df55HhRIxOROEJZTD6PIrh73pYYjG0P/gBX4Zu14hGAxL8b6M4P8YjdLgBZ5fTGPlCJRTgCaTBtpnQGf4J98giHvJU0oAmA8LcMq6/ymCBxJftBgTDKQQVSSEkIFjLwtVG4nQKVyeSCCuKKkxicJ9E4y0Q4Q8kMSnIMYMjh8ywhBN4nSqKazidHBxxHt4lJXfsb0RPM6MkJVDvQDKLQLG4jA4WQwELG4rLRFdEtBjXvy4cyULLSah2gP8cx+5HCZo14cUgC9/teQzTlVV6LjhwF3G0j6WVhYYmvBmw4KiSbYlqB4RflY0XiI8sDUuhaoCrr6FRmdgYGGhYCvVLKErgc+tbDCzxLIibf12NDhy5sPza3wsGHKt+CTVNgfflAjzyDJKGXTpnhWMmijvzRZHCwN1lw7Gv5KFUnD89ya3otRXFkqhPAdniOm6GdTED32waXvIY3tsIEsv56qcWzl05TM4oechmxhUNxWU0GCBwJty72ISTJHw6K8DiMMGlKEVsp43oTObgJV2ydTRj/Ew9WKqpoc0AgW21YLzXin4+hTGY0H9Kv6pg4CCLD9MpcF12TLnNcNZRSQMa7sBmeEECV1eA930a
+0RbSbjsDXiSXroKBqcjAn0TzEWwXOwb+cwPk/bCqBuS3ZJ3soiqQuobuIfwGvor2EYdVt3IAAAAASUVORK5CYII=</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="phoneIMUA">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>iVBORw0KGgoAAAANSUhEUgAAACIAAAAhCAYAAAC803lsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI6SURBVFhH7ZhNSBRhGMf/Mzvo1uJHrbHaYquCnvw4RHmri3roakZEZwnqmIdc9ip49iJGHfYkQYT2IXgryENkmC1FwSa7tYdpE7Jt/IBZx/d9fSaXJZkZe93x4O+w+zzvsvx/vM/LwLyKxSjmUth6MYZidhEomjh0AhoC586j+sooAtFOsaSY3z9Y65ODlREohwmdvPVYyKh8J3yR4LBckc9QxTh8xM5XfdsNG8pXxecR4FikHPki2/TtEakia1/yqB3/iq6kjruvCpjVi/SLMxJFTMwsFUSVyRmYep3HzYcFvBErzsgT0Q3cT1N9ACSJWHj56RfeU/eXDg0RKp2QJKKgJRrCRepsIo0aYlQ7IW00sfYGPBs+g6EQLTCuna2myhmJhxUIVinYMqgJ1WOgWaHGGYki25hfWMUsdQOXanFZo8YF0kQyqZ+4/Y6eG9HTSHR6sGB4ELGg5wqIP8qi67mBDK3y9c9LP9D39A900QeR6K9DjzcPNyIs6OMqrk6uoD2Zx0TaRGZZRzxlYtPYwMSTb7gwtycxcr0RI03uz4aN8vtem0X1PphITmdxZ4XafdmVSLR6n3bNWNrNjmjoiQWo/jeRWB0eDDcdSMLG1T9bGkoeDqWcCiEx2Iy3N8IYCnsfRykuRsPYWEd8Zg3LvK6pYs+HIHqjJ9AdVtlA/h8+Gncih4zLM1IZjkXKOUIi7P3TVyhf5W/lfmLnq/xqwLddYbkin6HyKwFxNdDaWzkhlsPz7CsJANgBK76js90IFLcAAAAASUVORK5CYII=</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>9160785a-5196-4d00-8d85-6fe4cb974009</rd:ReportID>
 </Report>

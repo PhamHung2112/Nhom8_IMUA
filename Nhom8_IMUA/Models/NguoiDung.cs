@@ -45,11 +45,9 @@
         [StringLength(50)]
         public string Email { get; set; }
 
-        public bool Loai { get; set; }
-
         public bool TrangThai { get; set; }
 
-        [Required(ErrorMessage = "Quyền người dùng không được để trống")]
+        [Required(ErrorMessage = "Mã loại tài khoản không được để trống")]
         [StringLength(50)]
         public string GroupID { get; set; }
 

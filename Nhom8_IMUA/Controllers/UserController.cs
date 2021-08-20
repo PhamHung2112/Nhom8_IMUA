@@ -58,7 +58,6 @@ namespace Nhom8_IMUA.Controllers
                     user.Email = model.Email;
                     user.DiaChi = model.DiaChi;
                     user.AnhDaiDien = model.AnhDaiDien;
-                    user.Loai = false;
                     user.TrangThai = true;
                     user.GroupID = "MEMBER";
                     var result = dao.Insert(user);

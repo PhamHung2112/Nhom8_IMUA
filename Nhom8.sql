@@ -24,7 +24,6 @@ Create table [NguoiDung]
 	[SoDT] Varchar(50) NOT NULL,
 	[DiaChi] Ntext NOT NULL,
 	[Email] Varchar(50) NOT NULL,
-	[Loai] Bit NOT NULL, --- 0: Khách hàng / 1: Quản trị viên
 	[TrangThai] Bit NOT NULL, --- 0: Disable / 1: Active
 	[GroupID] NVARCHAR(50) NOT NULL
 Primary Key ([MaND])
@@ -129,7 +128,6 @@ go
 INSERT INTO [Role] VALUES('VIEW_USER', N'Xem danh sách người dùng')
 INSERT INTO [Role] VALUES('ADD_USER', N'Thêm người dùng')
 INSERT INTO [Role] VALUES('EDIT_USER', N'Sửa người dùng')
-INSERT INTO [Role] VALUES('DELETE_USER', N'Xoá người dùng')
 go
 --Role--UserGroup
 INSERT INTO [Role] VALUES('VIEW_USERGROUP', N'Xem danh sách nhóm người dùng')
@@ -173,12 +171,6 @@ INSERT INTO [Role] VALUES('ADD_HOADON', N'Thêm hoá đơn')
 INSERT INTO [Role] VALUES('EDIT_HOADON', N'Sửa hoá đơn')
 INSERT INTO [Role] VALUES('DELETE_HOADON', N'Xoá hoá đơn')
 go
---Role--ChiTietHoaDon
-INSERT INTO [Role] VALUES('VIEW_CHITIETHOADON', N'Xem danh sách chi tiết hoá đơn')
-INSERT INTO [Role] VALUES('ADD_CHITIETHOADON', N'Thêm chi tiết hoá đơn')
-INSERT INTO [Role] VALUES('EDIT_CHITIETHOADON', N'Sửa chi tiết hoá đơn')
-INSERT INTO [Role] VALUES('DELETE_CHITIETHOADON', N'Xoá chi tiết hoá đơn')
-go
 --Role--TinTuc
 INSERT INTO [Role] VALUES('VIEW_TINTUC', N'Xem danh sách tin tức')
 INSERT INTO [Role] VALUES('ADD_TINTUC', N'Thêm tin tức')
@@ -190,20 +182,46 @@ go
 INSERT INTO [UserGroup] VALUES ('ADMIN',N'Quản trị viên')
 INSERT INTO [UserGroup] VALUES ('MOD',N'Nhân viên')
 INSERT INTO [UserGroup] VALUES ('MEMBER',N'Khách hàng')
-
-SELECT * FROM [UserGroup]
-go
+GO
 --NguoiDung
-Insert into [NguoiDung] values ('admin', 'e10adc3949ba59abbe56e057f20f883e', N'Admin', 'default-avatar.png', '0123456789', N'Việt Nam', 'admin@gmail.com', '1', '1', 'ADMIN')
-Insert into [NguoiDung] values ('levulong', 'e10adc3949ba59abbe56e057f20f883e', N'Lê Vũ Long', 'default-avatar.png', '0147852369', N'Thanh Sơn - Phú Thọ', 'levulong@gmail.com', '1', '1', 'MOD')
-Insert into [NguoiDung] values ('nguyenvantien', 'e10adc3949ba59abbe56e057f20f883e', N'Nguyễn Văn Tiến', 'default-avatar.png', '0159784632', N'Thanh Hóa', 'nguyenvantien@gmail.com', '1', '1', 'MOD')
-Insert into [NguoiDung] values ('phamanhduong', 'e10adc3949ba59abbe56e057f20f883e', N'Phạm Anh Dương', 'default-avatar.png', '0345612987', N'Hòa Đức - Hà Nội', 'phamanhduong@gmail.com', '1', '1', 'MEMBER')
-Insert into [NguoiDung] values ('phamduyhung', 'e10adc3949ba59abbe56e057f20f883e', N'Phạm Duy Hưng', 'default-avatar.png', '0951236478', N'Cầu Diễn - Hà Nội', 'phamduyhung@gmail.com', '1', '1', 'MEMBER')
+Insert into [NguoiDung] values ('admin', 'e10adc3949ba59abbe56e057f20f883e', N'Admin', 'default-avatar.png', '0123456789', N'Việt Nam', 'admin@gmail.com', 1, 'ADMIN')
+Insert into [NguoiDung] values ('levulong', 'e10adc3949ba59abbe56e057f20f883e', N'Lê Vũ Long', 'default-avatar.png', '0147852369', N'Thanh Sơn - Phú Thọ', 'levulong@gmail.com', 1, 'MOD')
+Insert into [NguoiDung] values ('nguyenvantien', 'e10adc3949ba59abbe56e057f20f883e', N'Nguyễn Văn Tiến', 'default-avatar.png', '0159784632', N'Thanh Hóa', 'nguyenvantien@gmail.com', 1, 'MOD')
+Insert into [NguoiDung] values ('phamanhduong', 'e10adc3949ba59abbe56e057f20f883e', N'Phạm Anh Dương', 'default-avatar.png', '0345612987', N'Hòa Đức - Hà Nội', 'phamanhduong@gmail.com', 1, 'MEMBER')
+Insert into [NguoiDung] values ('phamduyhung', 'e10adc3949ba59abbe56e057f20f883e', N'Phạm Duy Hưng', 'default-avatar.png', '0951236478', N'Cầu Diễn - Hà Nội', 'phamduyhung@gmail.com', 1, 'MEMBER')
+Insert into [NguoiDung] values ('abc', 'e10adc3949ba59abbe56e057f20f883e', N'Phạm Văn Mách', 'default-avatar.png', '0951236478', N'Phú Diễn - Hà Nội', 'phamvanmach@gmail.com', 0, 'MEMBER')
 go
 --Credential--User
 INSERT INTO [Credential](GroupID,RoleID) VALUES ('MOD','VIEW_USER')
-INSERT INTO [Credential](GroupID,RoleID) VALUES ('MOD','ADD_USER')
 go
+--Credential--UserGroup
+
+--Credential--Credential
+
+--Credential--Role
+
+--Credential--DanhMuc
+INSERT INTO [Credential](GroupID,RoleID) VALUES ('MOD','VIEW_DANHMUC')
+go
+--Credential--LoaiSP
+INSERT INTO [Credential](GroupID,RoleID) VALUES ('MOD','VIEW_LOAISP')
+go
+--Credential--SanPham
+INSERT INTO [Credential](GroupID,RoleID) VALUES ('MOD','VIEW_SANPHAM')
+INSERT INTO [Credential](GroupID,RoleID) VALUES ('MOD','ADD_SANPHAM')
+INSERT INTO [Credential](GroupID,RoleID) VALUES ('MOD','EDIT_SANPHAM')
+INSERT INTO [Credential](GroupID,RoleID) VALUES ('MOD','DELETE_SANPHAM')
+go
+--Credential--HoaDon
+INSERT INTO [Credential](GroupID,RoleID) VALUES ('MOD','VIEW_HOADON')
+go
+--Credential--TinTuc
+INSERT INTO [Credential](GroupID,RoleID) VALUES ('MOD','VIEW_TINTUC')
+INSERT INTO [Credential](GroupID,RoleID) VALUES ('MOD','ADD_TINTUC')
+INSERT INTO [Credential](GroupID,RoleID) VALUES ('MOD','EDIT_TINTUC')
+INSERT INTO [Credential](GroupID,RoleID) VALUES ('MOD','DELETE_TINTUC')
+go
+
 Insert into [DanhMuc] values (N'Mỹ Phẩm Trang Điểm', 'dm1.png', 'icon-dm1.png')
 Insert into [DanhMuc] values (N'Hỗ Trợ Điều Trị', 'dm2.png', 'icon-dm2.png')
 Insert into [DanhMuc] values (N'Chăm Sóc Da Mặt', 'dm3.png', 'icon-dm3.png')
@@ -347,6 +365,9 @@ Insert into [TinTuc] values (N'Cách trị sẹo lõm thủy đậu từ thiên 
 Insert into [TinTuc] values (N'Cách trị sẹo lõm và những sai lầm bạn chưa biết', N'Những vết sẹo lõm khiến chúng ta mất tự tin trong cuộc sống và luôn tìm phương pháp loại bỏ chúng. Vậy đâu mới là cách trị sẹo lõm an toàn, hiệu quả và nhanh chóng, bạn hãy cùng theo dõi qua bài viết sau.', N'Sẹo lõm hình thành từ những tổn thương do kết cấu các mô da và collagen bị đứt gãy, tế bào không hấp thu được dưỡng chất làm đầy vùng da bị lõm. Cách trị sẹo lõm lâu nămtại nhà từ các nguyên liệu dân gian được rất nhiều người tin dùng, bạn có thể sử dụng các nguyên liệu như: chanh, nghệ, mật ong, nha đam… Ưu điểm của các phương pháp tự nhiên sẽ có giá thành rẻ, dễ tìm kiếm, dễ áp dụng tại nhà. Tuy nhiên, dùng nguyên liệu tự nhiên sẽ khiến tốn thời gian để nhận thấy hiệu quả. ', 'tintuc4.png')
 Insert into [TinTuc] values (N'Đi tìm cách trị sẹo lồi hiệu quả, nhanh chóng', N'Cách trị sẹo lồi nhanh chóng hiệu quả luôn là ước muốn của hầu hết người bị sẹo. Bởi sẹo lồi không chỉ khiến bạn đau đớn, gây tổn thương da mà còn khiến bạn mất tự tin trong cuộc sống. Vậy để loại bỏ sẹo lồi tốt nhất bạn hãy cùng theo dõi qua bài viết sau.', N'Trị sẹo bằng cách tiêm thuốc: Bằng cách tiêm trực tiếp chất Corticosteroid vào mô sẹo sẽ giúp phá hủy cấu trúc tổ chức của sẹo, giảm kích thích và giúp sẹo xẹp dần. Thế nhưng việc điều trị thường kéo dài từ 6 – 12 tháng, gây tốn kém và dễ khiến bị teo da tại vùng tiêm, rối loạn kinh nguyệt, mất sắc tố không hồi phục. Phẩu thuật cắt bỏ: Dành cho những vùng sẹo lớn, bác sĩ sẽ giúp bạn cắt bỏ vùng sẹo và ghép da nhằm giảm lực căng trên toàn bộ da được khâu. Nhược điểm của cách trị sẹo lồi công nghệ này là không làm dứt điểm sẹo, gây đau đớn, dễ bị tái phát. Phẩu thuật lạnh: Sử dụng ni tơ lỏng để phá hủy tổ chức của sẹo làm cho sẹo xẹp xuống, giúp bạn loại bỏ sẹo nhanh hơn.', 'tintuc5.png')
 go
+select * from [Credential]
+select * from [Role]
+select * from [UserGroup]
 select * from [NguoiDung]
 select * from [DanhMuc]
 select * from [LoaiSP]

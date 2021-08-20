@@ -1,7 +1,8 @@
-namespace Nhom8_IMUA.Models
+﻿namespace Nhom8_IMUA.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -17,10 +18,13 @@ namespace Nhom8_IMUA.Models
         }
 
         [Key]
+        [Required(ErrorMessage = "Mã loại tài khoản không được để trống")]
+        [DisplayName("Mã loại tài khoản")]
         [StringLength(50)]
         public string GroupID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Tên loại tài khoản không được để trống")]
+        [DisplayName("Tên loại tài khoản")]
         [StringLength(200)]
         public string Name { get; set; }
 

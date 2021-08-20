@@ -55,7 +55,7 @@
                             <ul class="user__control">
                                 <li class="user__control--item"><a href="@Url.Action("ChangeInfor", "User", new { id = session.UserID })">Tài khoản của tôi</a></li>
                                 <li class="user__control--item"><a href="@Url.Action("ChangePassword", "User")">Đổi mật khẩu</a></li>
-                                <li class="user__control--item"><a href="">Đơn mua</a></li>
+                                <li class="user__control--item"><a href="@Url.Action("Index", "Invoice", new { id = session.UserID })">Đơn mua</a></li>
                                 <li class="user__control--item"><a href="@Url.Action("Logout", "User")">Đăng xuất</a></li>
                             </ul>
                         </li>

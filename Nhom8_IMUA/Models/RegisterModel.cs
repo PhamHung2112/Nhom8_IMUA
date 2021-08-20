@@ -42,8 +42,6 @@ namespace Nhom8_IMUA.Models
         [EmailAddress(ErrorMessage = "Email không đúng định dạng")]
         public string Email { get; set; }
 
-        public bool Loai { get; set; }
-
         public bool TrangThai { get; set; }
     }
 }

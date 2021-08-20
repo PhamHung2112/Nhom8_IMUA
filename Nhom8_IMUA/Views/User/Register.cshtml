@@ -61,7 +61,6 @@
                                         <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                         @Html.TextBoxFor(model => model.HoTen, new { placeholder = "Họ và tên" })
                                     </div>
-                                    @*<span class="form-message"></span>*@
                                     @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "form-message" })
                                 </div>
                                 <div class="form-group">
@@ -69,7 +68,6 @@
                                         <label for="name"><i class="zmdi zmdi-account-circle material-icons-name"></i></label>
                                         @Html.TextBoxFor(model => model.TenDangNhap, new { placeholder = "Tên đăng nhập" })
                                     </div>
-                                    @*<span class="form-message"></span>*@
                                     @Html.ValidationMessageFor(model => model.TenDangNhap, "", new { @class = "form-message" })
                                 </div>
                                 <div class="form-group">
@@ -77,7 +75,6 @@
                                         <label for="email"><i class="zmdi zmdi-email"></i></label>
                                         @Html.TextBoxFor(model => model.Email, new { placeholder = "Email" })
                                     </div>
-                                    @*<span class="form-message"></span>*@
                                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "form-message" })
                                 </div>
                                 <div class="form-group">
@@ -85,7 +82,6 @@
                                         <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                                         @Html.PasswordFor(model => model.MatKhau, new { placeholder = "Mật khẩu" })
                                     </div>
-                                    @*<span class="form-message"></span>*@
                                     @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "form-message" })
                                 </div>
                                 <div class="form-group">
@@ -93,7 +89,6 @@
                                         <label for="re-pass"><i class="zmdi zmdi-phone"></i></label>
                                         @Html.TextBoxFor(model => model.SoDT, new { placeholder = "Số điện thoại" })
                                     </div>
-                                    @*<span class="form-message"></span>*@
                                     @Html.ValidationMessageFor(model => model.SoDT, "", new { @class = "form-message" })
                                 </div>
                                 <div class="form-group">
@@ -101,7 +96,6 @@
                                         <label for="re-pass"><i class="zmdi zmdi-home"></i></label>
                                         @Html.TextBoxFor(model => model.DiaChi, new { placeholder = "Địa chỉ" })
                                     </div>
-                                    @*<span class="form-message"></span>*@
                                     @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "form-message" })
                                 </div>
                                 <div class="form-group">
@@ -138,7 +132,6 @@
         var errorMessage = document.querySelectorAll('.form-message');
         var err = document.querySelector('.signup-form > .form-group');
         Array.from(inputElements).forEach(function (inputElement, index) {
-            //Xử lý mỗi khi người dùng nhập vào input
             inputElement.oninput = function () {
                 errorMessage[index].innerText = "";
                 err.style.display = "none";

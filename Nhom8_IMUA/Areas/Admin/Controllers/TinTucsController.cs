@@ -8,6 +8,7 @@ using System.Web;
 using PagedList;
 using System.Web.Mvc;
 using Nhom8_IMUA.Models;
+using Nhom8_IMUA.Common;
 
 namespace Nhom8_IMUA.Areas.Admin.Controllers
 {
@@ -16,6 +17,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         private Nhom8DB db = new Nhom8DB();
 
         // GET: Admin/TinTucs
+        [HasCredential(RoleID = "VIEW_TINTUC")]
         public ActionResult Index(int? page)
         {
             var tinTuc = db.TinTucs.Select(p => p).OrderBy(s => s.MaTinTuc);
@@ -43,6 +45,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/TinTucs/Details/5
+        [HasCredential(RoleID = "VIEW_TINTUC")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -58,6 +61,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/TinTucs/Create
+        [HasCredential(RoleID = "ADD_TINTUC")]
         public ActionResult Create()
         {
             return View();
@@ -91,6 +95,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/TinTucs/Edit/5
+        [HasCredential(RoleID = "EDIT_TINTUC")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -148,6 +153,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         //}
 
         // POST: Admin/TinTucs/Delete/5
+        [HasCredential(RoleID = "DELETE_TINTUC")]
         [HttpPost]
         public JsonResult Delete(int id)
         {

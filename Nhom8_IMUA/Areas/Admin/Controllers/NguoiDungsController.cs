@@ -17,6 +17,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         private Nhom8DB db = new Nhom8DB();
 
         // GET: Admin/NguoiDungs
+        [HasCredential(RoleID = "VIEW_USER")]
         public ActionResult Index(int? page)
         {
             var nguoiDung = db.NguoiDungs.Select(p => p).OrderBy(s => s.MaND);
@@ -44,6 +45,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/NguoiDungs/ChangeStatus
+        [HasCredential(RoleID = "EDIT_USER")]
         public ActionResult ChangeStatus(int? id)
         {
             Response.Write("<script>alert(" + id + ");</script>");
@@ -64,7 +66,9 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
         // GET: Admin/NguoiDungs/Details/5
+        [HasCredential(RoleID = "VIEW_USER")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -80,6 +84,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/NguoiDungs/Create
+        [HasCredential(RoleID = "ADD_USER")]
         public ActionResult Create()
         {
             ViewBag.GroupID = new SelectList(db.UserGroups, "GroupID", "Name");
@@ -95,11 +100,9 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 db.NguoiDungs.Add(nguoiDung);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-
             }
 
             ViewBag.GroupID = new SelectList(db.UserGroups, "GroupID", "Name", nguoiDung.GroupID);
@@ -107,6 +110,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/NguoiDungs/Edit/5
+        [HasCredential(RoleID = "EDIT_USER")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -140,30 +144,30 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/NguoiDungs/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            NguoiDung nguoiDung = db.NguoiDungs.Find(id);
-            if (nguoiDung == null)
-            {
-                return HttpNotFound();
-            }
-            return View(nguoiDung);
-        }
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    NguoiDung nguoiDung = db.NguoiDungs.Find(id);
+        //    if (nguoiDung == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(nguoiDung);
+        //}
 
         // POST: Admin/NguoiDungs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            NguoiDung nguoiDung = db.NguoiDungs.Find(id);
-            db.NguoiDungs.Remove(nguoiDung);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    NguoiDung nguoiDung = db.NguoiDungs.Find(id);
+        //    db.NguoiDungs.Remove(nguoiDung);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {

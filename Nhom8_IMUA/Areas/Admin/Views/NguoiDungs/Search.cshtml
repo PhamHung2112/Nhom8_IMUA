@@ -48,13 +48,17 @@
                                 <td>@item.DiaChi</td>
                                 <td>@item.Email</td>
                                 <td>
-                                    @if (item.Loai.Equals(false))
+                                    @if (item.GroupID.Equals("MEMBER"))
                                     {
                                         <span>User</span>
                                     }
-                                    else
+                                    else if (item.GroupID.Equals("ADMIN"))
                                     {
                                         <span>Admin</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Mod</span>
                                     }
                                 </td>
                                 <td>

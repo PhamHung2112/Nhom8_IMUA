@@ -9,6 +9,7 @@ using PagedList;
 using System.Web.Mvc;
 using Nhom8_IMUA.Models;
 using Microsoft.Reporting.WebForms;
+using Nhom8_IMUA.Common;
 
 namespace Nhom8_IMUA.Areas.Admin.Controllers
 {
@@ -17,6 +18,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         private Nhom8DB db = new Nhom8DB();
 
         // GET: Admin/HoaDons
+        [HasCredential(RoleID = "VIEW_HOADON")]
         public ActionResult Index(int? page)
         {
             var hoaDon = db.HoaDons.Select(p => p).OrderBy(s => s.MaHD);
@@ -44,6 +46,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/HoaDons/Details/5
+        [HasCredential(RoleID = "VIEW_HOADON")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -59,6 +62,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/HoaDons/Create
+        [HasCredential(RoleID = "ADD_HOADON")]
         public ActionResult Create()
         {
             ViewBag.MaND = new SelectList(db.NguoiDungs, "MaND", "TenDangNhap");
@@ -84,6 +88,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/HoaDons/Edit/5
+        [HasCredential(RoleID = "EDIT_HOADON")]
         public ActionResult Edit(int? id)
         {
             if (id == null)

@@ -19,7 +19,6 @@
                     @Html.AntiForgeryToken()
                     @Html.HiddenFor(model => model.MaND)
                     @Html.HiddenFor(model => model.MatKhau)
-                    @Html.HiddenFor(model => model.Loai)
                     @Html.HiddenFor(model => model.TrangThai)
                     @Html.HiddenFor(model => model.GroupID)
                     @Html.HiddenFor(model => model.TenDangNhap)
@@ -37,7 +36,7 @@
                             <img id="output" src="@Url.Content(ImagePath)" class="avatar img-circle img-thumbnail" alt="avatar">
                             <h6>Ảnh đại diện</h6>
                             <p>
-                                <label for="ufile" style="cursor: pointer; position: relative;">Chọn file ảnh</label>
+                                <label for="ufile" style="cursor: pointer; position: relative; transform: translateY(13%);">Chọn file ảnh</label>
                             </p>
                             <input type="file" name="ImageFile" id="ufile" style="display: none;" onchange="loadFile(event)" />
                         </div>

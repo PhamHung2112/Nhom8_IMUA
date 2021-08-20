@@ -19,22 +19,21 @@
                     @Html.AntiForgeryToken()
                     @Html.HiddenFor(model => model.MaND)
                     @Html.HiddenFor(model => model.MatKhau)
-                    @Html.HiddenFor(model => model.Loai)
                     @Html.HiddenFor(model => model.TrangThai)
                     @Html.HiddenFor(model => model.GroupID)
                     @Html.HiddenFor(model => model.TenDangNhap)
                     <input type="hidden" name="Image1" value="@Model.AnhDaiDien" />
                     <div class="form-group">
                         <div class="signup-avatar">
-                            @*@if (Model.AnhDaiDien == "" || Model.AnhDaiDien == null)
+                            @if (Model.AnhDaiDien == "" || Model.AnhDaiDien == null)
                             {
                                 <img id="output" src="~/assets/Images/AnhDaiDien/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
                             }
                             else
                             {
                                 <img id="output" src="@Url.Content(ImagePath)" class="avatar img-circle img-thumbnail" alt="avatar">
-                            }*@
-                            <img id="output" src="@Url.Content(ImagePath)" class="avatar img-circle img-thumbnail" alt="avatar">
+                            }
+                            @*<img id="output" src="@Url.Content(ImagePath)" class="avatar img-circle img-thumbnail" alt="avatar">*@
                             <h6>Ảnh đại diện</h6>
                             <p>
                                 <label for="ufile" style="cursor: pointer; position: relative;">Chọn file ảnh</label>

@@ -8,6 +8,7 @@ using System.Web;
 using PagedList;
 using System.Web.Mvc;
 using Nhom8_IMUA.Models;
+using Nhom8_IMUA.Common;
 
 namespace Nhom8_IMUA.Areas.Admin.Controllers
 {
@@ -16,6 +17,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         private Nhom8DB db = new Nhom8DB();
 
         // GET: Admin/SanPhams
+        [HasCredential(RoleID = "VIEW_SANPHAM")]
         public ActionResult Index(int? page)
         {
             var sanPham = db.SanPhams.Select(p => p).OrderBy(s => s.MaSP);
@@ -43,6 +45,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/SanPhams/Details/5
+        [HasCredential(RoleID = "VIEW_SANPHAM")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -58,6 +61,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/SanPhams/Create
+        [HasCredential(RoleID = "ADD_SANPHAM")]
         public ActionResult Create()
         {
             ViewBag.MaLoai = new SelectList(db.LoaiSPs, "MaLoai", "TenLoai");
@@ -92,6 +96,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         }
 
         // GET: Admin/SanPhams/Edit/5
+        [HasCredential(RoleID = "EDIT_SANPHAM")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -135,6 +140,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
 
 
         // POST: Admin/SanPhams/Delete/5
+        [HasCredential(RoleID = "DELETE_SANPHAM")]
         [HttpPost]
         public JsonResult Delete(int id)
         {

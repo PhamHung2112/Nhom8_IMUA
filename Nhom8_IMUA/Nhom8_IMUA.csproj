@@ -152,10 +152,13 @@
     <Compile Include="Areas\Admin\Controllers\DanhMucsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HoaDonsController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoaiSPsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoaiTaiKhoansController.cs" />
     <Compile Include="Areas\Admin\Controllers\NguoiDungsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamsController.cs" />
     <Compile Include="Areas\Admin\Controllers\TinTucsController.cs" />
     <Compile Include="Areas\Admin\Controllers\TrangChuController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UyQuyensController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VaiTrosController.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\HasCredentialAttribute .cs" />
@@ -163,6 +166,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -1657,6 +1661,21 @@
     <Content Include="Nhom8DataSet.xsc">
       <DependentUpon>Nhom8DataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\UyQuyens\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\UyQuyens\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\UyQuyens\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\UyQuyens\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\UyQuyens\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\VaiTros\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\VaiTros\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\VaiTros\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\VaiTros\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\VaiTros\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiTaiKhoans\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiTaiKhoans\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiTaiKhoans\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiTaiKhoans\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiTaiKhoans\Index.cshtml" />
     <None Include="Nhom8DataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Nhom8DataSet.Designer.cs</LastGenOutput>
@@ -1711,6 +1730,9 @@
     <Content Include="Views\User\ChangePassword.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Cart\Order.cshtml" />
+    <Content Include="Views\Invoice\Index.cshtml" />
+    <Content Include="Views\Invoice\ProductInvoice.cshtml" />
+    <Content Include="Views\Invoice\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
