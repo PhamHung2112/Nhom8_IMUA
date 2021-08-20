@@ -132,15 +132,26 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
             return Json(new { ThongBao = "successs" });
         }
 
-        public ActionResult ExportFile(int? id, string ReportType)
+        public ActionResult ExportFile(int? maHD, int? maND, string ReportType)
         {
             LocalReport localreport = new LocalReport();
-            localreport.ReportPath = Server.MapPath("~/Areas/Admin/Reports/HoaDonND.rdlc");
+            localreport.ReportPath = Server.MapPath("~/Areas/Admin/Reports/InvoiceReport.rdlc");
 
-            ReportDataSource reportDataSource = new ReportDataSource();
-            reportDataSource.Name = "Nhom8DBDataSet";
-            reportDataSource.Value = db.HoaDons.Where(p => p.MaHD == id).ToList();
-            localreport.DataSources.Add(reportDataSource);
+            ReportDataSource reportDataSource1 = new ReportDataSource();
+            reportDataSource1.Name = "Nhom8DBDataSet";
+            reportDataSource1.Value = db.HoaDons.Where(p => p.MaHD == maHD).ToList();
+            localreport.DataSources.Add(reportDataSource1);
+
+            ReportDataSource reportDataSource2 = new ReportDataSource();
+            reportDataSource2.Name = "Nhom8DBDataSet";
+            reportDataSource2.Value = db.ChiTietHoaDons.Where(p => p.MaHD == maHD).Include(p => p.SanPham).ToList();
+            localreport.DataSources.Add(reportDataSource2);
+
+            ReportDataSource reportDataSource3 = new ReportDataSource();
+            reportDataSource3.Name = "Nhom8DBDataSet";
+            reportDataSource3.Value = db.NguoiDungs.Where(p => p.MaND == maND).ToList();
+            localreport.DataSources.Add(reportDataSource3);
+
             string reportType = ReportType;
             string mimeType;
             string encoding;
@@ -165,7 +176,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
             Warning[] warnings;
             byte[] renderedByte;
             renderedByte = localreport.Render(reportType, "", out mimeType, out encoding, out fileNameExtension, out streams, out warnings);
-            Response.AddHeader("content-disposition", "attachment;filename= hoadon." + fileNameExtension);
+            Response.AddHeader("content-disposition", "attachment;filename= HoaDon." + fileNameExtension);
             return File(renderedByte, fileNameExtension);
         }
 

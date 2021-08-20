@@ -1295,6 +1295,7 @@
     <Content Include="assets\css\reset.css" />
     <Content Include="assets\css\setting.css" />
     <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\Invoice.css" />
     <Content Include="assets\fonts\material-icon\css\material-design-iconic-font.css" />
     <Content Include="assets\fonts\material-icon\css\material-design-iconic-font.min.css" />
     <Content Include="assets\fonts\material-icon\fonts\Material-Design-Iconic-Font.svg" />
@@ -1658,9 +1659,6 @@
     <Content Include="assets\js\plugin\ckfinder\userfiles\.htaccess" />
     <Content Include="Areas\Admin\Views\NguoiDungs\ChangeInfor.cshtml" />
     <Content Include="Areas\Admin\Views\NguoiDungs\ChangePassword.cshtml" />
-    <Content Include="Nhom8DataSet.xsc">
-      <DependentUpon>Nhom8DataSet.xsd</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\UyQuyens\Create.cshtml" />
     <Content Include="Areas\Admin\Views\UyQuyens\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\UyQuyens\Details.cshtml" />
@@ -1676,6 +1674,9 @@
     <Content Include="Areas\Admin\Views\LoaiTaiKhoans\Details.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiTaiKhoans\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiTaiKhoans\Index.cshtml" />
+    <Content Include="Nhom8DataSet.xsc">
+      <DependentUpon>Nhom8DataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Nhom8DataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Nhom8DataSet.Designer.cs</LastGenOutput>
@@ -1756,7 +1757,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Areas\Admin\Reports\HoaDonND.rdlc" />
+    <EmbeddedResource Include="Areas\Admin\Reports\InvoiceReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
