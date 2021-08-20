@@ -178,7 +178,6 @@ E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\bin\System.Web.WebPages.Razor.xml
 E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\bin\Newtonsoft.Json.xml
 E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\bin\Antlr3.Runtime.pdb
 E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.AssemblyReference.cache
 E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CoreCompileInputs.cache
 E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.CopyComplete
 E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.dll
@@ -289,3 +288,4 @@ D:\Nhom8_IMUA\Nhom8_IMUA\bin\Microsoft.SqlServer.Types.dll
 D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\RdlCompile.cache
 D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\RdlCompile.compiled
 D:\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.AssemblyReference.cache
+E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\Nhom8_IMUA.csproj.AssemblyReference.cache
