@@ -279,8 +279,6 @@ E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\bin\Microsoft.ReportViewer.WebForm
 E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\bin\Microsoft.ReportViewer.Common.dll
 E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
 E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\bin\Microsoft.SqlServer.Types.dll
-E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\RdlCompile.cache
-E:\Learning\BTL ASP.NET\Nhom8_IMUA\Nhom8_IMUA\obj\Debug\RdlCompile.compiled
 D:\Nhom8_IMUA\Nhom8_IMUA\bin\Microsoft.ReportViewer.WebForms.dll
 D:\Nhom8_IMUA\Nhom8_IMUA\bin\Microsoft.ReportViewer.Common.dll
 D:\Nhom8_IMUA\Nhom8_IMUA\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
