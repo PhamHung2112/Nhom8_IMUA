@@ -70,16 +70,20 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @{ 
+                        int count = 1;
+                    }
                     @foreach (var item in Model)
                     {
                     <tr>
-                        <td></td>
+                        <td>@count</td>
                         <td>
                             <span style="line-height: 1.6rem">@item.SanPham.TenSP</span>
                         </td>
                         <td style="text-align: center">@item.SoLuong</td>
                         <td style="text-align: center">@string.Format("{0:c0}", (item.SanPham.Gia - item.SanPham.Gia * item.SanPham.KhuyenMai / 100) * item.SoLuong)</td>
                     </tr>
+                        count++;
                     }
                     @foreach (var item in ViewBag.User)
                     {
