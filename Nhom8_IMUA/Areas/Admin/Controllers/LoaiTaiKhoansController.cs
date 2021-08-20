@@ -5,9 +5,10 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using PagedList;
 using System.Web.Mvc;
-using Nhom8_IMUA.Common;
 using Nhom8_IMUA.Models;
+using Nhom8_IMUA.Common;
 
 namespace Nhom8_IMUA.Areas.Admin.Controllers
 {
@@ -17,9 +18,30 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
 
         // GET: Admin/LoaiTaiKhoans
         [HasCredential(RoleID = "VIEW_USERGROUP")]
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(db.UserGroups.ToList());
+            var loaiTK = db.UserGroups.Select(p => p).OrderBy(s => s.Name);
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(loaiTK.ToPagedList(pageNumber, pageSize));
+        }
+
+        // GET: Admin/LoaiTaiKhoans/Search
+        public ActionResult Search(string searchString, int? page)
+        {
+            ViewBag.CurrentFilter = searchString;
+
+            var loaiTK = db.UserGroups.Select(p => p);
+
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                loaiTK = loaiTK.Where(p => p.Name.Trim().Contains(searchString)); //lọc theo chuỗi tìm kiếm
+            }
+            loaiTK = loaiTK.OrderBy(p => p.GroupID);
+            ViewData["Count"] = loaiTK.Count().ToString();
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+            return View(loaiTK.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Admin/LoaiTaiKhoans/Details/5
@@ -94,31 +116,14 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
             return View(userGroup);
         }
 
-        // GET: Admin/LoaiTaiKhoans/Delete/5
         [HasCredential(RoleID = "DELETE_USERGROUP")]
-        public ActionResult Delete(string id)
+        [HttpPost]
+        public JsonResult Delete(string id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            UserGroup userGroup = db.UserGroups.Find(id);
-            if (userGroup == null)
-            {
-                return HttpNotFound();
-            }
-            return View(userGroup);
-        }
-
-        // POST: Admin/LoaiTaiKhoans/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
-        {
-            UserGroup userGroup = db.UserGroups.Find(id);
-            db.UserGroups.Remove(userGroup);
+            UserGroup loaiTK = db.UserGroups.SingleOrDefault(x => x.GroupID == id);
+            db.UserGroups.Remove(loaiTK);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(new { ThongBao = "successs" });
         }
 
         protected override void Dispose(bool disposing)

@@ -123,4 +123,29 @@
             });
         }
     });
+
+    $(".delBtnLTK").click(function (e) {
+        e.preventDefault();
+        var result = confirm("Bạn có chắc chắn muốn xóa loại tài khoản này không?");
+        if (result) {
+            $.ajax({
+                url: "/Admin/LoaiTaiKhoans/Delete",
+                type: "POST",
+                data: {
+                    id: $(this).data("id")
+                },
+                dataType: "json",
+                success: function (data) {
+                    if (data != null) {
+                        window.location.reload();
+                    } else {
+                        alert("loi");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi trong khi xóa!");
+                }
+            });
+        }
+    });
 });
