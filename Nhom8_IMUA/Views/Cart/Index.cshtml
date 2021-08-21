@@ -115,7 +115,12 @@
         $(document).ready(function () {
             $(".txtSoLuong").off().change(function (e) {
                 e.preventDefault();
-                $.ajax({
+                var sl = $(this).val();
+                if(parseInt(sl) < 1){
+                    alert("só không bé hơn 0");
+                }
+                else{
+                    $.ajax({
                     url: "/Cart/UpdateCart",
                     type: "POST",
                     data: {
@@ -129,9 +134,10 @@
                         } else {
                             alert("loi");
                         }
-                    }
-                });
-            });
+                     }
+                    });
+               }
+           });   
         });
     </script>
 }
