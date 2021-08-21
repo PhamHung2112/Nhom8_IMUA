@@ -187,10 +187,10 @@
                         </a>
                         <div class="collapse" id="auth">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="@Url.Action("Index","NguoiDungs")">Danh sách tài khoản</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="@Url.Action("Index","LoaiTaiKhoans")">Loại tài khoản</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="@Url.Action("Index","VaiTros")">Vai trò</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="@Url.Action("Index","UyQuyens")">Ủy quyền</a></li>
+                                <li class="nav-item" style="margin-left: -25px"> <a class="nav-link" href="@Url.Action("Index","LoaiTaiKhoans")">Danh sách loại tài khoản</a></li>
+                                <li class="nav-item" style="margin-left: -25px"> <a class="nav-link" href="@Url.Action("Index","NguoiDungs")">Danh sách tài khoản</a></li>
+                                <li class="nav-item" style="margin-left: -25px"> <a class="nav-link" href="@Url.Action("Index","VaiTros")">Danh sách vai trò</a></li>
+                                <li class="nav-item" style="margin-left: -25px"> <a class="nav-link" href="@Url.Action("Index","UyQuyens")">Danh sách uy quyền</a></li>
                             </ul>
                         </div>
                     </li>
@@ -243,6 +243,7 @@
     <script src="~/Areas/Admin/assets/js/plugin/ckeditor/ckeditor.js"></script>
     @RenderSection("footer", required: false)
     @RenderSection("ajaxDel", required: false)
+    @RenderSection("ajaxDel2", required: false)
 </body>
 
 </html>

@@ -86,6 +86,10 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
                     f.SaveAs(UploadPath);
                     tinTuc.AnhTinTuc = FileName;
                 }
+                else
+                {
+                    tinTuc.AnhTinTuc = "default-img.png";
+                }
                 db.TinTucs.Add(tinTuc);
                 db.SaveChanges();
                 return RedirectToAction("Index");

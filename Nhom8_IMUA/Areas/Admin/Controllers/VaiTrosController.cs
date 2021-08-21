@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using PagedList;
 using System.Web.Mvc;
 using Nhom8_IMUA.Common;
 using Nhom8_IMUA.Models;
@@ -17,9 +18,30 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
 
         // GET: Admin/VaiTros
         [HasCredential(RoleID = "VIEW_ROLE")]
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(db.Roles.ToList());
+            var vaiTro = db.Roles.Select(p => p).OrderBy(s => s.Name);
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(vaiTro.ToPagedList(pageNumber, pageSize));
+        }
+
+        // GET: Admin/VaiTros/Search
+        public ActionResult Search(string searchString, int? page)
+        {
+            ViewBag.CurrentFilter = searchString;
+
+            var vaiTro = db.Roles.Select(p => p);
+
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                vaiTro = vaiTro.Where(p => p.Name.Trim().Contains(searchString)); //lọc theo chuỗi tìm kiếm
+            }
+            vaiTro = vaiTro.OrderBy(p => p.RoleID);
+            ViewData["Count"] = vaiTro.Count().ToString();
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+            return View(vaiTro.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Admin/VaiTros/Details/5
@@ -96,29 +118,38 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
 
         // GET: Admin/VaiTros/Delete/5
         [HasCredential(RoleID = "DELETE_ROLE")]
-        public ActionResult Delete(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Role role = db.Roles.Find(id);
-            if (role == null)
-            {
-                return HttpNotFound();
-            }
-            return View(role);
-        }
+        //public ActionResult Delete(string id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Role role = db.Roles.Find(id);
+        //    if (role == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(role);
+        //}
 
-        // POST: Admin/VaiTros/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        //// POST: Admin/VaiTros/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(string id)
+        //{
+        //    Role role = db.Roles.Find(id);
+        //    db.Roles.Remove(role);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
+
+        [HttpPost]
+        public JsonResult Delete(string id)
         {
-            Role role = db.Roles.Find(id);
-            db.Roles.Remove(role);
+            Role vaiTro = db.Roles.SingleOrDefault(x => x.RoleID == id);
+            db.Roles.Remove(vaiTro);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(new { ThongBao = "successs" });
         }
 
         protected override void Dispose(bool disposing)

@@ -205,6 +205,7 @@
     <Content Include="Areas\Admin\assets\images\logo.png" />
     <Content Include="Areas\Admin\assets\images\qrcode_imua.com.vn.png" />
     <Content Include="Areas\Admin\assets\js\delete.js" />
+    <Content Include="Areas\Admin\assets\js\delete2.js" />
     <Content Include="Areas\Admin\assets\js\plugin\ckeditor\adapters\jquery.js" />
     <Content Include="Areas\Admin\assets\js\plugin\ckeditor\build-config.js" />
     <Content Include="Areas\Admin\assets\js\plugin\ckeditor\ckeditor.js" />
@@ -1295,7 +1296,6 @@
     <Content Include="assets\css\reset.css" />
     <Content Include="assets\css\setting.css" />
     <Content Include="assets\css\style.css" />
-    <Content Include="assets\css\Invoice.css" />
     <Content Include="assets\fonts\material-icon\css\material-design-iconic-font.css" />
     <Content Include="assets\fonts\material-icon\css\material-design-iconic-font.min.css" />
     <Content Include="assets\fonts\material-icon\fonts\Material-Design-Iconic-Font.svg" />
@@ -1660,12 +1660,10 @@
     <Content Include="Areas\Admin\Views\NguoiDungs\ChangeInfor.cshtml" />
     <Content Include="Areas\Admin\Views\NguoiDungs\ChangePassword.cshtml" />
     <Content Include="Areas\Admin\Views\UyQuyens\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\UyQuyens\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\UyQuyens\Details.cshtml" />
     <Content Include="Areas\Admin\Views\UyQuyens\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\UyQuyens\Index.cshtml" />
     <Content Include="Areas\Admin\Views\VaiTros\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\VaiTros\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\VaiTros\Details.cshtml" />
     <Content Include="Areas\Admin\Views\VaiTros\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\VaiTros\Index.cshtml" />
@@ -1677,6 +1675,8 @@
     <Content Include="Nhom8DataSet.xsc">
       <DependentUpon>Nhom8DataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\VaiTros\Search.cshtml" />
+    <Content Include="Areas\Admin\Views\UyQuyens\Search.cshtml" />
     <None Include="Nhom8DataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Nhom8DataSet.Designer.cs</LastGenOutput>

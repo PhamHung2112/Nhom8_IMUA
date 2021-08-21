@@ -86,6 +86,10 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
                     f.SaveAs(UploadPath);
                     sanPham.AnhDaiDien = FileName;
                 }
+                else
+                {
+                    sanPham.AnhDaiDien = "default-img.png";
+                }
                 db.SanPhams.Add(sanPham);
                 db.SaveChanges();
                 return RedirectToAction("Index");

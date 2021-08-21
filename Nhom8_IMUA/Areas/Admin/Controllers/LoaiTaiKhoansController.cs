@@ -20,7 +20,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         [HasCredential(RoleID = "VIEW_USERGROUP")]
         public ActionResult Index(int? page)
         {
-            var loaiTK = db.UserGroups.Select(p => p).OrderBy(s => s.Name);
+            var loaiTK = db.UserGroups.Select(p => p).OrderBy(s => s.GroupID);
             int pageSize = 5;
             int pageNumber = (page ?? 1);
             return View(loaiTK.ToPagedList(pageNumber, pageSize));

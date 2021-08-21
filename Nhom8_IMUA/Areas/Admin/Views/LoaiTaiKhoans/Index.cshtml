@@ -31,7 +31,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Mã loại sản phẩm</th>
+                            <th>Mã loại tài khoản</th>
                             <th>Tên loại tài khoản</th>
                             <th></th>
                         </tr>
@@ -42,19 +42,26 @@
                             <tr>
                                 <td>@item.GroupID</td>
                                 <td>@item.Name</td>
-                                <td>
-                                    <div>
-                                        <a class="btn btn-primary" href="@Url.Action("Details", "LoaiTaiKhoans", new { id = item.GroupID })">
-                                            <i class="ti-eye"></i>
-                                        </a> &nbsp;
-                                        <a class="btn btn-primary" href="@Url.Action("Edit", "LoaiTaiKhoans", new { id = item.GroupID })">
-                                            <i class="ti-pencil-alt"></i>
-                                        </a> &nbsp;
-                                        <a class="btn btn-primary delBtnLTK" href="" data-id="@item.GroupID">
-                                            <i class="ti-trash"></i>
-                                        </a>
-                                    </div>
-                                </td>
+                                @if (item.GroupID == "ADMIN")
+                                {
+                                    <td></td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <div>
+                                            <a class="btn btn-primary" href="@Url.Action("Details", "LoaiTaiKhoans", new { id = item.GroupID })">
+                                                <i class="ti-eye"></i>
+                                            </a> &nbsp;
+                                            <a class="btn btn-primary" href="@Url.Action("Edit", "LoaiTaiKhoans", new { id = item.GroupID })">
+                                                <i class="ti-pencil-alt"></i>
+                                            </a> &nbsp;
+                                            <a class="btn btn-primary delBtnLTK" href="" data-id="@item.GroupID">
+                                                <i class="ti-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                }
                             </tr>
                         }
                     </tbody>
