@@ -189,6 +189,11 @@
     <Compile Include="Models\TinTuc.cs" />
     <Compile Include="Models\UserDAO.cs" />
     <Compile Include="Models\UserGroup.cs" />
+    <Compile Include="Nhom8DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Nhom8DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1669,6 +1674,17 @@
     <Content Include="Areas\Admin\Views\LoaiTaiKhoans\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiTaiKhoans\Index.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiTaiKhoans\Search.cshtml" />
+    <Content Include="Nhom8DataSet.xsc">
+      <DependentUpon>Nhom8DataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Nhom8DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Nhom8DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Nhom8DataSet.xss">
+      <DependentUpon>Nhom8DataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1739,6 +1755,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Areas\Admin\Reports\InvoiceReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

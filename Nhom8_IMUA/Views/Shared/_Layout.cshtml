@@ -20,6 +20,7 @@
     <link href="~/assets/css/Cart.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/assets/css/Invoice.css">
     <link rel="stylesheet" href="~/assets/css/Home.css">
+    @RenderSection("cssQTY", required: false)
 </head>
 
 <body>
@@ -47,7 +48,7 @@
                 {
                     <ul class="user__menu">
                         <li class="user__item">
-                            @{ 
+                            @{
                                 string ImagePath = "~/assets/Images/AnhDaiDien/" + session.AnhDaiDien;
                             }
                             <img src="@Url.Content(ImagePath)" alt="" class="user__img">

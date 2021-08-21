@@ -138,17 +138,17 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
             localreport.ReportPath = Server.MapPath("~/Areas/Admin/Reports/InvoiceReport.rdlc");
 
             ReportDataSource reportDataSource1 = new ReportDataSource();
-            reportDataSource1.Name = "Nhom8DBDataSet";
+            reportDataSource1.Name = "HoaDon";
             reportDataSource1.Value = db.HoaDons.Where(p => p.MaHD == maHD).ToList();
             localreport.DataSources.Add(reportDataSource1);
 
             ReportDataSource reportDataSource2 = new ReportDataSource();
-            reportDataSource2.Name = "Nhom8DBDataSet";
+            reportDataSource2.Name = "ChiTietHoaDon";
             reportDataSource2.Value = db.ChiTietHoaDons.Where(p => p.MaHD == maHD).Include(p => p.SanPham).ToList();
             localreport.DataSources.Add(reportDataSource2);
 
             ReportDataSource reportDataSource3 = new ReportDataSource();
-            reportDataSource3.Name = "Nhom8DBDataSet";
+            reportDataSource3.Name = "NguoiDung";
             reportDataSource3.Value = db.NguoiDungs.Where(p => p.MaND == maND).ToList();
             localreport.DataSources.Add(reportDataSource3);
 
