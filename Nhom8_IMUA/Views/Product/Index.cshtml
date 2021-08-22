@@ -204,6 +204,21 @@
 @section addMoreCart{
     <script>
         $(document).ready(function () {
+            $("#ipQuantity").off().change(function (e) {
+                e.preventDefault();
+                var sl = $(this).val();
+                if (sl.length == 0) {
+                    alert("Số lượng nhập không được để trống!");
+                }
+                else if (isNaN(parseInt(sl))) {
+                    alert("Số lượng nhập không được phép chứa ký tự khác số!");
+                }
+                else if (parseInt(sl) < 1) {
+                    alert("Số lượng nhập không được bé hơn 1!");
+                }
+                else {
+                }
+            });
             $('#addtocart').off().click(function () {
                 $.ajax({
                     type: "POST",

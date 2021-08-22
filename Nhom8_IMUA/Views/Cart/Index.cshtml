@@ -25,7 +25,7 @@
         @if (Model != null)
         {
             decimal tien = 0;
-            if (Model.Sum(x => (x.Product.Gia - x.Product.Gia * x.Product.KhuyenMai / 100) * x.Quantity) >= 400000)
+            if (Model.Sum(x => (x.Product.Gia - x.Product.Gia * x.Product.KhuyenMai / 100) * x.Quantity) >= 400000 || @Model.Count == 0)
             {
                 tien = 0;
             }
@@ -116,7 +116,13 @@
             $(".txtSoLuong").off().change(function (e) {
                 e.preventDefault();
                 var sl = $(this).val();
-                if(parseInt(sl) < 1){
+                if (sl.length == 0) {
+                    alert("Số lượng nhập không được để trống!");
+                }
+                else if (isNaN(parseInt(sl))) {
+                    alert("Số lượng nhập không được phép chứa ký tự khác số!");
+                }
+                else if(parseInt(sl) < 1){
                     alert("Số lượng nhập không được bé hơn 1!");
                 }
                 else{
@@ -137,7 +143,7 @@
                      }
                     });
                }
-           });   
+           });
         });
     </script>
 }
