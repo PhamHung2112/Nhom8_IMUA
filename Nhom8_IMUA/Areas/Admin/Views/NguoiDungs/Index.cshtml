@@ -24,8 +24,8 @@
                     </div>
                 </div>
                 @*<a class="btn btn-primary" href="@Url.Action("Create", "NguoiDungs")">
-                    <i class="ti-plus"></i>
-                </a>*@
+                        <i class="ti-plus"></i>
+                    </a>*@
             </div>
             <div class="table-responsive">
                 <table class="table table-striped">
@@ -48,9 +48,7 @@
                                 <td>@item.SoDT</td>
                                 <td>@item.DiaChi</td>
                                 <td>@item.Email</td>
-                                <td>
-                                    @item.GroupID
-                                </td>
+                                <td>@item.GroupID</td>
                                 <td>
                                     <a href="@Url.Action("ChangeStatus","NguoiDungs",new { id = item.MaND })" style="text-decoration: none; color: #f27922;">
                                         @if (item.TrangThai.Equals(false))

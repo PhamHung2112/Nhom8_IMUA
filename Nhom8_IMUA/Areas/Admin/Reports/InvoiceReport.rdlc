@@ -25,7 +25,7 @@
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.53333in</Top>
         <Height>0.4in</Height>
-        <Width>5.99167in</Width>
+        <Width>6.33208in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -58,7 +58,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
         <Top>0.125in</Top>
-        <Left>0.125in</Left>
+        <Left>0.25in</Left>
         <Height>0.25in</Height>
         <Width>1.75416in</Width>
         <ZIndex>1</ZIndex>
@@ -105,7 +105,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
         <Top>0.125in</Top>
-        <Left>4.11251in</Left>
+        <Left>4.36251in</Left>
         <Height>0.25in</Height>
         <Width>1.75416in</Width>
         <ZIndex>2</ZIndex>
@@ -142,7 +142,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
         <Top>1.155in</Top>
-        <Left>0.37792in</Left>
+        <Left>0.75292in</Left>
         <Height>0.25in</Height>
         <Width>1.47708in</Width>
         <ZIndex>3</ZIndex>
@@ -179,7 +179,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
         <Top>1.59389in</Top>
-        <Left>0.37792in</Left>
+        <Left>0.75292in</Left>
         <Height>0.25in</Height>
         <Width>1.47708in</Width>
         <ZIndex>4</ZIndex>
@@ -216,7 +216,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
         <Top>2.00222in</Top>
-        <Left>0.37792in</Left>
+        <Left>0.75292in</Left>
         <Height>0.25in</Height>
         <Width>1.47708in</Width>
         <ZIndex>5</ZIndex>
@@ -250,7 +250,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
         <Top>1.155in</Top>
-        <Left>1.73541in</Left>
+        <Left>2.11041in</Left>
         <Height>0.25in</Height>
         <Width>3.6in</Width>
         <ZIndex>6</ZIndex>
@@ -284,7 +284,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
         <Top>1.59389in</Top>
-        <Left>1.73541in</Left>
+        <Left>2.11041in</Left>
         <Height>0.25in</Height>
         <Width>3.6in</Width>
         <ZIndex>7</ZIndex>
@@ -318,7 +318,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
         <Top>2.00222in</Top>
-        <Left>1.73541in</Left>
+        <Left>2.11041in</Left>
         <Height>0.25in</Height>
         <Width>3.6in</Width>
         <ZIndex>8</ZIndex>
@@ -351,7 +351,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox28</rd:DefaultName>
         <Top>4.2175in</Top>
-        <Left>4.25834in</Left>
+        <Left>4.38334in</Left>
         <Height>0.25in</Height>
         <Width>1.60833in</Width>
         <ZIndex>9</ZIndex>
@@ -388,7 +388,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox29</rd:DefaultName>
         <Top>3.84944in</Top>
-        <Left>0.37792in</Left>
+        <Left>0.87792in</Left>
         <Height>0.25in</Height>
         <Width>2in</Width>
         <ZIndex>10</ZIndex>
@@ -419,7 +419,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox30</rd:DefaultName>
         <Top>3.84944in</Top>
-        <Left>1.93195in</Left>
+        <Left>2.43195in</Left>
         <Height>0.25in</Height>
         <Width>1.92708in</Width>
         <ZIndex>11</ZIndex>
@@ -455,7 +455,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox16</rd:DefaultName>
         <Top>3.405in</Top>
-        <Left>0.37792in</Left>
+        <Left>0.87792in</Left>
         <Height>0.25in</Height>
         <Width>1.89583in</Width>
         <ZIndex>12</ZIndex>
@@ -485,7 +485,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox30</rd:DefaultName>
         <Top>3.405in</Top>
-        <Left>1.93195in</Left>
+        <Left>2.43195in</Left>
         <Height>0.25in</Height>
         <Width>1.92708in</Width>
         <ZIndex>13</ZIndex>
@@ -756,7 +756,7 @@
         </TablixRowHierarchy>
         <DataSetName>ChiTietHoaDon</DataSetName>
         <Top>2.54042in</Top>
-        <Left>1.05695in</Left>
+        <Left>1.29862in</Left>
         <Height>0.5in</Height>
         <Width>3.47908in</Width>
         <ZIndex>14</ZIndex>

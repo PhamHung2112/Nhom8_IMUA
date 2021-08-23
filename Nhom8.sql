@@ -184,11 +184,11 @@ INSERT INTO [UserGroup] VALUES ('MOD',N'Nhân viên')
 INSERT INTO [UserGroup] VALUES ('MEMBER',N'Khách hàng')
 GO
 --NguoiDung
-Insert into [NguoiDung] values ('admin', 'e10adc3949ba59abbe56e057f20f883e', N'Admin', 'default-avatar.png', '0123456789', N'Việt Nam', 'admin@gmail.com', 1, 'ADMIN')
-Insert into [NguoiDung] values ('levulong', 'e10adc3949ba59abbe56e057f20f883e', N'Lê Vũ Long', 'default-avatar.png', '0147852369', N'Thanh Sơn - Phú Thọ', 'levulong@gmail.com', 1, 'MOD')
-Insert into [NguoiDung] values ('nguyenvantien', 'e10adc3949ba59abbe56e057f20f883e', N'Nguyễn Văn Tiến', 'default-avatar.png', '0159784632', N'Thanh Hóa', 'nguyenvantien@gmail.com', 1, 'MOD')
-Insert into [NguoiDung] values ('phamanhduong', 'e10adc3949ba59abbe56e057f20f883e', N'Phạm Anh Dương', 'default-avatar.png', '0345612987', N'Hòa Đức - Hà Nội', 'phamanhduong@gmail.com', 1, 'MEMBER')
-Insert into [NguoiDung] values ('phamduyhung', 'e10adc3949ba59abbe56e057f20f883e', N'Phạm Duy Hưng', 'default-avatar.png', '0951236478', N'Cầu Diễn - Hà Nội', 'phamduyhung@gmail.com', 1, 'MEMBER')
+Insert into [NguoiDung] values ('admin', 'e10adc3949ba59abbe56e057f20f883e', N'Admin', 'avatar1.png', '0123456789', N'Việt Nam', 'admin@gmail.com', 1, 'ADMIN')
+Insert into [NguoiDung] values ('levulong', 'e10adc3949ba59abbe56e057f20f883e', N'Lê Vũ Long', 'avatar2.png', '0147852369', N'Thanh Sơn - Phú Thọ', 'levulong@gmail.com', 1, 'MOD')
+Insert into [NguoiDung] values ('nguyenvantien', 'e10adc3949ba59abbe56e057f20f883e', N'Nguyễn Văn Tiến', 'avatar3.png', '0159784632', N'Thanh Hóa', 'nguyenvantien@gmail.com', 1, 'MOD')
+Insert into [NguoiDung] values ('phamanhduong', 'e10adc3949ba59abbe56e057f20f883e', N'Phạm Anh Dương', 'avatar4.png', '0345612987', N'Hòa Đức - Hà Nội', 'phamanhduong@gmail.com', 1, 'MEMBER')
+Insert into [NguoiDung] values ('phamduyhung', 'e10adc3949ba59abbe56e057f20f883e', N'Phạm Duy Hưng', 'avatar5.png', '0951236478', N'Cầu Diễn - Hà Nội', 'phamduyhung@gmail.com', 1, 'MEMBER')
 Insert into [NguoiDung] values ('abc', 'e10adc3949ba59abbe56e057f20f883e', N'Phạm Văn Mách', 'default-avatar.png', '0951236478', N'Phú Diễn - Hà Nội', 'phamvanmach@gmail.com', 0, 'MEMBER')
 go
 --Credential--User

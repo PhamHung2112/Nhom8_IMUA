@@ -5,53 +5,58 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>HoaDon</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NguoiDung.TenDangNhap)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NguoiDung.TenDangNhap)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhiVanChuyen)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhiVanChuyen)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ThanhTien)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ThanhTien)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayMua)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgayMua)
-        </dd>
-
-    </dl>
+<div class="card">
+    <div class="card-body">
+        <h3 class="elements-header">Chi tiết loại hóa đơn:</h3>
+        <br />
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <td>
+                        <label class="elements-title">Mã hóa đơn :</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.MaHD)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="elements-title">Tên người mua :</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.NguoiDung.HoTen)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="elements-title">Ngày mua :</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.NgayMua)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="elements-title">Thành tiền :</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.ThanhTien)
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <span>In theo : </span>
+        @Html.ActionLink("PDF", "ExportFile", new { maHD = Model.MaHD, maND = Model.MaND, ReportType = "PDF" }) |
+        @Html.ActionLink("Excel", "ExportFile", new { maHD = Model.MaHD, maND = Model.MaND, ReportType = "Excel" }) |
+        @Html.ActionLink("Word", "ExportFile", new { maHD = Model.MaHD, maND = Model.MaND, ReportType = "Word" }) |
+        <button class="btn btn-inverse-dark btn-fw" onclick="location.href='@Url.Action("Index", "HoaDons")';return false;">Quay lại</button>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaHD }) |
-    @Html.ActionLink("Back to List", "Index")|
-</p>
-<p>
-    <span style="margin-right: 10px">Tải xuống theo: </span>
-    @Html.ActionLink("PDF", "ExportFile", new { maHD = Model.MaHD, maND = Model.MaND, ReportType = "PDF" }) |
-    @Html.ActionLink("Excel", "ExportFile", new { maHD = Model.MaHD, maND = Model.MaND, ReportType = "Excel" }) |
-    @Html.ActionLink("Word", "ExportFile", new { maHD = Model.MaHD, maND = Model.MaND, ReportType = "Word" }) |
-</p>
