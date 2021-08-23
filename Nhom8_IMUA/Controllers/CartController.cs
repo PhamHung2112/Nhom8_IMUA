@@ -31,6 +31,7 @@ namespace Nhom8_IMUA.Controllers
             else
             {
                 List<GioHang> cart = (List<GioHang>)Session["cart"];
+
                 //neu sp ton tai
                 if (cart.Exists(x => x.Product.MaSP == id))
                 {
@@ -92,6 +93,9 @@ namespace Nhom8_IMUA.Controllers
                 else
                 {
                     List<GioHang> li = (List<GioHang>)Session["cart"];
+                    if(li.Count <= 0)
+                        Response.Write("<script>alert('Không có sản phẩm.');</script>");
+                    else {
                     foreach (var item in li)
                     {
                         money += (item.Product.Gia - (item.Product.Gia * item.Product.KhuyenMai) / 100) * item.Quantity;
@@ -114,7 +118,7 @@ namespace Nhom8_IMUA.Controllers
 
                     //thêm chi tiết hóa đơn
                     OrderDetial(invoid);
-                    Session["Cart"] = null;
+                    Session["Cart"] = null;}
                 }
                 
             }
