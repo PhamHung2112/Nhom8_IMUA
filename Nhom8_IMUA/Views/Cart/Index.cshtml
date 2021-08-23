@@ -8,10 +8,10 @@
 @section cssQTY {
     <style>
         .qty {
-            width: 4rem;
+            width: 4.5rem;
             padding: 0.7rem 1rem;
         }
-    </style>    
+    </style>
 }
 
 <div class="cart__detail">
@@ -22,7 +22,7 @@
             </a>
             <span>Giỏ hàng</span>
         </div>
-        @if (Model != null)
+        @if (Model != null && Model.Count > 0)
         {
             decimal tien = 0;
             if (Model.Sum(x => (x.Product.Gia - x.Product.Gia * x.Product.KhuyenMai / 100) * x.Quantity) >= 400000 || @Model.Count == 0)
@@ -94,18 +94,18 @@
                     }
                     @if (session == null)
                     {
-                        <a href="@Url.Action("Login", "User")">Hoàn tất đơn hàng</a>
+                        <a href="@Url.Action("Login", "User")">Hoàn tất đơn hàng!</a>
                     }
                     else
                     {
-                        <a href="@Url.Action("Order", "Cart")">Hoàn tất đơn hàng</a>
+                        <a href="@Url.Action("Order", "Cart")">Hoàn tất đơn hàng!</a>
                     }
                 </div>
             </div>
         }
         else
         {
-            <span style="font-size: 1.6rem; font-weight: 700; color: red" class="alert">Không có sản phẩm trong giỏ hàng</span>
+            <span style="font-size: 1.6rem; font-weight: 700; color: red" class="alert">Không có sản phẩm trong giỏ hàng!</span>
         }
     </div>
 </div>
@@ -122,28 +122,28 @@
                 else if (isNaN(parseInt(sl))) {
                     alert("Số lượng nhập không được phép chứa ký tự khác số!");
                 }
-                else if(parseInt(sl) < 1){
+                else if (parseInt(sl) < 1) {
                     alert("Số lượng nhập không được bé hơn 1!");
                 }
-                else{
+                else {
                     $.ajax({
-                    url: "/Cart/UpdateCart",
-                    type: "POST",
-                    data: {
-                        id: $(this).data("id"),
-                        quantity: $(this).val()
-                    },
-                    dataType: "json",
-                    success: function (data) {
-                        if (data != null) {
-                            window.location.href = "/Cart";
-                        } else {
-                            alert("loi");
+                        url: "/Cart/UpdateCart",
+                        type: "POST",
+                        data: {
+                            id: $(this).data("id"),
+                            quantity: $(this).val()
+                        },
+                        dataType: "json",
+                        success: function (data) {
+                            if (data != null) {
+                                window.location.href = "/Cart";
+                            } else {
+                                alert("loi");
+                            }
                         }
-                     }
                     });
-               }
-           });
+                }
+            });
         });
     </script>
 }

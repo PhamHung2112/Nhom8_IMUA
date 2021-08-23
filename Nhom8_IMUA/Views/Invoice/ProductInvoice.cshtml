@@ -16,7 +16,7 @@
             </div>
         </td>
         <td>
-            <input type="text" name="" data-id="@item.SanPham.MaSP" value="@item.SoLuong" class="qty txtSoLuong" disabled>
+            <input type="text" name="" data-id="@item.SanPham.MaSP" value="@item.SoLuong" style="width: 4.5rem; padding: 0.7rem 1rem" class="qty txtSoLuong" disabled>
         </td>
         <td>
             <p>@string.Format("{0:c0}", (item.SanPham.Gia - item.SanPham.Gia * item.SanPham.KhuyenMai / 100) * item.SoLuong)</p>
