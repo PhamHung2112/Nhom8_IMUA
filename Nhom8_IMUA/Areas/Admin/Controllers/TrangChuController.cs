@@ -13,7 +13,7 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
         // GET: Admin/TrangChu
         public ActionResult Index()
         {
-            ViewBag.SanPhamBanChay = db.SanPhamBanChays.Take(3);
+            ViewBag.SanPhamBanChay = db.SanPhamBanChays.Take(4);
             return View();
         }
     }
