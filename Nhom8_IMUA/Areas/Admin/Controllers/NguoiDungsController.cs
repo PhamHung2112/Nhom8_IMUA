@@ -228,10 +228,13 @@ namespace Nhom8_IMUA.Areas.Admin.Controllers
                     userSession.AnhDaiDien = user.AnhDaiDien;
                     userSession.GroupID = user.GroupID;
                     Session.Add(CommonConstants.USER_SESSION, userSession);
+                    ViewBag.Success = "Thay đổi thông tin thành công";
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thay đổi thông tin thất bại");
+                    var backupImg = Request["Image1"];
+                    nguoiDung.AnhDaiDien = backupImg;
+                    //ModelState.AddModelError("", "Thay đổi thông tin thất bại");
                 }
             }
             catch (Exception ex)

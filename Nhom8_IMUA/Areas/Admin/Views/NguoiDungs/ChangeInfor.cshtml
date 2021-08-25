@@ -43,13 +43,13 @@
                     <div class="form-group">
                         <div class="signup-avatar">
                             @if (Model.AnhDaiDien == "" || Model.AnhDaiDien == null)
-                                {
-                                    <img id="output" src="~/assets/Images/AnhDaiDien/default-avatar.png" class="avatar img-circle img-thumbnail" alt="avatar">
-                                }
-                                else
-                                {
-                                    <img id="output" src="@Url.Content(ImagePath)" class="avatar img-circle img-thumbnail" alt="avatar">
-                                }
+                            {
+                                <img id="output" src="~/assets/Images/AnhDaiDien/default-avatar.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                            }
+                            else
+                            {
+                                <img id="output" src="@Url.Content(ImagePath)" class="avatar img-circle img-thumbnail" alt="avatar">
+                            }
                             @*<img id="output" src="@Url.Content(ImagePath)" class="avatar img-circle img-thumbnail" alt="avatar">*@
                             <h6>Ảnh đại diện</h6>
                             <p>
@@ -96,6 +96,11 @@
         </div>
     </div>
 </section>
+
+@if (ViewBag.Success != null)
+{
+    Response.Write("<script>alert('Thay đổi thông tin thành công');</script>");
+}
 
 <script>
     var loadFile = function (event) {

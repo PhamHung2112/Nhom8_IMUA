@@ -97,6 +97,11 @@
     </div>
 </section>
 
+@if (ViewBag.Success != null)
+{
+    Response.Write("<script>alert('Thay đổi thông tin thành công');</script>");
+}
+
 <script>
     var loadFile = function (event) {
         var image = document.getElementById('output');
